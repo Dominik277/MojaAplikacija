@@ -6,6 +6,7 @@
 package hr.aplikacija.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -21,6 +22,15 @@ public class Pregled extends Entitet{
     private String naziv;
     private String opis;
     private String simptomi;
+    private Date datum;
+
+    public Date getDatum() {
+        return datum;
+    }
+
+    public void setDatum(Date datum) {
+        this.datum = datum;
+    }
     
     
     @ManyToOne

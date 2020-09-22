@@ -11,6 +11,7 @@ import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.model.Pregled;
 import hr.aplikacija.model.Usluga;
 import java.math.BigDecimal;
+import java.util.Date;
 import org.hibernate.Session;
 
 /**
@@ -23,10 +24,10 @@ public class PocetniInsert {
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         
-        Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica");
-        Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos");
-        Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina");
-        Pregled traumatologija = createPregled("Traumatologija", "Hitni slučajevi i prijelomi", "Posjekotine,porezotine,prijelomi");
+        Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica",new Date());
+        Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos",new Date());
+        Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina",new Date());
+        Pregled traumatologija = createPregled("Traumatologija", "Hitni slučajevi i prijelomi", "Posjekotine,porezotine,prijelomi",new Date());
         
         session.beginTransaction();
         
@@ -81,12 +82,13 @@ public class PocetniInsert {
         session.getTransaction().commit();
     }
     
-    private static Pregled createPregled(String naziv,String opis,String simptomi){
+    private static Pregled createPregled(String naziv,String opis,String simptomi,Date datum){
        
         Pregled pregled = new Pregled();
         pregled.setNaziv(naziv);
         pregled.setOpis(opis);
         pregled.setSimptomi(simptomi);
+        pregled.setDatum(new Date());
         
         return pregled;
     }
