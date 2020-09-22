@@ -13,6 +13,10 @@ public class MyException extends Exception{
     
     private String poruka;
 
+    public MyException(String ime_nije_uneseno) {
+        
+    }
+
     public String getPoruka() {
         return poruka;
     }
