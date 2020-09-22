@@ -6,27 +6,21 @@
 package hr.aplikacija.model;
 
 import java.math.BigDecimal;
+import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Dominik
  */
 @Entity
+@Table(name="pregled")
 public class Pregled extends Entitet{
     
     private String naziv;
     private String opis;
-    private BigDecimal cijena;
-    private String razlog;
-
-    public BigDecimal getCijena() {
-        return cijena;
-    }
-
-    public void setCijena(BigDecimal cijena) {
-        this.cijena = cijena;
-    }
+    private String simptomi;
     
     
     @ManyToOne
@@ -51,28 +45,12 @@ public class Pregled extends Entitet{
         this.opis = opis;
     }
 
-    public String getRazlog() {
-        return razlog;
+    public String getSimptomi() {
+        return simptomi;
     }
 
-    public void setRazlog(String razlog) {
-        this.razlog = razlog;
+    public void setSimptomi(String simptomi) {
+        this.simptomi = simptomi;
     }
 
-    public Doktor getDoktor() {
-        return doktor;
-    }
-
-    public void setDoktor(Doktor doktor) {
-        this.doktor = doktor;
-    }
-
-    public Pacijent getPacijent() {
-        return pacijent;
-    }
-
-    public void setPacijent(Pacijent pacijent) {
-        this.pacijent = pacijent;
-    }
-    
 }

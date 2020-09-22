@@ -6,6 +6,7 @@
 package hr.aplikacija.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
@@ -13,11 +14,21 @@ import javax.persistence.Entity;
  */
 
 @Entity
+@Table(name="doktor")
 public class Doktor extends Entitet{
     
     private String ime;
     private String prezime;
     private String email;
+    private String oib;
+
+    public String getOib() {
+        return oib;
+    }
+
+    public void setOib(String oib) {
+        this.oib = oib;
+    }
 
     public String getEmail() {
         return email;

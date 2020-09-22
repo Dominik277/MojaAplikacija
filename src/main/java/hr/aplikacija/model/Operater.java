@@ -5,10 +5,7 @@
  */
 package hr.aplikacija.model;
 
-import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
 
 /**
  *
@@ -16,14 +13,22 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="pacijent")
-public class Pacijent extends Entitet{
+public class Operater extends Entitet{
     
     private String ime;
     private String prezime;
-    private String email;
     private String oib;
-    private Long broj;
+    private String email;
+    private String lozinka;
+    private String uloga;
+
+    public String getUloga() {
+        return uloga;
+    }
+
+    public void setUloga(String uloga) {
+        this.uloga = uloga;
+    }
 
     public String getIme() {
         return ime;
@@ -41,14 +46,6 @@ public class Pacijent extends Entitet{
         this.prezime = prezime;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getOib() {
         return oib;
     }
@@ -57,14 +54,20 @@ public class Pacijent extends Entitet{
         this.oib = oib;
     }
 
-    public Long getBroj() {
-        return broj;
+    public String getEmail() {
+        return email;
     }
 
-    public void setBroj(Long broj) {
-        this.broj = broj;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    public String getLozinka() {
+        return lozinka;
+    }
+
+    public void setLozinka(String lozinka) {
+        this.lozinka = lozinka;
+    }
     
-
 }

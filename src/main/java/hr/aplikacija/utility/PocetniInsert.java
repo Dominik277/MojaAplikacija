@@ -11,8 +11,6 @@ import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.model.Pregled;
 import hr.aplikacija.model.Usluga;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import org.hibernate.Session;
 
 /**
@@ -20,153 +18,150 @@ import org.hibernate.Session;
  * @author Dominik
  */
 public class PocetniInsert {
-    
-     public static void izvedi(){
-    
-        Session session = new HibernateUtil().getSessionFactory().openSession();
+
+    public static void izvedi() {
         
-        Pregled epidemiologija = kreirajPregled("Epidemiologija", "Proucava širenje i čimbenike bolesti u ljudskom stanovništvu", new BigDecimal(249.99), "Otežano disanje i kašljanje");
-        Pregled kardiologija = kreirajPregled("Pregled glave", "Proučavanje poremećaja srca i dijelova krvožilnog sustava", new BigDecimal(129.99), "Udarac u glavu");
-        Pregled traumatologjia = kreirajPregled("Pregled kostiju", "Bavi se liječenjem hitnih prijeloma i različitih nezgoda", new BigDecimal(179.99), "Lom kosti ili posjekotine");
-        Pregled neurologija = kreirajPregled("Pregled nervnih sistema", "Bavi se poremećajima nervnog sistema", new BigDecimal(159.99), "Otežano probavljanje hrane");
-        Pregled otorinolaringologija = kreirajPregled("Pregled grla,usiju i nosa", "Bavi se liječenjem bolesti uha,grla i nosa", new BigDecimal(199.99), "Problemi u funkcioniranju nosa,uha ili grla");
-        Pregled patologija = kreirajPregled("Otkrivanje uzroka smrti", "Bavi se otkrivanjima uzroka smrti", new BigDecimal(89.99), "Smrt osobe");
-        Pregled reumatologija = kreirajPregled("Pregled zbog reume", "Bavi se liječenjem i proučavanjem reumatskih bolesti", new BigDecimal(259.99), "Problemi sa reumom");
-        Pregled pedijatrija = kreirajPregled("Pregled maloljetnih osoba", "Bavi se liječenjem djece", new BigDecimal(259.99), "Bolesti kod djece");
+        Session session = HibernateUtil.getSessionFactory().openSession();
         
+        Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica");
+        Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos");
+        Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina");
+        Pregled traumatologija = createPregled("Traumatologija", "Hitni slučajevi i prijelomi", "Posjekotine,porezotine,prijelomi");
         
         session.beginTransaction();
         
-        session.save(epidemiologija);
         session.save(kardiologija);
-        session.save(traumatologjia);
-        session.save(neurologija);
         session.save(otorinolaringologija);
-        session.save(patologija);
-        session.save(reumatologija);
-        session.save(pedijatrija);
+        session.save(neurologija);
+        session.save(traumatologija);
+        //session.getTransaction().commit();
         
+        Usluga slusanjeSrca = createUsluga("Slušanje rada srca",new BigDecimal(249.00) , true);
+        Usluga lomNoge = createUsluga("Stavaljanje noge u gips",new BigDecimal(49.00) , false);
+        Usluga posjekotina = createUsluga("Dezinfekcija i šivanje rane", new BigDecimal(29.00), false);
+        Usluga operacijaSrca = createUsluga("Operacija srca", new BigDecimal(2499.00), true);
+        Usluga operacijaPluca = createUsluga("Operacija pluća", new BigDecimal(2199.00), true);
+        Usluga opercijaKoljena = createUsluga("Operacija koljena", new BigDecimal(1999.00), true);
+        
+        session.save(slusanjeSrca);
+        session.save(lomNoge);
+        session.save(posjekotina);
+        session.save(operacijaSrca);
+        session.save(operacijaPluca);
+        session.save(opercijaKoljena);
         
         Faker faker = new Faker();
         
-        String[] oibi = {"24829237381","23463457322","35533256468","84930385940","57492046676","43047386783",
-        "96748837106","62562468421","46347854321","46743586430"};
-       
-        Doktor d, predavacJava=null, predavacPhp=null;
+        String[] oibi = {"44879378548", "38714462960", "48653367511",
+            "07463739447", "55376858772", "57121746664", "45088797644", "97067197029",
+            "36388448333", "13633152331"};
+        
+        Doktor doktor;
+        Pacijent pacijent;
+        Usluga usluga;
         
         for(int i=0;i<10;i++){
-            d=new Doktor();
-            d.setIme(faker.name().firstName());
-            d.setPrezime(faker.name().lastName());
-            d.setEmail(d.getIme().toLowerCase()+"."+d.getPrezime().toLowerCase()+"@edunova.hr");
-            session.save(d);
-            if(i==0){
-                predavacJava=d;
-            }
-            if(i==1){
-                predavacPhp=d;
-            }
+            doktor = new Doktor();
+            doktor.setIme(faker.name().firstName());
+            doktor.setPrezime(faker.name().lastName());
+            doktor.setOib(oibi[i]);
+            doktor.setEmail(doktor.getIme().toLowerCase()+"."+doktor.getPrezime().toLowerCase()+"@edunova.hr"); 
+            session.save(doktor);
         }
         
-        Pacijent pacijent;
-        List<Pacijent> pacijentEpidemiologija = new ArrayList<>();
-        List<Pacijent> pacijentKardiologija = new ArrayList<>();
-        List<Pacijent> pacijentTraumatologija = new ArrayList<>();
-        List<Pacijent> pacijentNeurologija = new ArrayList<>();
-        List<Pacijent> pacijentOtorinolaringologija = new ArrayList<>();
-        List<Pacijent> pacijentPatologija = new ArrayList<>();
-        List<Pacijent> pacijentReumatologija = new ArrayList<>();
-        List<Pacijent> pacijentPedijatrija = new ArrayList<>();
-        for(int i=0;i<100;i++){
-            
-            pacijent=new Pacijent();
+        for(int i=0;i<10;i++){
+            pacijent = new Pacijent();
             pacijent.setIme(faker.name().firstName());
             pacijent.setPrezime(faker.name().lastName());
-            pacijent.setGrad(faker.country().name().toLowerCase());
-            if(i>9){
-             pacijent.setOib(null);
-            }
-            else{
-              pacijent.setOib(oibi[i]);
-            }
-            
-            
-            pacijent.setEmail(pacijent.getIme().toLowerCase()+"."+pacijent.getPrezime().toLowerCase()+"@edunova.hr");
+            pacijent.setOib(oibi[i]);
+            pacijent.setBroj(faker.number().randomNumber());
             session.save(pacijent);
-            
-            if(i<20){
-                pacijentEpidemiologija.add(pacijent);
-            }
-            if(i>20 && i<40){
-                pacijentKardiologija.add(pacijent);
-            }
         }
         
         session.getTransaction().commit();
-        
-        session.beginTransaction();
-        
-        
-        Usluga epidemiologija1 = new Usluga();
-        epidemiologija1.setNaziv("Epidemiologija");
-        epidemiologija1.setCijena(BigDecimal.TEN);
-        //epidemiologija1.setSmjer(java);
-        //epidemiologija1.setDoktor(predavacJava);
-        //epidemiologija1.setPolaznici(polazniciJava);
-        session.save(epidemiologija1);
-        
-        Usluga kardiologija1 = new Usluga();
-        kardiologija1.setNaziv("Kardiologija");
-        kardiologija1.setCijena(BigDecimal.TEN);
-        //kardiologija1.setDatumPocetka(new Date());
-        //kardiologija1.setD(php);
-        //kardiologija1.setPredavac(predavacPhp);
-        //kardiologija1.setPolaznici(polazniciPHP);
-        session.save(kardiologija1);
-        
-        Usluga traumatologija1 = new Usluga();
-        traumatologija1.setNaziv("Traumatologija");
-        traumatologija1.setCijena(BigDecimal.TEN);
-        session.save(traumatologija1);
-        
-        Usluga neurologija1 = new Usluga();
-        neurologija1.setNaziv("Neurologija");
-        neurologija1.setCijena(BigDecimal.TEN);
-        session.save(neurologija1);
-        
-        Usluga otorinolaringologija1 = new Usluga();
-        otorinolaringologija1.setNaziv("Otorinolaringologija");
-        otorinolaringologija1.setCijena(BigDecimal.TEN);
-        session.save(otorinolaringologija1);
-        
-        Usluga patologija1 = new Usluga();
-        patologija1.setNaziv("Patologija");
-        patologija1.setCijena(BigDecimal.TEN);
-        session.save(patologija1);
-        
-        Usluga reumatologija1 = new Usluga();
-        reumatologija1.setNaziv("Reumatologija");
-        reumatologija1.setCijena(BigDecimal.TEN);
-        session.save(reumatologija1);
-        
-        Usluga pedijatrija1 = new Usluga();
-        pedijatrija1.setNaziv("Pedijatrija");
-        pedijatrija1.setCijena(BigDecimal.TEN);
-        session.save(pedijatrija1);
-        
-        session.getTransaction().commit();
-        
     }
     
-    private static Pregled kreirajPregled(String naziv,String opis,BigDecimal cijena,String razlog){
-    
+    private static Pregled createPregled(String naziv,String opis,String simptomi){
+       
         Pregled pregled = new Pregled();
         pregled.setNaziv(naziv);
         pregled.setOpis(opis);
-        pregled.setCijena(cijena);
-        pregled.setRazlog(razlog);
+        pregled.setSimptomi(simptomi);
         
         return pregled;
     }
+    
+    private static Usluga createUsluga(String naziv,BigDecimal cijena,boolean zakazano){
+        Usluga usluga = new Usluga();
+        usluga.setNaziv(naziv);
+        usluga.setCijena(cijena);
+        usluga.setZakazano(zakazano);
+        
+        return usluga;
+    }
+
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//
+//        Pregled kardiologija = kreirajPregled("Kardiologija", "Otežani rad srca", "Česta slabina i vrtloglavica");
+//        Pregled otorinolaringologija = kreirajPregled("Otorinolaringologija", "Slab sluh,sluzav nos i otežano gutanje", "otežano gutanje");
+//        Pregled neurologija = kreirajPregled("Neurologija", "Poremećaji nervnog sistema", "Vrtoglavica i povraćanje");
+//        Pregled traumatologija = kreirajPregled("Traumatologija", "Hitni prijem i liječenje svih nezgoda", "Lom desne podlaktice");
+//
+//        session.beginTransaction();
+//        session.save(kardiologija);
+//        session.save(otorinolaringologija);
+//        session.save(neurologija);
+//        session.save(traumatologija);
+//        session.getTransaction().commit();
+//
+//        Faker faker = new Faker();
+//
+//        String[] oibi = {"44879378548", "38714462960", "48653367511",
+//            "07463739447", "55376858772", "57121746664", "45088797644", "97067197029",
+//            "36388448333", "13633152331"};
+//
+//        String[] telefoni = {"+38598576666", "0956855666", "6655555555555", "3859665255665",
+//            "+3853343333433", "09145855555", "092555555555", "3859685655266", "955555566883", "3857968665555"
+//        };
+//
+//        Doktor doktor;
+//        Pacijent pacijent;
+//        Usluga usluga;
+//        
+//        for(int i =0; i<10; i++){
+//          doktor = new Doktor();
+//          doktor.setIme(faker.name().firstName());
+//          doktor.setPrezime(faker.name().lastName());
+//          doktor.setEmail(doktor.getPrezime().toLowerCase()+doktor.getIme().toLowerCase()+"."+"@edunova.hr");
+//          doktor.setOib(oibi[i]);
+//        }
+//        
+//        for(int i=0; i<10; i++){
+//            pacijent = new Pacijent();
+//            pacijent.setIme(faker.name().firstName());
+//            pacijent.setPrezime(faker.name().lastName());
+//            pacijent.setEmail(pacijent.getPrezime().toLowerCase()+pacijent.getIme().toLowerCase()+"."+"@edunova.hr");
+//            pacijent.setOib(oibi[i]);
+//            pacijent.setBroj(telefoni[i]);
+//        }
+//        
+//        for(int i=0; i<10; i++){
+//            usluga = new Usluga();
+//            usluga.setNaziv("Rutinski pregled");
+//            usluga.setZakazano(Boolean.FALSE);
+//            usluga.setCijena(BigDecimal.TEN);
+//        }
+//    
+//        session.getTransaction().commit();
+//    }
+//
+//    private static Pregled kreirajPregled(String naziv, String opis, String simptomi) {
+//        Pregled pregled = new Pregled();
+//        pregled.setNaziv(naziv);
+//        pregled.setOpis(opis);
+//        pregled.getSimptomi();
+//        return pregled;
+//    }
+    
     
 }

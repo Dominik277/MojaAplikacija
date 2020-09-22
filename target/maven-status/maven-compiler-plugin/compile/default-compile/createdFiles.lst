@@ -1,0 +1,10 @@
+hr\aplikacija\start\Start.class
+hr\aplikacija\utility\PocetniInsert.class
+hr\aplikacija\model\Pregled.class
+hr\aplikacija\model\Usluga_pregled.class
+hr\aplikacija\utility\HibernateUtil.class
+hr\aplikacija\model\Operater.class
+hr\aplikacija\model\Usluga.class
+hr\aplikacija\model\Doktor.class
+hr\aplikacija\model\Entitet.class
+hr\aplikacija\model\Pacijent.class

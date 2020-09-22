@@ -5,10 +5,21 @@
  */
 package hr.aplikacija.start;
 
+import hr.aplikacija.utility.HibernateUtil;
+import hr.aplikacija.utility.PocetniInsert;
+//import hr.aplikacija.utility.PocetniInsert;
+
 /**
  *
  * @author Dominik
  */
 public class Start {
+    
+    public static void main(String[] args){
+    
+        PocetniInsert.izvedi();
+        
+        //HibernateUtil.getSessionFactory().openSession();
+     }  
     
 }

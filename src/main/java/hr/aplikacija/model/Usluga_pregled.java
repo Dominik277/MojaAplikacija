@@ -5,10 +5,20 @@
  */
 package hr.aplikacija.model;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author Dominik
  */
-public class Usluga_pregled {
+@Entity
+public class Usluga_pregled extends Entitet{
+    
+    @ManyToOne
+    private Pregled pregled;
+    
+    @ManyToOne
+    private Usluga usluga;
     
 }
