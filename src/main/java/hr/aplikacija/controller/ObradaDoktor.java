@@ -53,13 +53,13 @@ public class ObradaDoktor extends Obrada<Doktor>{
 
     private void kontrolaIme()throws MyException{
         if(entitet.getIme()== null || entitet.getIme().isEmpty()){
-         throw new MyException("Ime se mora unijeti");
+         throw new MyException("Ime se mora unjeti");
      }
     }
     
     private void kontrolaPrezime() throws MyException{
      if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
-         throw new MyException("Prezime se mora unijeti");
+         throw new MyException("Prezime se mora unjeti");
      }
  }
     

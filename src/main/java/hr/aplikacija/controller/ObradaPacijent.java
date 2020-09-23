@@ -84,13 +84,13 @@ public class ObradaPacijent extends Obrada<Pacijent>{
     private void kontrolaBroj() throws MyException{
        kontrolaNull(entitet.getBroj(), "Broj telefona je obavezan");
        if(entitet.getBroj().compareTo(Long.MAX_VALUE)<0){
-           throw new MyException("Ukupan broj predjenih kilometara ne moze biti manji od 0");
+           throw new MyException("");
        }
    }
     
 //    private void kontrolaEmail() throws MyException{
 //       if(entitet.getEmail().compareTo(BigDecimal.ZERO)<0){
-//           throw new MyException("Ukupan broj predjenih kilometara ne moze biti manji od 0");
+//           throw new MyException("");
 //       }
 //   }
     
