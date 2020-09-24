@@ -87,8 +87,9 @@ public class PocetniInsert {
             pacijent = new Pacijent();
             pacijent.setIme(faker.name().firstName());
             pacijent.setPrezime(faker.name().lastName());
+            pacijent.setEmail(pacijent.getIme().toLowerCase()+"."+pacijent.getPrezime().toLowerCase()+"@edunova.hr");
             pacijent.setOib(oibi[i]);
-            pacijent.setBroj(faker.number().randomNumber());
+            pacijent.setBroj(faker.phoneNumber().cellPhone());
             session.save(pacijent);
         }
         

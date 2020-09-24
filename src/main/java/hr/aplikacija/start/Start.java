@@ -6,7 +6,9 @@
 package hr.aplikacija.start;
 
 import hr.aplikacija.controller.ObradaDoktor;
+import hr.aplikacija.controller.ObradaPacijent;
 import hr.aplikacija.model.Doktor;
+import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.utility.HibernateUtil;
 import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.PocetniInsert;
@@ -25,10 +27,49 @@ public class Start {
         //PocetniInsert.izvedi();
         
         //HibernateUtil.getSessionFactory().openSession();
+  
+       // PROVJERA
+                
+//        Doktor doktor = new Doktor();
+//        doktor.setIme("Ivan");
+//        doktor.setPrezime("Ivić");
+//        doktor.setOib("154311451");
+//        doktor.setEmail("ivanivic@edunova.hr");
+//        
+//        ObradaDoktor obradaDoktor = new ObradaDoktor();
+//        obradaDoktor.setEntitet(doktor);
+//        try {
+//            obradaDoktor.create();
+//        } catch (Exception e) {
+//            System.out.println(ex.getPoruka);
+//        }
+//        
+        
+
+//      PROVJERA
+
+//        Pacijent pacijent = new Pacijent();
+//        pacijent.setIme("Jure");
+//        pacijent.setPrezime("Jurić");
+//        pacijent.setEmail("jurejuric@edunova.hr");
+//        pacijent.setOib("98605780570");
+//        pacijent.setBroj("51345");
+//        
+//        ObradaPacijent op = new ObradaPacijent();
+//        op.setEntitet(pacijent);
+//        try {
+//            op.create();
+//        } catch (Exception e) {
+//            System.out.println(ex.getPoruka);
+//        }
+//        
+        
+        
+        
         
 //        Doktor doktor = new Doktor();
 //
-//        ObradaDoktor obradaVozac = new ObradaDoktor(doktor);
+//        ObradaDoktor obradaDoktor = new ObradaDoktor(doktor);
 //
 //        try {
 //            obradaVozac.create();

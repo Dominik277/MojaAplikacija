@@ -5,6 +5,7 @@
  */
 package hr.aplikacija.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
@@ -23,7 +24,7 @@ public class Pacijent extends Entitet{
     private String prezime;
     private String email;
     private String oib;
-    private Long broj;
+    private String broj;
 
     public String getIme() {
         return ime;
@@ -57,11 +58,11 @@ public class Pacijent extends Entitet{
         this.oib = oib;
     }
 
-    public Long getBroj() {
+    public String getBroj() {
         return broj;
     }
 
-    public void setBroj(Long broj) {
+    public void setBroj(String broj) {
         this.broj = broj;
     }
 

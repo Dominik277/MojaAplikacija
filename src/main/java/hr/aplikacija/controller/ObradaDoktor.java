@@ -8,6 +8,7 @@ package hr.aplikacija.controller;
 import hr.aplikacija.model.Doktor;
 import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.Oib;
+import hr.aplikacija.utility.PomocnaMetoda;
 import java.util.List;
 
 /**
@@ -52,12 +53,14 @@ public class ObradaDoktor extends Obrada<Doktor>{
     }
 
     private void kontrolaIme()throws MyException{
+        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
         if(entitet.getIme()== null || entitet.getIme().isEmpty()){
          throw new MyException("Ime se mora unjeti");
      }
     }
     
     private void kontrolaPrezime() throws MyException{
+     PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
      if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
          throw new MyException("Prezime se mora unjeti");
      }

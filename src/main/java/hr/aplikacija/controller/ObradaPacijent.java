@@ -8,6 +8,7 @@ package hr.aplikacija.controller;
 import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.Oib;
+import hr.aplikacija.utility.PomocnaMetoda;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -42,24 +43,17 @@ public class ObradaPacijent extends Obrada<Pacijent>{
     }
     
     private void kontrolaIme() throws MyException{
+        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
         if(entitet.getIme()== null || entitet.getIme().isEmpty()){
            throw new MyException("Ime mora biti uneseno");
     }
         if(entitet.getIme().length()>50){
-           throw new MyException("Ime ne moze biti duze od 50 znakova ");
-       }
-         boolean broj = false;
-       try{
-          new BigDecimal(entitet.getIme());
-           broj = true;
-       }catch(Exception e){
-       }
-           if(broj){
-               throw new MyException("Ime ne moze biti broj");
-           }
+           throw new MyException("Ime ne moze biti duze od 50 znakova ");   
 }
+    }
     
     private void kontrolaPrezime() throws MyException{
+        PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
        if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
            throw new MyException("Prezime mora biti uneseno");
        }
@@ -83,8 +77,8 @@ public class ObradaPacijent extends Obrada<Pacijent>{
     
     private void kontrolaBroj() throws MyException{
        kontrolaNull(entitet.getBroj(), "Broj telefona je obavezan");
-       if(entitet.getBroj().compareTo(Long.MAX_VALUE)<0){
-           throw new MyException("");
+       if(entitet.getBroj()==null || entitet.getBroj().isEmpty()){
+            throw new MyException("Cijena ne može biti manja ili jednaka nuli");
        }
    }
     

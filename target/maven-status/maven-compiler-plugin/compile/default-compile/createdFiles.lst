@@ -13,6 +13,7 @@ hr\aplikacija\utility\MyException.class
 hr\aplikacija\controller\Obrada.class
 hr\aplikacija\controller\ObradaDoktor.class
 hr\aplikacija\model\Usluga.class
+hr\aplikacija\utility\PomocnaMetoda.class
 hr\aplikacija\view\Izbornik.class
 hr\aplikacija\model\Doktor.class
 hr\aplikacija\model\Pacijent.class
