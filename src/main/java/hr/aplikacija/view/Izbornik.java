@@ -15,7 +15,12 @@ public class Izbornik extends javax.swing.JFrame {
      * Creates new form Izbornik
      */
     public Izbornik() {
+        //Poziv ove metode se ne smije obrisati
         initComponents();
+        
+        //Naš kod pišemo nakon initComponents();
+        setTitle("BOLNICA-Evidentacija");
+        
     }
 
     /**
@@ -27,24 +32,39 @@ public class Izbornik extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblPoruka = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("APP");
+        setPreferredSize(new java.awt.Dimension(400, 400));
+
+        lblPoruka.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblPoruka.setText("Poruka");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(lblPoruka)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(186, 186, 186)
+                .addComponent(lblPoruka)
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblPoruka;
     // End of variables declaration//GEN-END:variables
 }
