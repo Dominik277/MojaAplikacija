@@ -3,6 +3,7 @@ hr\aplikacija\controller\ObradaPacijent.class
 hr\aplikacija\controller\ObradaPregled.class
 hr\aplikacija\controller\ObradaUsluga.class
 hr\aplikacija\model\Operater.class
+hr\aplikacija\view\Izbornik$1.class
 hr\aplikacija\utility\Oib.class
 hr\aplikacija\model\Entitet.class
 hr\aplikacija\start\Start.class
