@@ -22,7 +22,7 @@ public class Start {
     
     public static void main(String[] args){
     
-        //PocetniInsert.izvedi();
+        PocetniInsert.izvedi();
         
         //HibernateUtil.getSessionFactory().openSession();
         
@@ -59,19 +59,19 @@ public class Start {
 //
 //        System.out.println(kraj - pocetak);
     
-    Doktor doktor = new Doktor();
-    doktor.setIme("Marko");
-    doktor.setPrezime("Marić");
-    doktor.setEmail("mmarko@edunova.hr");
-    doktor.setOib("14324");
-    
-    ObradaDoktor od = new ObradaDoktor();
-    od.setEntitet(doktor);
-        try {
-            od.create();
-        } catch (MyException ex) {
-            System.out.println(ex.getPoruka());
-        }
+//    Doktor doktor = new Doktor();
+//    doktor.setIme("Marko");
+//    doktor.setPrezime("Marić");
+//    doktor.setEmail("mmarko@edunova.hr");
+//    doktor.setOib("14324");
+//    
+//    ObradaDoktor od = new ObradaDoktor();
+//    od.setEntitet(doktor);
+//        try {
+//            od.create();
+//        } catch (MyException ex) {
+//            System.out.println(ex.getPoruka());
+//        }
     
  }
 }

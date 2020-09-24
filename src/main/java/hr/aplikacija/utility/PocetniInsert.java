@@ -37,12 +37,12 @@ public class PocetniInsert {
         session.save(traumatologija);
         //session.getTransaction().commit();
         
-        Usluga slusanjeSrca = createUsluga("Slušanje rada srca",new BigDecimal(249.00) , true);
-        Usluga lomNoge = createUsluga("Stavaljanje noge u gips",new BigDecimal(49.00) , false);
-        Usluga posjekotina = createUsluga("Dezinfekcija i šivanje rane", new BigDecimal(29.00), false);
-        Usluga operacijaSrca = createUsluga("Operacija srca", new BigDecimal(2499.00), true);
-        Usluga operacijaPluca = createUsluga("Operacija pluća", new BigDecimal(2199.00), true);
-        Usluga opercijaKoljena = createUsluga("Operacija koljena", new BigDecimal(1999.00), true);
+        Usluga slusanjeSrca = createUsluga("Slušanje rada srca",new BigDecimal(249.00));
+        Usluga lomNoge = createUsluga("Stavaljanje noge u gips",new BigDecimal(49.00));
+        Usluga posjekotina = createUsluga("Dezinfekcija i šivanje rane", new BigDecimal(29.00));
+        Usluga operacijaSrca = createUsluga("Operacija srca", new BigDecimal(2499.00));
+        Usluga operacijaPluca = createUsluga("Operacija pluća", new BigDecimal(2199.00));
+        Usluga opercijaKoljena = createUsluga("Operacija koljena", new BigDecimal(1999.00));
         
         session.save(slusanjeSrca);
         session.save(lomNoge);
@@ -93,11 +93,11 @@ public class PocetniInsert {
         return pregled;
     }
     
-    private static Usluga createUsluga(String naziv,BigDecimal cijena,boolean zakazano){
+    private static Usluga createUsluga(String naziv,BigDecimal cijena){
         Usluga usluga = new Usluga();
         usluga.setNaziv(naziv);
         usluga.setCijena(cijena);
-        usluga.setZakazano(zakazano);
+        
         
         return usluga;
     }

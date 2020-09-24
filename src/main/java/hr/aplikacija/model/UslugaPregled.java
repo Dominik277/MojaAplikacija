@@ -8,26 +8,22 @@ package hr.aplikacija.model;
 import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author Dominik
  */
 @Entity
-@Table(name="usluga")
-public class Usluga extends Entitet{
+public class UslugaPregled extends Entitet{
     
-    private String naziv;
     private BigDecimal cijena;
-   
-    public String getNaziv() {
-        return naziv;
-    }
-
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
-    }
+    
+    @ManyToOne
+    private Pregled pregled;
+    
+    @ManyToOne
+    private Usluga usluga;
+    
 
     public BigDecimal getCijena() {
         return cijena;
@@ -35,6 +31,22 @@ public class Usluga extends Entitet{
 
     public void setCijena(BigDecimal cijena) {
         this.cijena = cijena;
+    }
+
+    public Pregled getPregled() {
+        return pregled;
+    }
+
+    public void setPregled(Pregled pregled) {
+        this.pregled = pregled;
+    }
+
+    public Usluga getUsluga() {
+        return usluga;
+    }
+
+    public void setUsluga(Usluga usluga) {
+        this.usluga = usluga;
     }
     
 }

@@ -24,6 +24,12 @@ public class Pregled extends Entitet{
     private String simptomi;
     private Date datum;
 
+    @ManyToOne
+    private Doktor doktor;
+    
+    @ManyToOne
+    private Pacijent pacijent;
+    
     public Date getDatum() {
         return datum;
     }
@@ -31,13 +37,24 @@ public class Pregled extends Entitet{
     public void setDatum(Date datum) {
         this.datum = datum;
     }
+
+    public Doktor getDoktor() {
+        return doktor;
+    }
+
+    public void setDoktor(Doktor doktor) {
+        this.doktor = doktor;
+    }
+
+    public Pacijent getPacijent() {
+        return pacijent;
+    }
+
+    public void setPacijent(Pacijent pacijent) {
+        this.pacijent = pacijent;
+    }
     
     
-    @ManyToOne
-    private Doktor doktor;
-    
-    @ManyToOne
-    private Pacijent pacijent;
 
     public String getNaziv() {
         return naziv;
