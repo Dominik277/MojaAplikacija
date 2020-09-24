@@ -10,6 +10,7 @@ import hr.aplikacija.model.Doktor;
 import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.model.Pregled;
 import hr.aplikacija.model.Usluga;
+import hr.aplikacija.model.UslugaPregled;
 import java.math.BigDecimal;
 import java.util.Date;
 import org.hibernate.Session;
@@ -23,6 +24,7 @@ public class PocetniInsert {
     public static void izvedi() {
         
         Session session = HibernateUtil.getSessionFactory().openSession();
+        //Session session = HibernateUtil.getSessionFactory().openSession();
         
         Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica",new Date());
         Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos",new Date());
@@ -51,6 +53,18 @@ public class PocetniInsert {
         session.save(operacijaPluca);
         session.save(opercijaKoljena);
         
+        
+        UslugaPregled usluga1 = createUslugaPregled(new BigDecimal(2300.00));
+        UslugaPregled usluga2 = createUslugaPregled(new BigDecimal(1300.00));
+        UslugaPregled usluga3 = createUslugaPregled(new BigDecimal(300.00));
+        UslugaPregled usluga4 = createUslugaPregled(new BigDecimal(3300.00));
+        
+        session.save(usluga1);
+        session.save(usluga2);
+        session.save(usluga3);
+        session.save(usluga4);
+        
+        
         Faker faker = new Faker();
         
         String[] oibi = {"44879378548", "38714462960", "48653367511",
@@ -59,7 +73,6 @@ public class PocetniInsert {
         
         Doktor doktor;
         Pacijent pacijent;
-        Usluga usluga;
         
         for(int i=0;i<10;i++){
             doktor = new Doktor();
@@ -97,9 +110,15 @@ public class PocetniInsert {
         Usluga usluga = new Usluga();
         usluga.setNaziv(naziv);
         usluga.setCijena(cijena);
-        
-        
+       
         return usluga;
+    }
+    
+    private static UslugaPregled createUslugaPregled(BigDecimal cijena){
+        UslugaPregled uslugaPregled = new UslugaPregled();
+        uslugaPregled.setCijena(BigDecimal.TEN);
+        
+        return uslugaPregled;
     }
 
 //        Session session = HibernateUtil.getSessionFactory().openSession();
