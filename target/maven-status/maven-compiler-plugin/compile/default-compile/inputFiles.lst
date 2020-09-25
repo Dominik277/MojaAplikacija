@@ -1,5 +1,7 @@
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Pregled.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\MyException.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaOperater.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaOsoba.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\Obrada.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Pacijent.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Doktor.java
@@ -11,9 +13,11 @@ C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\apli
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\PomocnaMetoda.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Izbornik.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Entitet.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Osoba.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaDoktor.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaPregled.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Operater.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaUsluga.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\UslugaPregled.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Autorizacija.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\PocetniInsert.java

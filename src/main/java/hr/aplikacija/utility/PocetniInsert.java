@@ -6,7 +6,9 @@
 package hr.aplikacija.utility;
 
 import com.github.javafaker.Faker;
+import hr.aplikacija.controller.ObradaOperater;
 import hr.aplikacija.model.Doktor;
+import hr.aplikacija.model.Operater;
 import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.model.Pregled;
 import hr.aplikacija.model.Usluga;
@@ -14,6 +16,7 @@ import hr.aplikacija.model.UslugaPregled;
 import java.math.BigDecimal;
 import java.util.Date;
 import org.hibernate.Session;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -25,6 +28,24 @@ public class PocetniInsert {
         
         Session session = HibernateUtil.getSessionFactory().openSession();
         //Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        Operater operater = new Operater();
+        operater.setIme("Dominik");
+        operater.setPrezime("Dorić");
+        operater.setUloga("Oper");
+        operater.setEmail("ddoric@gmail.com");
+        operater.setLozinka(BCrypt.hashpw("d", BCrypt.gensalt()));
+        
+        session.save(operater);
+        
+        ObradaOperater obradaOperater = new ObradaOperater();
+//        obradaOperater.setEntitet(operater);
+//        
+//        try {
+//            obradaOperater.create();
+//        } catch (MyException ex) {
+//            ex.printStackTrace();
+//        }
         
         Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica",new Date());
         Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos",new Date());

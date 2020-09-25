@@ -12,6 +12,7 @@ import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.utility.HibernateUtil;
 import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.PocetniInsert;
+import hr.aplikacija.view.Autorizacija;
 import hr.aplikacija.view.Izbornik;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,11 @@ public class Start {
     
     public static void main(String[] args){
     
-        new Izbornik().setVisible(true);
+        //new Izbornik().setVisible(true);
+        //new Autorizacija().setVisible(true);
         
-        //PocetniInsert.izvedi();
+        
+        PocetniInsert.izvedi();
         
         //HibernateUtil.getSessionFactory().openSession();
   

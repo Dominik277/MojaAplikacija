@@ -15,15 +15,15 @@ import java.util.List;
  *
  * @author Dominik
  */
-public class ObradaDoktor extends Obrada<Doktor>{
+public class ObradaDoktor extends ObradaOsoba<Doktor>{
     
-    public ObradaDoktor(Doktor doktor){
-        super(doktor);
-    }
-    
-    public ObradaDoktor(){
-        super();
-    }
+//    public ObradaDoktor(Doktor doktor){
+//        super(doktor);
+//    }
+//    
+//    public ObradaDoktor(){
+//        super();
+//    }
     
      @Override
     public List<Doktor> getPodaci() {
@@ -36,9 +36,10 @@ public class ObradaDoktor extends Obrada<Doktor>{
 //            throw new MyException("Ime nije uneseno.");
 //        }
 
-        kontrolaIme();
-        kontrolaPrezime();
-        kontrolaOib();
+//        kontrolaIme();
+//        kontrolaPrezime();
+//        kontrolaOib();
+        super.kontrolaCreate();
         kontrolaEmail();
     }
     
@@ -52,28 +53,28 @@ public class ObradaDoktor extends Obrada<Doktor>{
         
     }
 
-    private void kontrolaIme()throws MyException{
-        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
-        if(entitet.getIme()== null || entitet.getIme().isEmpty()){
-         throw new MyException("Ime se mora unjeti");
-     }
-    }
-    
-    private void kontrolaPrezime() throws MyException{
-     PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
-     if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
-         throw new MyException("Prezime se mora unjeti");
-     }
- }
-    
-    protected void kontrolaOib() throws MyException{
-     if(entitet.getOib()==null || entitet.getOib().isEmpty()){
-         throw new MyException("Unos OIB-a je obavezan");
-     }
-    if(!Oib.isValjan(entitet.getOib())){
-         throw new MyException("OIB nije valjan");
-     }
-    }
+//    private void kontrolaIme()throws MyException{
+//        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
+//        if(entitet.getIme()== null || entitet.getIme().isEmpty()){
+//         throw new MyException("Ime se mora unjeti");
+//     }
+//    }
+//    
+//    private void kontrolaPrezime() throws MyException{
+//     PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
+//     if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
+//         throw new MyException("Prezime se mora unjeti");
+//     }
+// }
+//    
+//    protected void kontrolaOib() throws MyException{
+//     if(entitet.getOib()==null || entitet.getOib().isEmpty()){
+//         throw new MyException("Unos OIB-a je obavezan");
+//     }
+//    if(!Oib.isValjan(entitet.getOib())){
+//         throw new MyException("OIB nije valjan");
+//     }
+//    }
     
     private void kontrolaEmail() throws MyException{
         if(entitet.getEmail()== null){

@@ -49,6 +49,7 @@
          <mapping class="hr.aplikacija.model.Pregled" />
          <mapping class="hr.aplikacija.model.Usluga" />
          <mapping class="hr.aplikacija.model.UslugaPregled" />
+         <mapping class="hr.aplikacija.model.Operater" />
          
          
     </session-factory>
