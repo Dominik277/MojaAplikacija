@@ -39,13 +39,13 @@ public class PocetniInsert {
         session.save(operater);
         
         ObradaOperater obradaOperater = new ObradaOperater();
-//        obradaOperater.setEntitet(operater);
+        obradaOperater.setEntitet(operater);
 //        
-//        try {
-//            obradaOperater.create();
-//        } catch (MyException ex) {
-//            ex.printStackTrace();
-//        }
+       try {
+            obradaOperater.create();
+        } catch (MyException ex) {
+            ex.printStackTrace();
+       }
         
         Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica",new Date());
         Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos",new Date());
