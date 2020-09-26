@@ -123,13 +123,17 @@ public class Autorizacija extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrijavaActionPerformed
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER){
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER && pswLozinka.getPassword().length>0){
             pswLozinka.requestFocus();
         }
     }//GEN-LAST:event_txtEmailKeyReleased
 
     private void pswLozinkaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswLozinkaKeyReleased
-        prijaviSe();
+        
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER && !txtEmail.getText().trim().isEmpty()){
+          prijaviSe();  
+        }
+        
     }//GEN-LAST:event_pswLozinkaKeyReleased
 
     
@@ -153,6 +157,7 @@ public class Autorizacija extends javax.swing.JFrame {
             InternetAddress emailAddr = new InternetAddress(txtEmail.getText());
             emailAddr.validate();
         } catch (AddressException ex) {
+            txtEmail.requestFocus();
             JOptionPane.showMessageDialog(rootPane, "Email nije ispravan");
             return;
         }

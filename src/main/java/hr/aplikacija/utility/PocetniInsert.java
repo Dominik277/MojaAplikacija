@@ -32,7 +32,7 @@ public class PocetniInsert {
         Operater operater = new Operater();
         operater.setIme("Dominik");
         operater.setPrezime("Dorić");
-        operater.setUloga("Oper");
+        operater.setUloga("oper");
         operater.setEmail("ddoric@gmail.com");
         operater.setLozinka(BCrypt.hashpw("d", BCrypt.gensalt()));
         
@@ -115,6 +115,33 @@ public class PocetniInsert {
         }
         
         session.getTransaction().commit();
+    }
+    
+    public static void adminOperater(){
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        //Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        Operater operater = new Operater();
+        operater.setIme("Edunova");
+        operater.setPrezime("Operater");
+        operater.setUloga("admin");
+        operater.setEmail("edunova@edunova.hr");
+        operater.setLozinka(BCrypt.hashpw("e", BCrypt.gensalt()));
+        
+       session.save(operater);
+        
+        ObradaOperater obradaOperater = new ObradaOperater();
+        obradaOperater.setEntitet(operater);
+//        
+       try {
+            obradaOperater.create();
+        } catch (MyException ex) {
+            ex.printStackTrace();
+       }
+        
+       session.getTransaction().commit();
+        
     }
     
     private static Pregled createPregled(String naziv,String opis,String simptomi,Date datum){
