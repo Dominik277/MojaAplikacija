@@ -1,9 +1,9 @@
 hr\aplikacija\utility\PocetniInsert.class
 hr\aplikacija\controller\ObradaPregled.class
 hr\aplikacija\controller\ObradaUsluga.class
-hr\aplikacija\controller\ObradaOperater.class
 hr\aplikacija\model\Operater.class
-hr\aplikacija\view\Izbornik$1.class
+hr\aplikacija\view\Aplikacija.class
+hr\aplikacija\view\Autorizacija$1.class
 hr\aplikacija\model\Entitet.class
 hr\aplikacija\model\UslugaPregled.class
 hr\aplikacija\utility\MyException.class
@@ -11,9 +11,12 @@ hr\aplikacija\controller\Obrada.class
 hr\aplikacija\utility\PomocnaMetoda.class
 hr\aplikacija\view\Izbornik.class
 hr\aplikacija\model\Pacijent.class
+hr\aplikacija\view\Autorizacija$3.class
 hr\aplikacija\controller\ObradaPacijent.class
+hr\aplikacija\view\Autorizacija$2.class
 hr\aplikacija\model\Osoba.class
 hr\aplikacija\utility\Oib.class
+hr\aplikacija\view\Autorizacija$4.class
 hr\aplikacija\controller\ObradaOsoba.class
 hr\aplikacija\view\Autorizacija.class
 hr\aplikacija\start\Start.class

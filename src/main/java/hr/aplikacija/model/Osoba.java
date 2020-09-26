@@ -51,4 +51,8 @@ public class Osoba extends Entitet{
         this.email = email;
     }
     
+    public String getImePrezime(){
+        return getIme() + " " + getPrezime();
+    }
+    
 }

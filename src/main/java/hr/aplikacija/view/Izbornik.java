@@ -19,7 +19,7 @@ public class Izbornik extends javax.swing.JFrame {
         initComponents();
         
         //Naš kod pišemo nakon initComponents();
-        setTitle("BOLNICA-Evidentacija");
+        setTitle(Aplikacija.operater.getImePrezime());
         
     }
 
@@ -32,63 +32,27 @@ public class Izbornik extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblPoruka = new javax.swing.JLabel();
-        btnHello = new javax.swing.JButton();
-        txtIme = new javax.swing.JTextField();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("APP");
         setPreferredSize(new java.awt.Dimension(400, 400));
-
-        lblPoruka.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblPoruka.setText("Poruka");
-
-        btnHello.setText("Reci Hello");
-        btnHello.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHelloActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(160, 160, 160)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnHello)
-                        .addComponent(lblPoruka)))
-                .addContainerGap(163, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(btnHello)
-                .addGap(71, 71, 71)
-                .addComponent(lblPoruka)
-                .addContainerGap(185, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnHelloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelloActionPerformed
-        // TODO add your handling code here:
-        lblPoruka.setText("Hello, " + txtIme.getText());
-    }//GEN-LAST:event_btnHelloActionPerformed
-
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnHello;
-    private javax.swing.JLabel lblPoruka;
-    private javax.swing.JTextField txtIme;
     // End of variables declaration//GEN-END:variables
 }
