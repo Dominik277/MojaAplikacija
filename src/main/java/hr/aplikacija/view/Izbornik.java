@@ -10,6 +10,7 @@ import org.hibernate.annotations.Parent;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -26,24 +27,20 @@ public class Izbornik extends javax.swing.JFrame {
         //Poziv ove metode se ne smije obrisati
         initComponents();
         jmNaslovGrana.setText(Aplikacija.NASOV_APP);
-        
-        
+
         //Naš kod pišemo nakon initComponents();
         setTitle(Aplikacija.operater.getImePrezime());
-        
+
         //if(!Aplikacija.operater.getUloga().equals("admin")){
         //    jmiOperateri.setVisible(false);
         //}
-        
-       // if(Aplikacija.isAdmin()){
-       //     jmiOperateri.setVisible(false);
-       // }
-       
-       jmiOperateri.setVisible(Aplikacija.isAdmin());
-       
-       pripremiGraf();
-       
-        
+        // if(Aplikacija.isAdmin()){
+        //     jmiOperateri.setVisible(false);
+        // }
+        jmiOperateri.setVisible(Aplikacija.isAdmin());
+
+        pripremiGraf();
+
     }
 
     /**
@@ -129,7 +126,6 @@ public class Izbornik extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jmIzlazActionPerformed
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
@@ -144,10 +140,19 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JPanel pnlGraf;
     // End of variables declaration//GEN-END:variables
 
-    private void pripremiGraf(){
-        XYSeries series = new XYSeries("XY Chart");
-        XYSeriesCollection dataset = new XYSeriesCollection(series);
-        JFreeChart chart = ChartFactory.createTimeSeriesChart("Testing Chart", "Date", "Average Profit", dataset);
+    private void pripremiGraf() {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("JP22", 25);
+        dataset.setValue("PP21", 10);
+        dataset.setValue("OP16", 5);
+        dataset.setValue("WD40", 50);
+
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Broj polaznika po grupama", // chart title 
+                dataset, // data    
+                true, // include legend   
+                true,
+                false);
 
         ChartPanel cp = new ChartPanel(chart);
 
@@ -155,5 +160,5 @@ public class Izbornik extends javax.swing.JFrame {
         pnlGraf.add(cp, BorderLayout.CENTER);
         pnlGraf.validate();
     }
-    
+
 }
