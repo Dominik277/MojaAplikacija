@@ -22,8 +22,8 @@
         <!-- Select our SQL dialect -->
         <property name="dialect">org.hibernate.dialect.MariaDBDialect</property>
         <!-- Echo the SQL to stdout -->
-        <property name="show_sql">false</property>
-        <property name="format_sql">false</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <!-- Set the current session context -->
         <property name="current_session_context_class">thread</property>
         <!-- Drop and re-create the database schema on startup -->
@@ -34,7 +34,7 @@
             create-drop: drop the schema at the end of the session. 
             1. puta create-drop, poslije update
             -->
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">update</property>
         <!-- dbcp connection pool configuration -->
         <property name="hibernate.dbcp.initialSize">5</property>
         <property name="hibernate.dbcp.maxTotal">20</property>
@@ -44,12 +44,13 @@
         
         
         <!-- Ovdje navodimo naše mapirane klase -->
+         <mapping class="hr.aplikacija.model.Operater" />
          <mapping class="hr.aplikacija.model.Doktor" />
          <mapping class="hr.aplikacija.model.Pacijent" />
          <mapping class="hr.aplikacija.model.Pregled" />
          <mapping class="hr.aplikacija.model.Usluga" />
          <mapping class="hr.aplikacija.model.UslugaPregled" />
-         <mapping class="hr.aplikacija.model.Operater" />
+         
          
          
     </session-factory>

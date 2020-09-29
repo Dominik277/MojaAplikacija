@@ -17,6 +17,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import org.hibernate.Session;
 import org.mindrot.jbcrypt.BCrypt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,26 +29,24 @@ public class PocetniInsert {
     public static void izvedi() {
         
         Session session = HibernateUtil.getSessionFactory().openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        
         
         Operater operater = new Operater();
         operater.setIme("Dominik");
         operater.setPrezime("Dorić");
         operater.setUloga("oper");
         operater.setEmail("ddoric@gmail.com");
+        operater.setOib(Oib.getOibIiCentrala());
         operater.setLozinka(BCrypt.hashpw("d", BCrypt.gensalt()));
         
-        session.save(operater);
-        
-        ObradaOperater obradaOperater = new ObradaOperater();
-        obradaOperater.setEntitet(operater);
-//        
+       ObradaOperater oo = new ObradaOperater();
+       oo.setEntitet(operater); 
        try {
-            obradaOperater.create();
+            oo.create();
         } catch (MyException ex) {
             ex.printStackTrace();
        }
-        
+       
         Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica",new Date());
         Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos",new Date());
         Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina",new Date());
@@ -118,29 +118,23 @@ public class PocetniInsert {
     }
     
     public static void adminOperater(){
-        
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
-        
+      
         Operater operater = new Operater();
         operater.setIme("Edunova");
         operater.setPrezime("Operater");
         operater.setUloga("admin");
         operater.setEmail("edunova@edunova.hr");
+        operater.setOib(Oib.getOibIiCentrala());
         operater.setLozinka(BCrypt.hashpw("e", BCrypt.gensalt()));
         
-       session.save(operater);
-        
-        ObradaOperater obradaOperater = new ObradaOperater();
-        obradaOperater.setEntitet(operater);
-//        
+        ObradaOperater oo = new ObradaOperater();
+        oo.setEntitet(operater);
+                
        try {
-            obradaOperater.create();
+            oo.create();
         } catch (MyException ex) {
             ex.printStackTrace();
        }
-        
-       session.getTransaction().commit();
         
     }
     

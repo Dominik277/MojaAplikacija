@@ -27,10 +27,11 @@ public class Start {
     public static void main(String[] args){
     
         //new Izbornik().setVisible(true);
-        //new Autorizacija().setVisible(true);
+        new Autorizacija().setVisible(true);
         
         
-        PocetniInsert.izvedi();
+        //PocetniInsert.izvedi();
+        //PocetniInsert.adminOperater();
         
         //HibernateUtil.getSessionFactory().openSession();
   

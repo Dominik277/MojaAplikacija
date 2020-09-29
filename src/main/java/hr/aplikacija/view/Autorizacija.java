@@ -123,16 +123,17 @@ public class Autorizacija extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrijavaActionPerformed
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER && pswLozinka.getPassword().length>0){
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER && !txtEmail.getText().trim().isEmpty()){
             pswLozinka.requestFocus();
         }
     }//GEN-LAST:event_txtEmailKeyReleased
 
     private void pswLozinkaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswLozinkaKeyReleased
         
-        if(evt.getKeyCode()== KeyEvent.VK_ENTER && !txtEmail.getText().trim().isEmpty()){
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER && pswLozinka.getPassword().length>0){
           prijaviSe();  
         }
+        
         
     }//GEN-LAST:event_pswLozinkaKeyReleased
 

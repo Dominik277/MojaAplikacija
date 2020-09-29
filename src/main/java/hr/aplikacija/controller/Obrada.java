@@ -73,11 +73,11 @@ public T update() throws MyException {
 
 
 
-//private void save(){
-//    session.beginTransaction();
-//    session.save(entitet);
-//    session.getTransaction().commit();
-//}
+private void save(){
+    session.beginTransaction();
+    session.save(entitet);
+    session.getTransaction().commit();
+}
 
 public boolean delete() throws MyException {
         kontrolaDelete();
@@ -87,13 +87,7 @@ public boolean delete() throws MyException {
         return true;
     }
 
-    private void save() {
-        session.beginTransaction();
-        session.save(entitet);
-        session.getTransaction().commit();
-
-    }
-
+    
     public T getEntitet() {
         return entitet;
     }

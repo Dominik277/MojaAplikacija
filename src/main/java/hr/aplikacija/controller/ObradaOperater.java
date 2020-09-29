@@ -47,7 +47,7 @@ public class ObradaOperater extends ObradaOsoba<Operater>{
     
     @Override
     protected void kontrolaCreate() throws MyException{
-        //super.kontrolaCreate();
+        
         super.kontrolaCreate();
     }
     

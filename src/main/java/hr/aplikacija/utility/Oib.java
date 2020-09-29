@@ -5,6 +5,13 @@
  */
 package hr.aplikacija.utility;
 
+import java.net.URL;
+import java.util.Scanner;
+import javax.swing.text.Document;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
+import us.codecraft.xsoup.Xsoup;
+
 /**
  *
  * @author Dominik
@@ -36,6 +43,20 @@ public class Oib {
             kontrolni = 0;
 
         return kontrolni == Integer.parseInt(oib.substring(10));
+
+    }
+    
+    public static String getOibIiCentrala() {
+        try {
+            String html = new Scanner(new URL("http://oib.itcentrala.com/oib-generator/").openStream(), "UTF-8").useDelimiter("\\A").next();
+
+            Document document = (Document) Jsoup.parse(html);
+
+            return Xsoup.compile("/html/body/div[1]/div[1]/text()").evaluate((Element) document).get();
+
+        } catch (Exception e) {
+            return null;
+        }
 
     }
 }

@@ -5,6 +5,14 @@
  */
 package hr.aplikacija.view;
 
+import java.awt.BorderLayout;
+import org.hibernate.annotations.Parent;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+
 /**
  *
  * @author Dominik
@@ -17,9 +25,24 @@ public class Izbornik extends javax.swing.JFrame {
     public Izbornik() {
         //Poziv ove metode se ne smije obrisati
         initComponents();
+        jmNaslovGrana.setText(Aplikacija.NASOV_APP);
+        
         
         //Naš kod pišemo nakon initComponents();
         setTitle(Aplikacija.operater.getImePrezime());
+        
+        //if(!Aplikacija.operater.getUloga().equals("admin")){
+        //    jmiOperateri.setVisible(false);
+        //}
+        
+       // if(Aplikacija.isAdmin()){
+       //     jmiOperateri.setVisible(false);
+       // }
+       
+       jmiOperateri.setVisible(Aplikacija.isAdmin());
+       
+       pripremiGraf();
+       
         
     }
 
@@ -32,27 +55,105 @@ public class Izbornik extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlGraf = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jmNaslovGrana = new javax.swing.JMenu();
+        jmiSmjerovi = new javax.swing.JMenuItem();
+        jmiPolaznici = new javax.swing.JMenuItem();
+        jmiPredavaci = new javax.swing.JMenuItem();
+        jmiGrupe = new javax.swing.JMenuItem();
+        jmiOperateri = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jmIzlaz = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("APP");
-        setPreferredSize(new java.awt.Dimension(400, 400));
+
+        javax.swing.GroupLayout pnlGrafLayout = new javax.swing.GroupLayout(pnlGraf);
+        pnlGraf.setLayout(pnlGrafLayout);
+        pnlGrafLayout.setHorizontalGroup(
+            pnlGrafLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlGrafLayout.setVerticalGroup(
+            pnlGrafLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 378, Short.MAX_VALUE)
+        );
+
+        jmNaslovGrana.setText("NASLOV");
+
+        jmiSmjerovi.setText("Smjerovi");
+        jmNaslovGrana.add(jmiSmjerovi);
+
+        jmiPolaznici.setText("Polaznici");
+        jmNaslovGrana.add(jmiPolaznici);
+
+        jmiPredavaci.setText("Predavači");
+        jmNaslovGrana.add(jmiPredavaci);
+
+        jmiGrupe.setText("Grupe");
+        jmNaslovGrana.add(jmiGrupe);
+
+        jmiOperateri.setText("Operateri");
+        jmNaslovGrana.add(jmiOperateri);
+        jmNaslovGrana.add(jSeparator1);
+
+        jmIzlaz.setText("Izlaz");
+        jmIzlaz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmIzlazActionPerformed(evt);
+            }
+        });
+        jmNaslovGrana.add(jmIzlaz);
+
+        jMenuBar1.add(jmNaslovGrana);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlGraf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(pnlGraf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jmIzlazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmIzlazActionPerformed
+        dispose();
+    }//GEN-LAST:event_jmIzlazActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenuItem jmIzlaz;
+    private javax.swing.JMenu jmNaslovGrana;
+    private javax.swing.JMenuItem jmiGrupe;
+    private javax.swing.JMenuItem jmiOperateri;
+    private javax.swing.JMenuItem jmiPolaznici;
+    private javax.swing.JMenuItem jmiPredavaci;
+    private javax.swing.JMenuItem jmiSmjerovi;
+    private javax.swing.JPanel pnlGraf;
     // End of variables declaration//GEN-END:variables
+
+    private void pripremiGraf(){
+        XYSeries series = new XYSeries("XY Chart");
+        XYSeriesCollection dataset = new XYSeriesCollection(series);
+        JFreeChart chart = ChartFactory.createTimeSeriesChart("Testing Chart", "Date", "Average Profit", dataset);
+
+        ChartPanel cp = new ChartPanel(chart);
+
+        pnlGraf.setLayout(new BorderLayout());
+        pnlGraf.add(cp, BorderLayout.CENTER);
+        pnlGraf.validate();
+    }
+    
 }
