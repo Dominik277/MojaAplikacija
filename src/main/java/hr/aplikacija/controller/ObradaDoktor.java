@@ -50,7 +50,9 @@ public class ObradaDoktor extends ObradaOsoba<Doktor>{
     
     @Override
     protected void kontrolaDelete() throws MyException{
-        
+//        if(entitet.getGrupe().size()>0){
+//            throw new MyException("Doktor se ne može obrisati jer...")
+//        }
     }
 
 //    private void kontrolaIme()throws MyException{

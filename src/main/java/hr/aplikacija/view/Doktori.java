@@ -298,6 +298,7 @@ public class Doktori extends javax.swing.JFrame {
             }
             
         }
+        lblPoruka.setText("");
         
 //        txtIme.setText("");
 //        txtPrezime.setText("");
@@ -307,10 +308,11 @@ public class Doktori extends javax.swing.JFrame {
     }
 
     private void postaviVrijednostiUEntitet() {
-//        entitet = new Pregled();
-//        entitet.setNaziv(txtNaziv.getText());
-//        entitet.setOpis(txtOpis.getText());
-//        entitet.setSimptomi(txtSimptomi.getText());
-//        //entitet.setDatum();
+         
+        entitet.setIme(txtIme.getText());
+        entitet.setPrezime(txtPrezime.getText());
+        entitet.setOib(txtOib.getText());
+        entitet.setEmail(txtEmail.getText());
+        obrada.setEntitet(entitet);
     }
 }
