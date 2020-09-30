@@ -33,7 +33,9 @@ public class ObradaPregled extends Obrada<Pregled>{
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        
+//        if(entitet.getGrupe.size()>0){
+//            throw new MyException("Smjer se ne može obrisati jer ima jednu ili više grupa");
+//        }
     }
     
 }
