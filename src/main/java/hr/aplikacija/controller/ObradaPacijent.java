@@ -78,7 +78,7 @@ public class ObradaPacijent extends Obrada<Pacijent>{
     private void kontrolaBroj() throws MyException{
        kontrolaNull(entitet.getBroj(), "Broj telefona je obavezan");
        if(entitet.getBroj()==null || entitet.getBroj().isEmpty()){
-            throw new MyException("Cijena ne može biti manja ili jednaka nuli");
+            throw new MyException("Broj ne moze biti jednak ili manji od nule");
        }
    }
     

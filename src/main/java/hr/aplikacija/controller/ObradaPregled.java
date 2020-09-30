@@ -17,7 +17,7 @@ public class ObradaPregled extends Obrada<Pregled>{
 
     @Override
     public List<Pregled> getPodaci() {
-        return null;
+        return session.createQuery("from Pregled").list();
         
     }
 
@@ -33,8 +33,8 @@ public class ObradaPregled extends Obrada<Pregled>{
 
     @Override
     protected void kontrolaDelete() throws MyException {
-//        if(entitet.getGrupe.size()>0){
-//            throw new MyException("Smjer se ne može obrisati jer ima jednu ili više grupa");
+//        if(entitet.getPregledi.size()>0){
+//            throw new MyException("");
 //        }
     }
     

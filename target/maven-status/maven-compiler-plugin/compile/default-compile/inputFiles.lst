@@ -6,6 +6,7 @@ C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\apli
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaPacijent.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\HibernateUtil.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\PomocnaMetoda.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\DoktorCellRenderer.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Entitet.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaPregled.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaUsluga.java
@@ -13,6 +14,7 @@ C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\apli
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Autorizacija.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\PocetniInsert.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Pregled.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Doktori.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaOperater.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\Obrada.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Pacijent.java

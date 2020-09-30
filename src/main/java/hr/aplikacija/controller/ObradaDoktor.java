@@ -36,7 +36,7 @@ public class ObradaDoktor extends ObradaOsoba<Doktor>{
 //            throw new MyException("Ime nije uneseno.");
 //        }
 
-//        kontrolaIme();
+//       kontrolaIme();
 //        kontrolaPrezime();
 //        kontrolaOib();
         super.kontrolaCreate();
