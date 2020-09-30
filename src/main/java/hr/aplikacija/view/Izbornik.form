@@ -9,24 +9,27 @@
             <Property name="text" type="java.lang.String" value="NASLOV"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiSmjerovi">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiDoktori">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Smjerovi"/>
+                <Property name="text" type="java.lang.String" value="Doktori"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiPolaznici">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiPacijenti">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Polaznici"/>
+                <Property name="text" type="java.lang.String" value="Pacijenti"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiPredavaci">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiPregledi">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Predava&#x10d;i"/>
+                <Property name="text" type="java.lang.String" value="Pregledi"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiPreglediActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jmiGrupe">
+            <MenuItem class="javax.swing.JMenuItem" name="jmiUsluge">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Grupe"/>
+                <Property name="text" type="java.lang.String" value="Usluge"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jmiOperateri">

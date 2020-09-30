@@ -80,4 +80,11 @@ public class Pregled extends Entitet{
         this.simptomi = simptomi;
     }
 
+    @Override
+    public String toString() {
+        return getNaziv();
+    }
+    
+    
+
 }

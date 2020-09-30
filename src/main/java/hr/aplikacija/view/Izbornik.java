@@ -55,10 +55,10 @@ public class Izbornik extends javax.swing.JFrame {
         pnlGraf = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmNaslovGrana = new javax.swing.JMenu();
-        jmiSmjerovi = new javax.swing.JMenuItem();
-        jmiPolaznici = new javax.swing.JMenuItem();
-        jmiPredavaci = new javax.swing.JMenuItem();
-        jmiGrupe = new javax.swing.JMenuItem();
+        jmiDoktori = new javax.swing.JMenuItem();
+        jmiPacijenti = new javax.swing.JMenuItem();
+        jmiPregledi = new javax.swing.JMenuItem();
+        jmiUsluge = new javax.swing.JMenuItem();
         jmiOperateri = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmIzlaz = new javax.swing.JMenuItem();
@@ -79,17 +79,22 @@ public class Izbornik extends javax.swing.JFrame {
 
         jmNaslovGrana.setText("NASLOV");
 
-        jmiSmjerovi.setText("Smjerovi");
-        jmNaslovGrana.add(jmiSmjerovi);
+        jmiDoktori.setText("Doktori");
+        jmNaslovGrana.add(jmiDoktori);
 
-        jmiPolaznici.setText("Polaznici");
-        jmNaslovGrana.add(jmiPolaznici);
+        jmiPacijenti.setText("Pacijenti");
+        jmNaslovGrana.add(jmiPacijenti);
 
-        jmiPredavaci.setText("Predavači");
-        jmNaslovGrana.add(jmiPredavaci);
+        jmiPregledi.setText("Pregledi");
+        jmiPregledi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiPreglediActionPerformed(evt);
+            }
+        });
+        jmNaslovGrana.add(jmiPregledi);
 
-        jmiGrupe.setText("Grupe");
-        jmNaslovGrana.add(jmiGrupe);
+        jmiUsluge.setText("Usluge");
+        jmNaslovGrana.add(jmiUsluge);
 
         jmiOperateri.setText("Operateri");
         jmNaslovGrana.add(jmiOperateri);
@@ -126,17 +131,21 @@ public class Izbornik extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jmIzlazActionPerformed
 
+    private void jmiPreglediActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPreglediActionPerformed
+        new Pregledi().setVisible(true);
+    }//GEN-LAST:event_jmiPreglediActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenuItem jmIzlaz;
     private javax.swing.JMenu jmNaslovGrana;
-    private javax.swing.JMenuItem jmiGrupe;
+    private javax.swing.JMenuItem jmiDoktori;
     private javax.swing.JMenuItem jmiOperateri;
-    private javax.swing.JMenuItem jmiPolaznici;
-    private javax.swing.JMenuItem jmiPredavaci;
-    private javax.swing.JMenuItem jmiSmjerovi;
+    private javax.swing.JMenuItem jmiPacijenti;
+    private javax.swing.JMenuItem jmiPregledi;
+    private javax.swing.JMenuItem jmiUsluge;
     private javax.swing.JPanel pnlGraf;
     // End of variables declaration//GEN-END:variables
 
