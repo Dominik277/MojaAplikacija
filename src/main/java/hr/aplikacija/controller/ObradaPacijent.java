@@ -26,7 +26,7 @@ public class ObradaPacijent extends Obrada<Pacijent>{
     public List<Pacijent> getPodaci(String uvjet) {
         
         return session.createQuery("from Pacijent p " 
-                + " where concat(p.ime, ' ',p.prezime) " 
+                + " where concat(p.ime, ' ',p.prezime, ' ', p.oib) " 
                 + " like :uvjet " )
                 .setParameter("uvjet","%"+uvjet+"%")
                 .setMaxResults(20)
@@ -39,6 +39,7 @@ public class ObradaPacijent extends Obrada<Pacijent>{
         kontrolaPrezime();
         kontrolaEmail();
         kontrolaOib();
+        kontrolaOibBaza();
         kontrolaBroj();
     }
 
@@ -112,4 +113,16 @@ public class ObradaPacijent extends Obrada<Pacijent>{
            throw new MyException(poruka);
            }
        }
+
+    private void kontrolaOibBaza() throws MyException{
+        List<Pacijent> lista = session.createQuery(""
+                +" from Pacijent p "
+                +" where p.oib=:oib "
+                )
+                .setParameter("oib", entitet.getOib())
+                .list();
+        if(lista.size()>0){
+            throw  new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime() + ", odaberite drugi OIB");
+        }
+    }
 }

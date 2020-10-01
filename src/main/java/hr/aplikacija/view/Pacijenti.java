@@ -8,6 +8,7 @@ package hr.aplikacija.view;
 import hr.aplikacija.controller.ObradaPacijent;
 import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.utility.MyException;
+import hr.aplikacija.utility.Oib;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
@@ -55,6 +56,7 @@ public class Pacijenti extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblPoruka = new javax.swing.JTextField();
+        txtDovuciOib = new javax.swing.JButton();
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
@@ -86,6 +88,13 @@ public class Pacijenti extends javax.swing.JFrame {
 
         jLabel4.setText("Email");
 
+        txtDovuciOib.setText("Dovuci OIB");
+        txtDovuciOib.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDovuciOibActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlPodaciLayout = new javax.swing.GroupLayout(pnlPodaci);
         pnlPodaci.setLayout(pnlPodaciLayout);
         pnlPodaciLayout.setHorizontalGroup(
@@ -94,17 +103,20 @@ public class Pacijenti extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlPodaciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPrezime, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtOib)
                     .addComponent(txtIme)
                     .addComponent(txtEmail)
+                    .addComponent(lblPoruka)
                     .addGroup(pnlPodaciLayout.createSequentialGroup()
                         .addGroup(pnlPodaciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 190, Short.MAX_VALUE))
-                    .addComponent(lblPoruka))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(pnlPodaciLayout.createSequentialGroup()
+                        .addComponent(txtOib, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtDovuciOib)))
                 .addContainerGap())
         );
         pnlPodaciLayout.setVerticalGroup(
@@ -120,8 +132,10 @@ public class Pacijenti extends javax.swing.JFrame {
                 .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(7, 7, 7)
-                .addComponent(txtOib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(pnlPodaciLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtOib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDovuciOib))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -200,7 +214,7 @@ public class Pacijenti extends javax.swing.JFrame {
                     .addComponent(btnDodaj)
                     .addComponent(btnPromjeni)
                     .addComponent(btnObrisi))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -298,6 +312,10 @@ public class Pacijenti extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUvjetKeyReleased
 
+    private void txtDovuciOibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDovuciOibActionPerformed
+        txtOib.setText(Oib.getOibIiCentrala());
+    }//GEN-LAST:event_txtDovuciOibActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -313,6 +331,7 @@ public class Pacijenti extends javax.swing.JFrame {
     private javax.swing.JTextField lblPoruka;
     private javax.swing.JList<Pacijent> lstPodaci;
     private javax.swing.JPanel pnlPodaci;
+    private javax.swing.JButton txtDovuciOib;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIme;
     private javax.swing.JTextField txtOib;

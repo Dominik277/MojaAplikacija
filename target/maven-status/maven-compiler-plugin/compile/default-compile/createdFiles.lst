@@ -24,6 +24,7 @@ hr\aplikacija\utility\PocetniInsert.class
 hr\aplikacija\controller\ObradaPregled.class
 hr\aplikacija\view\Pregledi.class
 hr\aplikacija\view\Izbornik$3.class
+hr\aplikacija\view\Pacijenti$8.class
 hr\aplikacija\controller\ObradaOperater.class
 hr\aplikacija\model\Operater.class
 hr\aplikacija\view\Pacijenti$1.class
