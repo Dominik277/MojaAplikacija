@@ -16,19 +16,19 @@ import java.util.List;
  *
  * @author Dominik
  */
-public class ObradaPacijent extends Obrada<Pacijent>{
+public class ObradaPacijent extends Obrada<Pacijent> {
 
     @Override
     public List<Pacijent> getPodaci() {
         return session.createQuery("from Pacijent").list();
     }
-    
+
     public List<Pacijent> getPodaci(String uvjet) {
-        
-        return session.createQuery("from Pacijent p " 
-                + " where concat(p.ime, ' ',p.prezime, ' ', p.oib) " 
-                + " like :uvjet " )
-                .setParameter("uvjet","%"+uvjet+"%")
+
+        return session.createQuery("from Pacijent p "
+                + " where concat(p.ime, ' ',p.prezime, ' ', p.oib) "
+                + " like :uvjet ")
+                .setParameter("uvjet", "%" + uvjet + "%")
                 .setMaxResults(20)
                 .list();
     }
@@ -45,84 +45,76 @@ public class ObradaPacijent extends Obrada<Pacijent>{
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        if(entitet.getUslugaPregledi().size()>0){
+        if (entitet.getUslugaPregledi().size() > 0) {
             throw new MyException("Pacijent se ne može obrisati....");
         }
     }
-    
-    private void kontrolaIme() throws MyException{
+
+    private void kontrolaIme() throws MyException {
         PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
-        if(entitet.getIme()== null || entitet.getIme().isEmpty()){
-           throw new MyException("Ime mora biti uneseno");
-    }
-        if(entitet.getIme().length()>50){
-           throw new MyException("Ime ne moze biti duze od 50 znakova ");   
-}
-    }
-    
-    private void kontrolaPrezime() throws MyException{
-        PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
-       if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
-           throw new MyException("Prezime mora biti uneseno");
-       }
-   }
-    
-//    private void kontrolaOib() throws MyException{
-//       kontrolaNull(entitet.getOib(), "Oib je obavezan");
-//       if(entitet.getOib().compareTo(BigDecimal.ZERO)<0){
-//           throw new MyException("OIB ne moze biti 0");
-//       }
-//   }
-    
-    protected void kontrolaOib() throws MyException{
-     if(entitet.getOib()==null || entitet.getOib().isEmpty()){
-         throw new MyException("Unos OIB-a je obavezan");
-     }
-    if(!Oib.isValjan(entitet.getOib())){
-         throw new MyException("OIB nije valjan");
-     }
-    }
-    
-    private void kontrolaBroj() throws MyException{
-       kontrolaNull(entitet.getBroj(), "Broj telefona je obavezan");
-       if(entitet.getBroj()==null || entitet.getBroj().isEmpty()){
-            throw new MyException("Broj ne moze biti jednak ili manji od nule");
-       }
-   }
-    
-//    private void kontrolaEmail() throws MyException{
-//       if(entitet.getEmail().compareTo(BigDecimal.ZERO)<0){
-//           throw new MyException("");
-//       }
-//   }
-    
-    private void kontrolaEmail() throws MyException{
-        if(entitet.getEmail()== null){
-            throw new MyException("Email nije unesen");
+        if (entitet.getIme() == null || entitet.getIme().trim().isEmpty()) {
+            throw new MyException("Ime mora biti uneseno");
+        }
+        if (entitet.getIme().length() > 50) {
+            throw new MyException("Ime ne moze biti duze od 50 znakova ");
         }
     }
-    
-    
-    private void kontrolaNull(Object o, String poruka)throws MyException{
-         if(o==null){
-           throw new MyException(poruka);
-           }
-       }
 
-    private void kontrolaOibBaza() throws MyException{
+    private void kontrolaPrezime() throws MyException {
+        PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
+        if (entitet.getPrezime() == null || entitet.getPrezime().trim().isEmpty()) {
+            throw new MyException("Prezime mora biti uneseno");
+        }
+        if (entitet.getIme().length() > 50) {
+            throw new MyException("Ime ne moze biti duze od 50 znakova ");
+        }
+    }
+
+    protected void kontrolaOib() throws MyException {
+        if (entitet.getOib() == null || entitet.getOib().trim().isEmpty()) {
+            throw new MyException("Unos OIB-a je obavezan");
+        }
+        if (!Oib.isValjan(entitet.getOib())) {
+            throw new MyException("OIB nije valjan");
+        }
+    }
+
+    private void kontrolaBroj() throws MyException {
+        kontrolaNull(entitet.getBroj(), "Broj telefona je obavezan");
+        if (entitet.getBroj() == null || entitet.getBroj().trim().isEmpty()) {
+            throw new MyException("Broj ne moze biti jednak ili manji od nule");
+        }
+    }
+
+    private void kontrolaEmail() throws MyException {
+        if (entitet.getEmail() == null) {
+            throw new MyException("Email nije unesen");
+        }
+        if (entitet.getEmail().length() > 50) {
+            throw new MyException("Email ne moze biti duzi od 50 znakova ");
+        }
+    }
+
+    private void kontrolaNull(Object o, String poruka) throws MyException {
+        if (o == null) {
+            throw new MyException(poruka);
+        }
+    }
+
+    private void kontrolaOibBaza() throws MyException {
         List<Pacijent> lista = session.createQuery(""
-                +" from Pacijent p "
-                +" where p.oib=:oib "
-                )
+                + " from Pacijent p "
+                + " where p.oib=:oib "
+        )
                 .setParameter("oib", entitet.getOib())
                 .list();
-        if(lista.size()>0){
-            throw  new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime() + ", odaberite drugi OIB");
+        if (lista.size() > 0) {
+            throw new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime() + ", odaberite drugi OIB");
         }
     }
 }

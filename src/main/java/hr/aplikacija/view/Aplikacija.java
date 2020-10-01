@@ -13,7 +13,7 @@ import hr.aplikacija.model.Operater;
  */
 public class Aplikacija {
     
-    public static final String NASOV_APP="Edunova APP";
+    public static final String NAZIV_APLIKACIJE="Bolnica";
     
     public static Operater operater;
     

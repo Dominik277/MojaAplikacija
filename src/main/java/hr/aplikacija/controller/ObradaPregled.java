@@ -7,6 +7,7 @@ package hr.aplikacija.controller;
 
 import hr.aplikacija.model.Pregled;
 import hr.aplikacija.utility.MyException;
+import hr.aplikacija.utility.PomocnaMetoda;
 import java.util.List;
 
 /**
@@ -23,7 +24,10 @@ public class ObradaPregled extends Obrada<Pregled>{
 
     @Override
     protected void kontrolaCreate() throws MyException {
-        
+        kontrolaNaziv();
+        kontrolaOpis();
+        kontrolaSimptomi();
+        //kontrolaDatum();
     }
 
     @Override
@@ -37,5 +41,30 @@ public class ObradaPregled extends Obrada<Pregled>{
 //            throw new MyException("");
 //        }
     }
+
+    private void kontrolaNaziv() throws MyException{
+        PomocnaMetoda.neMozeBitiBroj(entitet.getNaziv(), "Naziv ne moze biti broj");
+        if(entitet.getNaziv()==null || entitet.getNaziv().trim().isEmpty()){
+            throw new MyException("Naziv tvrtke se mora unijeti");
+        }
+    }
+
+    private void kontrolaOpis() throws MyException{
+        PomocnaMetoda.neMozeBitiBroj(entitet.getOpis(), "Opis ne moze biti broj");
+        if(entitet.getOpis()==null || entitet.getOpis().trim().isEmpty()){
+            throw new MyException("Opis mora biti unesen");
+        }
+    }
+
+    private void kontrolaSimptomi() throws MyException{
+        PomocnaMetoda.neMozeBitiBroj(entitet.getSimptomi(), "Simptomi ne mogu biti broj");
+        if(entitet.getSimptomi()==null || entitet.getSimptomi().trim().isEmpty()){
+            throw new MyException("Simptomi moraju biti uneseni");
+        }
+    }
+
+//    private void kontrolaDatum() throws MyException{
+//         
+//    }
     
 }

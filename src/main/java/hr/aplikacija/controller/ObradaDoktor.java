@@ -15,8 +15,8 @@ import java.util.List;
  *
  * @author Dominik
  */
-public class ObradaDoktor extends ObradaOsoba<Doktor>{
-    
+public class ObradaDoktor extends ObradaOsoba<Doktor> {
+
 //    public ObradaDoktor(Doktor doktor){
 //        super(doktor);
 //    }
@@ -24,63 +24,67 @@ public class ObradaDoktor extends ObradaOsoba<Doktor>{
 //    public ObradaDoktor(){
 //        super();
 //    }
-    
-     @Override
+    @Override
     public List<Doktor> getPodaci() {
         return session.createQuery("from Doktor").list();
     }
-    
-    @Override
-    protected void kontrolaCreate() throws MyException{
-//        if(entitet.getIme()==null){
-//            throw new MyException("Ime nije uneseno.");
-//        }
 
-//       kontrolaIme();
-//        kontrolaPrezime();
-//        kontrolaOib();
-        super.kontrolaCreate();
+    @Override
+    protected void kontrolaCreate() throws MyException {
+        kontrolaIme();
+        kontrolaPrezime();
+        kontrolaOib();
         kontrolaEmail();
     }
-    
+
     @Override
-    protected void kontrolaUpdate() throws MyException{
-        
+    protected void kontrolaUpdate() throws MyException {
+
     }
-    
+
     @Override
-    protected void kontrolaDelete() throws MyException{
+    protected void kontrolaDelete() throws MyException {
 //        if(entitet.getGrupe().size()>0){
 //            throw new MyException("Doktor se ne može obrisati jer...")
 //        }
     }
 
-//    private void kontrolaIme()throws MyException{
-//        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
-//        if(entitet.getIme()== null || entitet.getIme().isEmpty()){
-//         throw new MyException("Ime se mora unjeti");
-//     }
-//    }
 //    
-//    private void kontrolaPrezime() throws MyException{
-//     PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
-//     if(entitet.getPrezime()== null || entitet.getPrezime().isEmpty()){
-//         throw new MyException("Prezime se mora unjeti");
-//     }
-// }
-//    
-//    protected void kontrolaOib() throws MyException{
-//     if(entitet.getOib()==null || entitet.getOib().isEmpty()){
-//         throw new MyException("Unos OIB-a je obavezan");
-//     }
-//    if(!Oib.isValjan(entitet.getOib())){
-//         throw new MyException("OIB nije valjan");
-//     }
-//    }
-    
+    private void kontrolaIme() throws MyException {
+        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
+        if (entitet.getIme() == null || entitet.getIme().trim().isEmpty()) {
+            throw new MyException("Ime mora biti uneseno");
+        }
+        if (entitet.getIme().length() > 50) {
+            throw new MyException("Ime ne moze biti duze od 50 znakova ");
+        }
+    }
+
+    private void kontrolaPrezime() throws MyException {
+        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
+        if (entitet.getPrezime() == null || entitet.getPrezime().trim().isEmpty()) {
+            throw new MyException("Ime mora biti uneseno");
+        }
+        if (entitet.getPrezime().length() > 50) {
+            throw new MyException("Prezime ne moze biti duze od 50 znakova ");
+        }
+    }
+
+    private void kontrolaOib() throws MyException {
+        if (entitet.getOib() == null || entitet.getOib().trim().isEmpty()) {
+            throw new MyException("Unos OIB-a je obavezan");
+        }
+        if (!Oib.isValjan(entitet.getOib())) {
+            throw new MyException("OIB nije valjan");
+        }
+    }
+
     private void kontrolaEmail() throws MyException{
-        if(entitet.getEmail()== null){
-            throw new MyException("Email nije unesen");
+        if (entitet.getEmail() == null || entitet.getEmail().trim().isEmpty()) {
+            throw new MyException("Email mora biti unesen");
+        }
+        if (entitet.getEmail().length() > 50) {
+            throw new MyException("Email ne moze biti duzi od 50 znakova ");
         }
     }
 }

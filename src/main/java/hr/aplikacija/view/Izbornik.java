@@ -26,7 +26,7 @@ public class Izbornik extends javax.swing.JFrame {
     public Izbornik() {
         //Poziv ove metode se ne smije obrisati
         initComponents();
-        jmNaslovGrana.setText(Aplikacija.NASOV_APP);
+        jmNaslovGrana.setText(Aplikacija.NAZIV_APLIKACIJE);
 
         //Naš kod pišemo nakon initComponents();
         setTitle(Aplikacija.operater.getImePrezime());
@@ -187,5 +187,13 @@ public class Izbornik extends javax.swing.JFrame {
         pnlGraf.add(cp, BorderLayout.CENTER);
         pnlGraf.validate();
     }
+    
+//    private void Kalendar(){
+//        pnlKalendar.setLayout(new BorderLayout());
+//        JCalendar cal = new JCalendar();
+//        pnlKalendar.setLayout(new BorderLayout());
+//        pnlKalendar.add(cal,BorderLayout.CENTER);
+//        pnl.Kalendar.validate();
+//    }
 
 }
