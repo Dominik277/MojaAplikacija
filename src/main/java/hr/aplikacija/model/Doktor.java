@@ -21,8 +21,6 @@ public class Doktor extends Osoba {
 
     private String email;
     
-    @OneToMany(mappedBy = "doktor")
-    private List<UslugaPregled> uslugapregledi = new ArrayList<>();
 
     public String getEmail() {
         return email;

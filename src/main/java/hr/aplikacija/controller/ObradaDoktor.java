@@ -17,13 +17,6 @@ import java.util.List;
  */
 public class ObradaDoktor extends ObradaOsoba<Doktor> {
 
-//    public ObradaDoktor(Doktor doktor){
-//        super(doktor);
-//    }
-//    
-//    public ObradaDoktor(){
-//        super();
-//    }
     @Override
     public List<Doktor> getPodaci() {
         return session.createQuery("from Doktor").list();
@@ -39,7 +32,10 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-
+        kontrolaIme();
+        kontrolaPrezime();
+        kontrolaOib();
+        kontrolaEmail();
     }
 
     @Override
@@ -79,7 +75,7 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
         }
     }
 
-    private void kontrolaEmail() throws MyException{
+    private void kontrolaEmail() throws MyException {
         if (entitet.getEmail() == null || entitet.getEmail().trim().isEmpty()) {
             throw new MyException("Email mora biti unesen");
         }

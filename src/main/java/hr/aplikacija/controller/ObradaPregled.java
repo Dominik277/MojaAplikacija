@@ -32,14 +32,17 @@ public class ObradaPregled extends Obrada<Pregled>{
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-        
+        kontrolaNaziv();
+        kontrolaOpis();
+        kontrolaSimptomi();
+        //kontrolaDatum();
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-//        if(entitet.getPregledi.size()>0){
-//            throw new MyException("");
-//        }
+        if(entitet.getPacijent().equals(null)){
+            throw new MyException("Ne može biti nula");
+        }
     }
 
     private void kontrolaNaziv() throws MyException{

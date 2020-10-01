@@ -244,6 +244,8 @@ public class Pacijenti extends javax.swing.JFrame {
         txtEmail.setText(entitet.getEmail());
         
         btnObrisi.setVisible(entitet.getPregledi().size()==0);
+        
+        //DefaultComboBoxModel<Pregled> mp = (DefaultComboBoxModel<Pregled>)
 
     }//GEN-LAST:event_lstPodaciValueChanged
 
