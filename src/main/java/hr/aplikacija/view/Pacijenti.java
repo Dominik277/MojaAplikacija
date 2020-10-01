@@ -243,7 +243,7 @@ public class Pacijenti extends javax.swing.JFrame {
         txtOib.setText(entitet.getOib());
         txtEmail.setText(entitet.getEmail());
         
-        btnObrisi.setVisible(entitet.getUslugaPregledi().size()==0);
+        btnObrisi.setVisible(entitet.getPregledi().size()==0);
 
     }//GEN-LAST:event_lstPodaciValueChanged
 

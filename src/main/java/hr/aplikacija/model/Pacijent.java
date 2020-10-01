@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,17 +24,17 @@ import javax.persistence.Table;
 public class Pacijent extends Osoba {
 
     private String broj;
+
+    public List<Pregled> getPregledi() {
+        return pregledi;
+    }
+
+    public void setPregledi(List<Pregled> pregledi) {
+        this.pregledi = pregledi;
+    }
     
-    @ManyToMany(mappedBy = "pacijenti")
-    private List<UslugaPregled> uslugaPregledi = new ArrayList<>();
-
-    public List<UslugaPregled> getUslugaPregledi() {
-        return uslugaPregledi;
-    }
-
-    public void setUslugaPregledi(List<UslugaPregled> uslugaPregledi) {
-        this.uslugaPregledi = uslugaPregledi;
-    }
+    @OneToMany(mappedBy = "pacijent")
+    private List<Pregled> pregledi = new ArrayList<>();
 
     public String getBroj() {
         return broj;

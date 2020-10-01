@@ -50,7 +50,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        if (entitet.getUslugaPregledi().size() > 0) {
+        if (entitet.getPregledi().size() > 0) {
             throw new MyException("Pacijent se ne može obrisati....");
         }
     }

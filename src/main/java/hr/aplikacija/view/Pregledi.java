@@ -298,6 +298,7 @@ public class Pregledi extends javax.swing.JFrame {
 
     private void postaviVrijednostiUEntitet() {
         entitet = new Pregled();
+        obrada.setEntitet(entitet);
         entitet.setNaziv(txtNaziv.getText());
         entitet.setOpis(txtOpis.getText());
         entitet.setSimptomi(txtSimptomi.getText());
