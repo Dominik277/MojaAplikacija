@@ -18,6 +18,7 @@ hr\aplikacija\view\Pregledi$1.class
 hr\aplikacija\controller\ObradaOsoba.class
 hr\aplikacija\utility\HibernateUtil.class
 hr\aplikacija\model\Usluga.class
+hr\aplikacija\view\Pacijenti$6.class
 hr\aplikacija\view\Pacijenti$3.class
 hr\aplikacija\utility\PocetniInsert.class
 hr\aplikacija\controller\ObradaPregled.class
@@ -37,6 +38,7 @@ hr\aplikacija\controller\Obrada.class
 hr\aplikacija\view\Doktori$4.class
 hr\aplikacija\model\Pacijent.class
 hr\aplikacija\view\Autorizacija$2.class
+hr\aplikacija\view\Pacijenti$7.class
 hr\aplikacija\model\Osoba.class
 hr\aplikacija\view\OsobaCellRenderer.class
 hr\aplikacija\utility\Oib.class

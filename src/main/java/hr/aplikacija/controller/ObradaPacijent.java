@@ -22,6 +22,16 @@ public class ObradaPacijent extends Obrada<Pacijent>{
     public List<Pacijent> getPodaci() {
         return session.createQuery("from Pacijent").list();
     }
+    
+    public List<Pacijent> getPodaci(String uvjet) {
+        
+        return session.createQuery("from Pacijent p " 
+                + " where concat(p.ime, ' ',p.prezime) " 
+                + " like :uvjet " )
+                .setParameter("uvjet","%"+uvjet+"%")
+                .setMaxResults(20)
+                .list();
+    }
 
     @Override
     protected void kontrolaCreate() throws MyException {
