@@ -5,6 +5,7 @@
  */
 package hr.aplikacija.utility;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -19,7 +20,8 @@ public class HibernateUtil {
 
    private static StandardServiceRegistry registry;
     private static SessionFactory sessionFactory;
-    public static SessionFactory getSessionFactory() {
+    private static Session session;
+    public static Session getSession() {
         if (sessionFactory == null) {
             try {
                 // Create registry
@@ -30,6 +32,7 @@ public class HibernateUtil {
                 Metadata metadata = sources.getMetadataBuilder().build();
                 // Create SessionFactory
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
+                session=sessionFactory.openSession();
             } catch (Exception e) {
                 e.printStackTrace();
                 if (registry != null) {
@@ -37,7 +40,7 @@ public class HibernateUtil {
                 }
             }
         }
-        return sessionFactory;
+        return session;
     }
     public static void shutdown() {
         if (registry != null) {

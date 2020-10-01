@@ -6,8 +6,11 @@
 package hr.aplikacija.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
@@ -15,47 +18,21 @@ import javax.persistence.Table;
  *
  * @author Dominik
  */
-
 @Entity
-@Table(name="pacijent")
-public class Pacijent extends Entitet{
-    
-    private String ime;
-    private String prezime;
-    private String email;
-    private String oib;
+@Table(name = "pacijent")
+public class Pacijent extends Osoba {
+
     private String broj;
+    
+    @ManyToMany(mappedBy = "pacijenti")
+    private List<UslugaPregled> uslugaPregledi = new ArrayList<>();
 
-    public String getIme() {
-        return ime;
+    public List<UslugaPregled> getUslugaPregledi() {
+        return uslugaPregledi;
     }
 
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
-    public String getPrezime() {
-        return prezime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getOib() {
-        return oib;
-    }
-
-    public void setOib(String oib) {
-        this.oib = oib;
+    public void setUslugaPregledi(List<UslugaPregled> uslugaPregledi) {
+        this.uslugaPregledi = uslugaPregledi;
     }
 
     public String getBroj() {
@@ -65,7 +42,5 @@ public class Pacijent extends Entitet{
     public void setBroj(String broj) {
         this.broj = broj;
     }
-
-    
 
 }

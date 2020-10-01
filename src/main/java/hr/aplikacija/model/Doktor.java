@@ -5,23 +5,24 @@
  */
 package hr.aplikacija.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  *
  * @author Dominik
  */
-
 @Entity
-@Table(name="doktor")
-public class Doktor extends Osoba{
-    
-    
+@Table(name = "doktor")
+public class Doktor extends Osoba {
+
     private String email;
     
-
-    
+    @OneToMany(mappedBy = "doktor")
+    private List<UslugaPregled> uslugapregledi = new ArrayList<>();
 
     public String getEmail() {
         return email;
@@ -30,5 +31,5 @@ public class Doktor extends Osoba{
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }

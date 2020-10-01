@@ -48,7 +48,7 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
     }
     
     private void kontrolaOib() throws MyException{
-        if(entitet.getOib()==null || entitet.getIme().isEmpty()){
+        if(entitet.getOib()==null || entitet.getOib().isEmpty()){
             throw new MyException("Unos OIB-a je obavezan");
         }
         if(!Oib.isValjan(entitet.getOib())){

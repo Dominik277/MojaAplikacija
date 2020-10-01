@@ -39,7 +39,9 @@ public class ObradaPacijent extends Obrada<Pacijent>{
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(entitet.getUslugaPregledi().size()>0){
+            throw new MyException("Pacijent se ne može obrisati....");
+        }
     }
     
     private void kontrolaIme() throws MyException{

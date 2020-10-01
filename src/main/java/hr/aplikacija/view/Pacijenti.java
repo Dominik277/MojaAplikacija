@@ -5,31 +5,30 @@
  */
 package hr.aplikacija.view;
 
-import hr.aplikacija.controller.ObradaDoktor;
-import hr.aplikacija.model.Doktor;
+import hr.aplikacija.controller.ObradaPacijent;
+import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.utility.MyException;
 import java.awt.Component;
 import javax.swing.DefaultListModel;
-import javax.swing.JComponent;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Dominik
  */
-public class Doktori extends javax.swing.JFrame {
+public class Pacijenti extends javax.swing.JFrame {
 
-    private ObradaDoktor obrada;
-    private Doktor entitet;
+    private ObradaPacijent obrada;
+    private Pacijent entitet;
     
     /**
-     * Creates new form Doktori
+     * Creates new form Pacijenti
      */
-    public Doktori() {
+    public Pacijenti() {
         initComponents();
         lstPodaci.setCellRenderer(new OsobaCellRenderer());
-        obrada= new ObradaDoktor();
-        setTitle(Aplikacija.operater.getImePrezime()+" - Doktori");
+        obrada= new ObradaPacijent();
+        setTitle(Aplikacija.operater.getImePrezime()+" - Pacijenti");
         ucitajPodatke();
     }
 
@@ -203,6 +202,8 @@ public class Doktori extends javax.swing.JFrame {
         txtPrezime.setText(entitet.getPrezime());
         txtOib.setText(entitet.getOib());
         txtEmail.setText(entitet.getEmail());
+        
+        btnObrisi.setVisible(entitet.getUslugaPregledi().size()==0);
 
     }//GEN-LAST:event_lstPodaciValueChanged
 
@@ -213,7 +214,7 @@ public class Doktori extends javax.swing.JFrame {
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
         
         lblPoruka.setText("");
-        entitet = new Doktor();
+        entitet = new Pacijent();
         
         postaviVrijednostiUEntitet();
         
@@ -273,7 +274,7 @@ public class Doktori extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lblPoruka;
-    private javax.swing.JList<Doktor> lstPodaci;
+    private javax.swing.JList<Pacijent> lstPodaci;
     private javax.swing.JPanel pnlPodaci;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtIme;
@@ -283,7 +284,7 @@ public class Doktori extends javax.swing.JFrame {
 
     private void ucitajPodatke() {
         
-        DefaultListModel<Doktor> m = new DefaultListModel<>();
+        DefaultListModel<Pacijent> m = new DefaultListModel<>();
         obrada.getPodaci().forEach(s->m.addElement(s));
         
         lstPodaci.setModel(m);

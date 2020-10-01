@@ -27,8 +27,7 @@ public class Pregled extends Entitet{
     private String simptomi;
     private Date datum;
     
-    @OneToMany(mappedBy = "doktor")
-    private List<Doktor> doktori = new ArrayList<>();
+    
 
     @ManyToOne
     private Doktor doktor;

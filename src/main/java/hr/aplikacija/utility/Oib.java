@@ -7,8 +7,9 @@ package hr.aplikacija.utility;
 
 import java.net.URL;
 import java.util.Scanner;
-import javax.swing.text.Document;
+
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import us.codecraft.xsoup.Xsoup;
 
@@ -55,6 +56,7 @@ public class Oib {
             return Xsoup.compile("/html/body/div[1]/div[1]/text()").evaluate((Element) document).get();
 
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
 

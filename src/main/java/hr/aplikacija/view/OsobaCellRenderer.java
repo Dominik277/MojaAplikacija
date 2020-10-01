@@ -6,6 +6,7 @@
 package hr.aplikacija.view;
 
 import hr.aplikacija.model.Doktor;
+import hr.aplikacija.model.Osoba;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;
@@ -16,19 +17,19 @@ import javax.swing.ListCellRenderer;
  *
  * @author Dominik
  */
-public class DoktorCellRenderer extends JLabel implements ListCellRenderer<Doktor>{
+public class OsobaCellRenderer extends JLabel implements ListCellRenderer<Osoba> {
 
     @Override
-    public Component getListCellRendererComponent(JList<? extends Doktor> list, Doktor value, int index, boolean isSelected, boolean cellHasFocus) {
+    public Component getListCellRendererComponent(JList<? extends Osoba> list, Osoba value, int index, boolean isSelected, boolean cellHasFocus) {
         setText(value.getIme() + " " + value.getPrezime());
-        if(isSelected){
+        if (isSelected) {
             setBackground(Color.BLUE);
-            setForeground(Color.WHITE);
-        }else{
+            setForeground(Color.RED);
+        } else {
             setBackground(Color.WHITE);
             setForeground(Color.BLACK);
         }
         return this;
     }
-    
+
 }
