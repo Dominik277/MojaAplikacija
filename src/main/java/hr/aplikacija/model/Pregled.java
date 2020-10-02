@@ -5,8 +5,11 @@
  */
 package hr.aplikacija.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -30,6 +33,17 @@ public class Pregled extends Entitet{
     
     @ManyToOne
     private Pacijent pacijent;
+    
+//    @ManyToMany
+//    private List<Usluga> usluge = new ArrayList<>();
+//
+//    public List<Usluga> getUsluge() {
+//        return usluge;
+//    }
+//
+//    public void setUsluge(List<Usluga> usluge) {
+//        this.usluge = usluge;
+//    }
     
     public Date getDatum() {
         return datum;

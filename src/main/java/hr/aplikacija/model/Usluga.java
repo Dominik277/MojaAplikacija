@@ -20,6 +20,9 @@ public class Usluga extends Entitet{
     
     private String naziv;
     private BigDecimal cijena;
+    
+   //@OneToMany(mappedby="smjer")
+   // private List<Grupa> grupe = new ArrayList<>();
    
     public String getNaziv() {
         return naziv;

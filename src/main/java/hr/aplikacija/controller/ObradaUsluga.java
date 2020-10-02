@@ -32,7 +32,8 @@ public class ObradaUsluga extends Obrada<Usluga> {
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-        
+        kontrolaNaziv();
+        kontrolaCijena();
     }
 
     @Override
