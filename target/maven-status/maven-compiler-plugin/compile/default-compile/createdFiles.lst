@@ -4,6 +4,7 @@ hr\aplikacija\controller\ObradaUsluga.class
 hr\aplikacija\view\Izbornik$1.class
 hr\aplikacija\model\Entitet.class
 hr\aplikacija\model\UslugaPregled.class
+hr\aplikacija\view\Izbornik$5.class
 hr\aplikacija\view\Doktori$1.class
 hr\aplikacija\utility\MyException.class
 hr\aplikacija\utility\PomocnaMetoda.class
@@ -48,6 +49,7 @@ hr\aplikacija\view\Autorizacija.class
 hr\aplikacija\start\Start.class
 hr\aplikacija\model\Pregled.class
 hr\aplikacija\view\Doktori$2.class
+hr\aplikacija\view\Usluge.class
 hr\aplikacija\controller\ObradaDoktor.class
 hr\aplikacija\view\Pacijenti.class
 hr\aplikacija\model\Doktor.class

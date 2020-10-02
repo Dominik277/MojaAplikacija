@@ -104,6 +104,11 @@ public class Izbornik extends javax.swing.JFrame {
         jmNaslovGrana.add(jmiPregledi);
 
         jmiUsluge.setText("Usluge");
+        jmiUsluge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiUslugeActionPerformed(evt);
+            }
+        });
         jmNaslovGrana.add(jmiUsluge);
 
         jmiOperateri.setText("Operateri");
@@ -152,6 +157,10 @@ public class Izbornik extends javax.swing.JFrame {
     private void jmiPacijentiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiPacijentiActionPerformed
         new Pacijenti().setVisible(true);
     }//GEN-LAST:event_jmiPacijentiActionPerformed
+
+    private void jmiUslugeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiUslugeActionPerformed
+        new Usluge().setVisible(true);
+    }//GEN-LAST:event_jmiUslugeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

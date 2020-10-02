@@ -37,4 +37,9 @@ public class Usluga extends Entitet{
         this.cijena = cijena;
     }
     
+    @Override
+    public String toString(){
+        return getNaziv();
+    }
+    
 }
