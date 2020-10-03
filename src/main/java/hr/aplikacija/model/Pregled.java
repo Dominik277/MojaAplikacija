@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -33,6 +35,22 @@ public class Pregled extends Entitet{
     
     @ManyToOne
     private Pacijent pacijent;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "clan",
+        joinColumns = @JoinColumn(name = "pregled"),
+        inverseJoinColumns = @JoinColumn(name = "usluga"))
+    
+    private List<Usluga> usluge = new ArrayList<>();
+
+    public List<Usluga> getUsluge() {
+        return usluge;
+    }
+
+    public void setUsluge(List<Usluga> usluge) {
+        this.usluge = usluge;
+    }
     
 //    @ManyToMany
 //    private List<Usluga> usluge = new ArrayList<>();

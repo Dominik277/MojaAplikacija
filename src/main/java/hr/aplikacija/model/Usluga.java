@@ -6,7 +6,10 @@
 package hr.aplikacija.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -21,8 +24,16 @@ public class Usluga extends Entitet{
     private String naziv;
     private BigDecimal cijena;
     
-   //@OneToMany(mappedby="smjer")
-   // private List<Grupa> grupe = new ArrayList<>();
+   @ManyToMany(mappedBy = "usluge")
+   private List<Pregled> pregledi = new ArrayList<>();
+
+    public List<Pregled> getPregledi() {
+        return pregledi;
+    }
+
+    public void setPregledi(List<Pregled> pregledi) {
+        this.pregledi = pregledi;
+    }
    
     public String getNaziv() {
         return naziv;

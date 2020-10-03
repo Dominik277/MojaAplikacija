@@ -206,6 +206,7 @@ public class Usluge extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+        entitet=lstPodaci.getSelectedValue();
         if(entitet==null){
             return;
         }
@@ -248,13 +249,14 @@ public class Usluge extends javax.swing.JFrame {
     }
 
     private void postaviVrijednostiUEntitet() {
-        entitet = new Usluga();
-        obrada.setEntitet(entitet);
+        //entitet = new Usluga();
+        //obrada.setEntitet(entitet);
         entitet.setNaziv(txtNaziv.getText());
         try {
             entitet.setCijena(new BigDecimal(txtCijena.getText()));
         } catch (Exception e) {
             entitet.setCijena(BigDecimal.ZERO);
         }
+        obrada.setEntitet(entitet);
     }
 }
