@@ -15,9 +15,7 @@ hr\aplikacija\view\Autorizacija$3.class
 hr\aplikacija\view\Izbornik$2.class
 hr\aplikacija\controller\ObradaPacijent.class
 hr\aplikacija\view\Autorizacija$4.class
-hr\aplikacija\view\Pregledi$4.class
 hr\aplikacija\view\Usluge$2.class
-hr\aplikacija\view\Pregledi$1.class
 hr\aplikacija\controller\ObradaOsoba.class
 hr\aplikacija\utility\HibernateUtil.class
 hr\aplikacija\model\Usluga.class
@@ -34,10 +32,8 @@ hr\aplikacija\view\Pacijenti$1.class
 hr\aplikacija\view\Aplikacija.class
 hr\aplikacija\view\Autorizacija$1.class
 hr\aplikacija\view\Doktori$3.class
-hr\aplikacija\view\Pregledi$5.class
 hr\aplikacija\view\Pacijenti$4.class
 hr\aplikacija\view\Pacijenti$5.class
-hr\aplikacija\view\Pregledi$2.class
 hr\aplikacija\controller\Obrada.class
 hr\aplikacija\view\Doktori$4.class
 hr\aplikacija\model\Pacijent.class
@@ -57,4 +53,3 @@ hr\aplikacija\view\Usluge.class
 hr\aplikacija\controller\ObradaDoktor.class
 hr\aplikacija\view\Pacijenti.class
 hr\aplikacija\model\Doktor.class
-hr\aplikacija\view\Pregledi$3.class
