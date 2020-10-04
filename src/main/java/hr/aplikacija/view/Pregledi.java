@@ -6,21 +6,31 @@
 package hr.aplikacija.view;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import hr.aplikacija.controller.ObradaDoktor;
 import hr.aplikacija.controller.ObradaPacijent;
 import hr.aplikacija.controller.ObradaPregled;
 import hr.aplikacija.model.Doktor;
 import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.model.Pregled;
+import hr.aplikacija.model.Usluga;
 import hr.aplikacija.utility.MyException;
 import java.awt.event.KeyEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -521,8 +531,59 @@ public class Pregledi extends javax.swing.JFrame {
 
     private void btnExportJsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportJsonActionPerformed
         
-        Gson gson = new Gson();
-        System.out.println(gson.toJson(obrada.getPodaci()));
+        ExclusionStrategy strategy = new ExclusionStrategy() {
+            @Override
+            public boolean shouldSkipField(FieldAttributes field) {
+                if (field.getDeclaringClass() == Usluga.class && field.getName().equals("pregledo")) {
+                    return true;
+                }
+                if (field.getDeclaringClass() == Pacijent.class && field.getName().equals("pregledi")) {
+                    return true;
+                }
+                if (field.getDeclaringClass() == Doktor.class && field.getName().equals("pregledi")) {
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public boolean shouldSkipClass(Class<?> clazz) {
+                return false;
+            }
+        };
+
+        Gson gson = new GsonBuilder()
+                .addSerializationExclusionStrategy(strategy)
+                .setPrettyPrinting()
+                .create();
+
+        JFileChooser jfc = new JFileChooser();
+        jfc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        jfc.setSelectedFile(new File(System.getProperty("user.home") + File.separator + "podaci.json"));
+
+        if (jfc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+
+            if (!jfc.getSelectedFile().exists() ||
+                    (jfc.getSelectedFile().exists() && 
+                    JOptionPane.showConfirmDialog(rootPane, 
+                        "Datoteka postoji, prepisati?", 
+                        "Datoteka postoji", 
+                        JOptionPane.YES_NO_OPTION, 
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)) {
+                    try {
+                        BufferedWriter writer = new BufferedWriter(
+                                new FileWriter(jfc.getSelectedFile(), StandardCharsets.UTF_8));
+                        writer.write(gson.toJson(obrada.getPodaci()));
+                        writer.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                }
+            }
+
+            
+            
+            
+        }
         
     }//GEN-LAST:event_btnExportJsonActionPerformed
 
