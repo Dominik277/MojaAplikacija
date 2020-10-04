@@ -253,6 +253,11 @@ public class Pregledi extends javax.swing.JFrame {
         });
 
         btnMakniPacijenteIzPregleda.setText("<<");
+        btnMakniPacijenteIzPregleda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMakniPacijenteIzPregledaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -484,6 +489,25 @@ public class Pregledi extends javax.swing.JFrame {
         }
         lstPacijentiNaPregledu.repaint();
     }//GEN-LAST:event_btnDodajPacijenteUPregledActionPerformed
+
+    private void btnMakniPacijenteIzPregledaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakniPacijenteIzPregledaActionPerformed
+        DefaultListModel<Pacijent> m;
+        try {
+            m=(DefaultListModel<Pacijent>) lstPacijentiNaPregledu.getModel();
+        } catch (Exception e) {
+           return;
+        }
+        
+        for(Pacijent p : lstPacijentiNaPregledu.getSelectedValuesList()){
+            for(int i=0;i<m.size();i++){
+                if(p.getId().equals(m.getElementAt(i).getId())){
+                    m.removeElementAt(i);
+                    break;
+                }
+            }
+        }
+        lstPacijentiNaPregledu.repaint();
+    }//GEN-LAST:event_btnMakniPacijenteIzPregledaActionPerformed
 
     private void ucitajPodatke() {
         DefaultListModel<Pregled> m = new DefaultListModel<>();

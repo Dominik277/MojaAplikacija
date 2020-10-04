@@ -6,6 +6,7 @@ hr\aplikacija\model\Entitet.class
 hr\aplikacija\view\Usluge$3.class
 hr\aplikacija\model\UslugaPregled.class
 hr\aplikacija\view\Izbornik$5.class
+hr\aplikacija\view\Pregledi$11.class
 hr\aplikacija\view\Pregledi$10.class
 hr\aplikacija\view\Doktori$1.class
 hr\aplikacija\utility\MyException.class
