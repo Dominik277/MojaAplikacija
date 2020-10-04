@@ -39,13 +39,14 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         kontrolaPrezime();
         kontrolaEmail();
         kontrolaOib();
-        kontrolaOibBaza();
+        kontrolaOibBazaKreiraj();
         kontrolaBroj();
     }
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-
+        kontrolaOibBazaPromjeni();
+        
     }
 
     @Override
@@ -106,12 +107,25 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         }
     }
 
-    private void kontrolaOibBaza() throws MyException {
+    private void kontrolaOibBazaKreiraj() throws MyException {
         List<Pacijent> lista = session.createQuery(""
                 + " from Pacijent p "
                 + " where p.oib=:oib "
         )
                 .setParameter("oib", entitet.getOib())
+                .list();
+        if (lista.size() > 0) {
+            throw new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime() + ", odaberite drugi OIB");
+        }
+    }
+
+    private void kontrolaOibBazaPromjeni() throws MyException {
+        List<Pacijent> lista = session.createQuery(""
+                + " from Pacijent p "
+                + " where p.oib=:oib and p.id!=:id"
+        )
+                .setParameter("oib", entitet.getOib())
+                .setParameter("id", entitet.getId())
                 .list();
         if (lista.size() > 0) {
             throw new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime() + ", odaberite drugi OIB");

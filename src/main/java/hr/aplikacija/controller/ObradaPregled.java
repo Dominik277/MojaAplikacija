@@ -41,14 +41,14 @@ public class ObradaPregled extends Obrada<Pregled>{
     @Override
     protected void kontrolaDelete() throws MyException {
         if(entitet.getPacijent().equals(null)){
-            throw new MyException("Ne može biti nula");
+            throw new MyException("Pacijent se ne može brisati");
         }
     }
 
     private void kontrolaNaziv() throws MyException{
         PomocnaMetoda.neMozeBitiBroj(entitet.getNaziv(), "Naziv ne moze biti broj");
         if(entitet.getNaziv()==null || entitet.getNaziv().trim().isEmpty()){
-            throw new MyException("Naziv tvrtke se mora unijeti");
+            throw new MyException("Naziv se mora unijeti");
         }
     }
 

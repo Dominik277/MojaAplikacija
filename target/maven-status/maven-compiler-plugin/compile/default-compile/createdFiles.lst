@@ -6,6 +6,7 @@ hr\aplikacija\model\Entitet.class
 hr\aplikacija\view\Usluge$3.class
 hr\aplikacija\model\UslugaPregled.class
 hr\aplikacija\view\Izbornik$5.class
+hr\aplikacija\view\Pregledi$10.class
 hr\aplikacija\view\Doktori$1.class
 hr\aplikacija\utility\MyException.class
 hr\aplikacija\utility\PomocnaMetoda.class
@@ -13,12 +14,15 @@ hr\aplikacija\view\Izbornik.class
 hr\aplikacija\view\Pacijenti$2.class
 hr\aplikacija\view\Autorizacija$3.class
 hr\aplikacija\view\Izbornik$2.class
+hr\aplikacija\view\Pregledi$7.class
 hr\aplikacija\controller\ObradaPacijent.class
 hr\aplikacija\view\Autorizacija$4.class
+hr\aplikacija\view\Pregledi$4.class
 hr\aplikacija\view\Usluge$2.class
 hr\aplikacija\view\Pregledi$1.class
 hr\aplikacija\controller\ObradaOsoba.class
 hr\aplikacija\utility\HibernateUtil.class
+hr\aplikacija\view\Pregledi$8.class
 hr\aplikacija\model\Usluga.class
 hr\aplikacija\view\Pacijenti$6.class
 hr\aplikacija\view\Pacijenti$3.class
@@ -33,6 +37,7 @@ hr\aplikacija\view\Pacijenti$1.class
 hr\aplikacija\view\Aplikacija.class
 hr\aplikacija\view\Autorizacija$1.class
 hr\aplikacija\view\Doktori$3.class
+hr\aplikacija\view\Pregledi$5.class
 hr\aplikacija\view\Pacijenti$4.class
 hr\aplikacija\view\Pacijenti$5.class
 hr\aplikacija\view\Pregledi$2.class
@@ -44,8 +49,10 @@ hr\aplikacija\view\Pacijenti$7.class
 hr\aplikacija\model\Osoba.class
 hr\aplikacija\view\Usluge$4.class
 hr\aplikacija\view\OsobaCellRenderer.class
+hr\aplikacija\view\Pregledi$6.class
 hr\aplikacija\utility\Oib.class
 hr\aplikacija\view\Izbornik$4.class
+hr\aplikacija\view\Pregledi$9.class
 hr\aplikacija\view\Autorizacija.class
 hr\aplikacija\start\Start.class
 hr\aplikacija\model\Pregled.class
