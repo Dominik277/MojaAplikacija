@@ -117,6 +117,7 @@ public class Pregledi extends javax.swing.JFrame {
         btnDodajPacijenteUPregled = new javax.swing.JButton();
         btnMakniPacijenteIzPregleda = new javax.swing.JButton();
         btnExportJson = new javax.swing.JButton();
+        btnExportWord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -297,7 +298,7 @@ public class Pregledi extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -328,6 +329,13 @@ public class Pregledi extends javax.swing.JFrame {
             }
         });
 
+        btnExportWord.setText("WORD");
+        btnExportWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportWordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -344,9 +352,12 @@ public class Pregledi extends javax.swing.JFrame {
                             .addComponent(btnExportJson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPromjeni)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnObrisi)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnPromjeni)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnObrisi))
+                            .addComponent(btnExportWord))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -368,7 +379,9 @@ public class Pregledi extends javax.swing.JFrame {
                                     .addComponent(btnPromjeni)
                                     .addComponent(btnObrisi))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(btnExportJson)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnExportJson)
+                            .addComponent(btnExportWord))))
                 .addContainerGap())
         );
 
@@ -570,6 +583,8 @@ public class Pregledi extends javax.swing.JFrame {
                         "Datoteka postoji", 
                         JOptionPane.YES_NO_OPTION, 
                         JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)) {
+                
+                        
                     try {
                         BufferedWriter writer = new BufferedWriter(
                                 new FileWriter(jfc.getSelectedFile(), StandardCharsets.UTF_8));
@@ -587,6 +602,24 @@ public class Pregledi extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnExportJsonActionPerformed
 
+    private void btnExportWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportWordActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        jfc.setCurrentDirectory(new File(System.getProperty("user.home")));
+        jfc.setSelectedFile(new File(System.getProperty("user.home") + File.separator + "Eudnova.docx"));
+
+        if (jfc.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+              if (!jfc.getSelectedFile().exists() ||
+                    (jfc.getSelectedFile().exists() && 
+                    JOptionPane.showConfirmDialog(rootPane, 
+                        "Datoteka postoji, prepisati?", 
+                        "Datoteka postoji", 
+                        JOptionPane.YES_NO_OPTION, 
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION)) {
+            }
+ 
+        }
+    }//GEN-LAST:event_btnExportWordActionPerformed
+
     private void ucitajPodatke() {
         DefaultListModel<Pregled> m = new DefaultListModel<>();
         obrada.getPodaci().forEach(s -> m.addElement(s));
@@ -598,6 +631,7 @@ public class Pregledi extends javax.swing.JFrame {
     private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnDodajPacijenteUPregled;
     private javax.swing.JButton btnExportJson;
+    private javax.swing.JButton btnExportWord;
     private javax.swing.JButton btnMakniPacijenteIzPregleda;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromjeni;
