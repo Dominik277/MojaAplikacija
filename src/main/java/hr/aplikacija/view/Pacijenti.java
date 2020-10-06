@@ -269,22 +269,17 @@ public class Pacijenti extends javax.swing.JFrame {
         
         
         File slika = new File("slike" + File.separator + "pacijenti" 
-                + File.separator + entitet.getId() + ".jpg");
-        if(!slika.exists()){
-            
-            try {
-             slika=new File("slike" + 
-                     File.separator + "nepoznato.jpg");
-                ImageIcon ii = new ImageIcon(Imaging.getBufferedImage(slika)
+                + File.separator + entitet.getId() + ".png");
+        if(!slika.exists()){ slika=new File("slike" + 
+                     File.separator + "nepoznato.jpg");    
+        }
+          try {
+            ImageIcon ii = new ImageIcon(Imaging.getBufferedImage(slika)
             .getScaledInstance(100, 150, Image.SCALE_DEFAULT));
                 lblSlika.setIcon(ii);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            
-            
-        }
-        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }   
         //DefaultComboBoxModel<Pregled> mp = (DefaultComboBoxModel<Pregled>)
 
     }//GEN-LAST:event_lstPodaciValueChanged
@@ -367,8 +362,8 @@ public class Pacijenti extends javax.swing.JFrame {
             try {
                 BufferedImage bi = Imaging.getBufferedImage(jfc.getSelectedFile());
                 File slika = new File("slike" + File.separator 
-                + "pacijenti" + File.separator + entitet.getId() + ".jpg");
-                ImageFormat format = ImageFormats.JPEG;
+                + "pacijenti" + File.separator + entitet.getId() + ".png");
+                ImageFormat format = ImageFormats.PNG;
                 Map<String,Object> params = new HashMap<>();
                 Imaging.writeImage(bi, slika, format, params);
                 ImageIcon ii = new ImageIcon(Imaging.getBufferedImage(slika)
