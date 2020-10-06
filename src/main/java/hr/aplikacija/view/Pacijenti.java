@@ -10,9 +10,19 @@ import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.Oib;
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JTextField;
+import org.apache.commons.imaging.ImageFormat;
+import org.apache.commons.imaging.ImageFormats;
+import org.apache.commons.imaging.Imaging;
 
 /**
  *
@@ -94,6 +104,12 @@ public class Pacijenti extends javax.swing.JFrame {
         txtDovuciOib.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDovuciOibActionPerformed(evt);
+            }
+        });
+
+        lblSlika.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSlikaMouseClicked(evt);
             }
         });
 
@@ -249,7 +265,25 @@ public class Pacijenti extends javax.swing.JFrame {
         txtOib.setText(entitet.getOib());
         txtEmail.setText(entitet.getEmail());
         
-        btnObrisi.setVisible(entitet.getPregledi().size()==0);
+        btnObrisi.setVisible(entitet.getPregledi().isEmpty());
+        
+        
+        File slika = new File("slike" + File.separator + "pacijenti" 
+                + File.separator + entitet.getId() + ".jpg");
+        if(!slika.exists()){
+            
+            try {
+             slika=new File("slike" + 
+                     File.separator + "nepoznato.jpg");
+                ImageIcon ii = new ImageIcon(Imaging.getBufferedImage(slika)
+            .getScaledInstance(100, 150, Image.SCALE_DEFAULT));
+                lblSlika.setIcon(ii);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            
+        }
         
         //DefaultComboBoxModel<Pregled> mp = (DefaultComboBoxModel<Pregled>)
 
@@ -323,6 +357,29 @@ public class Pacijenti extends javax.swing.JFrame {
     private void txtDovuciOibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDovuciOibActionPerformed
         txtOib.setText(Oib.getOibIiCentrala());
     }//GEN-LAST:event_txtDovuciOibActionPerformed
+
+    private void lblSlikaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSlikaMouseClicked
+        if(entitet==null){
+            return;
+        }
+        JFileChooser jfc = new JFileChooser();
+        if(jfc.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+            try {
+                BufferedImage bi = Imaging.getBufferedImage(jfc.getSelectedFile());
+                File slika = new File("slike" + File.separator 
+                + "pacijenti" + File.separator + entitet.getId() + ".jpg");
+                ImageFormat format = ImageFormats.JPEG;
+                Map<String,Object> params = new HashMap<>();
+                Imaging.writeImage(bi, slika, format, params);
+                ImageIcon ii = new ImageIcon(Imaging.getBufferedImage(slika)
+            .getScaledInstance(100, 150, Image.SCALE_DEFAULT));
+                lblSlika.setIcon(ii);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+        }
+    }//GEN-LAST:event_lblSlikaMouseClicked
 
     
 

@@ -217,6 +217,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSlika">
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblSlikaMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
