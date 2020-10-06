@@ -32,21 +32,21 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-        kontrolaIme();
-        kontrolaPrezime();
-        kontrolaOib();
-        kontrolaEmail();
+//        kontrolaIme();
+//        kontrolaPrezime();
+//        kontrolaOib();
+//        kontrolaEmail();
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-//        if(entitet.getGrupe().size()>0){
-//            throw new MyException("Doktor se ne može obrisati jer...")
-//        }
+        if(entitet.getPregledi().size()>0){
+            throw new MyException("Doktor se ne može obrisati");
+        }
     }
 
-//    
-    private void kontrolaIme() throws MyException {
+ 
+    protected void kontrolaIme() throws MyException {
         PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
         if (entitet.getIme() == null || entitet.getIme().trim().isEmpty()) {
             throw new MyException("Ime mora biti uneseno");
@@ -56,7 +56,7 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
         }
     }
 
-    private void kontrolaPrezime() throws MyException {
+    protected void kontrolaPrezime() throws MyException {
         PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
         if (entitet.getPrezime() == null || entitet.getPrezime().trim().isEmpty()) {
             throw new MyException("Ime mora biti uneseno");
@@ -66,7 +66,7 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
         }
     }
 
-    private void kontrolaOib() throws MyException {
+    protected void kontrolaOib() throws MyException {
         if (entitet.getOib() == null || entitet.getOib().trim().isEmpty()) {
             throw new MyException("Unos OIB-a je obavezan");
         }
@@ -75,7 +75,7 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
         }
     }
 
-    private void kontrolaEmail() throws MyException {
+    protected void kontrolaEmail() throws MyException {
         if (entitet.getEmail() == null || entitet.getEmail().trim().isEmpty()) {
             throw new MyException("Email mora biti unesen");
         }

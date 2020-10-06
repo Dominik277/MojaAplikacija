@@ -20,6 +20,9 @@ import javax.persistence.Table;
 public class Pacijent extends Osoba {
 
     private String broj;
+    
+    @OneToMany(mappedBy = "pacijent")
+    private List<Pregled> pregledi = new ArrayList<>();
 
     public List<Pregled> getPregledi() {
         return pregledi;
@@ -29,9 +32,6 @@ public class Pacijent extends Osoba {
         this.pregledi = pregledi;
     }
     
-    @OneToMany(mappedBy = "pacijent")
-    private List<Pregled> pregledi = new ArrayList<>();
-
     public String getBroj() {
         return broj;
     }

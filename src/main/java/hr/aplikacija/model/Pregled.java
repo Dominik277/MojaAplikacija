@@ -120,5 +120,7 @@ public class Pregled extends Entitet{
 //    }
     
     
+    
+    
 
 }

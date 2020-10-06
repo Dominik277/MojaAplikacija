@@ -48,20 +48,6 @@ public T createAll(List<T> lista) throws MyException {
         }
         session.getTransaction().commit();
 
-//public T update() throws MyException{
-//    kontrolaUpdate();
-//    save();
-//    return entitet;
-//}
-
-//public boolean delete() throws MyException{
-//    kontrolaDelete();
-//    session.beginTransaction();
-//    session.delete(entitet);
-//    session.getTransaction().commit();
-//    return true;
-//}
-
 return entitet;
 }
 public T update() throws MyException {
@@ -69,9 +55,6 @@ public T update() throws MyException {
         save();
         return entitet;
     }
-
-
-
 
 private void save(){
     session.beginTransaction();

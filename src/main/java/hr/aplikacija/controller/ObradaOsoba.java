@@ -33,21 +33,21 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
         
     }
     
-    private void kontrolaIme() throws MyException{
+    protected void kontrolaIme() throws MyException{
         PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
         if(entitet.getIme()==null || entitet.getIme().trim().isEmpty()){
             throw new MyException("Ime se mora unijeti");
         }
     }
     
-    private void kontrolaPrezime() throws MyException{
+    protected void kontrolaPrezime() throws MyException{
         PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Prezime ne moze biti broj");
         if(entitet.getPrezime()==null || entitet.getPrezime().trim().isEmpty()){
             throw new MyException("Prezime se mora unijeti");
         }
     }
     
-    private void kontrolaOib() throws MyException{
+    protected void kontrolaOib() throws MyException{
         if(entitet.getOib()==null || entitet.getOib().trim().isEmpty()){
             throw new MyException("Unos OIB-a je obavezan");
         }

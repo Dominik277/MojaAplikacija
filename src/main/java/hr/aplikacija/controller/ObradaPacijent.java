@@ -56,7 +56,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         }
     }
 
-    private void kontrolaIme() throws MyException {
+    protected void kontrolaIme() throws MyException {
         PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
         if (entitet.getIme() == null || entitet.getIme().trim().isEmpty()) {
             throw new MyException("Ime mora biti uneseno");
@@ -66,7 +66,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         }
     }
 
-    private void kontrolaPrezime() throws MyException {
+    protected void kontrolaPrezime() throws MyException {
         PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
         if (entitet.getPrezime() == null || entitet.getPrezime().trim().isEmpty()) {
             throw new MyException("Prezime mora biti uneseno");
@@ -85,14 +85,14 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         }
     }
 
-    private void kontrolaBroj() throws MyException {
+    protected void kontrolaBroj() throws MyException {
         kontrolaNull(entitet.getBroj(), "Broj telefona je obavezan");
         if (entitet.getBroj() == null || entitet.getBroj().trim().isEmpty()) {
             throw new MyException("Broj ne moze biti jednak ili manji od nule");
         }
     }
 
-    private void kontrolaEmail() throws MyException {
+    protected void kontrolaEmail() throws MyException {
         if (entitet.getEmail() == null) {
             throw new MyException("Email nije unesen");
         }
@@ -101,7 +101,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         }
     }
 
-    private void kontrolaNull(Object o, String poruka) throws MyException {
+    protected void kontrolaNull(Object o, String poruka) throws MyException {
         if (o == null) {
             throw new MyException(poruka);
         }

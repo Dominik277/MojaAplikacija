@@ -66,8 +66,10 @@ public class ObradaPregled extends Obrada<Pregled>{
         }
     }
 
-//    private void kontrolaDatum() throws MyException{
-//         
-//    }
+    private void kontrolaNull(Object o, String poruka) throws MyException{
+        if(o==null){
+            throw new MyException(poruka);
+        }
+    }
     
 }
