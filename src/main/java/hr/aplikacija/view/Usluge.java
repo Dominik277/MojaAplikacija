@@ -8,10 +8,13 @@ package hr.aplikacija.view;
 import hr.aplikacija.controller.ObradaUsluga;
 import hr.aplikacija.model.Usluga;
 import hr.aplikacija.utility.MyException;
+import java.awt.Color;
 import java.math.BigDecimal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -78,11 +81,11 @@ public class Usluge extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNaziv)
                     .addComponent(txtCijena)
+                    .addComponent(lblPoruka, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPoruka, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -179,14 +182,16 @@ public class Usluge extends javax.swing.JFrame {
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
         lblPoruka.setText("");
+        txtNaziv.setBorder(new LineBorder(Color.GRAY,1,false));
+        entitet= new Usluga();
         
         postaviVrijednostiUEntitet();
         try {
             obrada.create();
             ucitajPodatke();
             ocistiPolja();
-        } catch (MyException ex) {
-            lblPoruka.setText(ex.getPoruka());
+        } catch (MyException e) {
+            postaviPoruku(e);
         }
     }//GEN-LAST:event_btnDodajActionPerformed
 
@@ -202,7 +207,7 @@ public class Usluge extends javax.swing.JFrame {
             ucitajPodatke();
             ocistiPolja();
         } catch (MyException e) {
-            lblPoruka.setText(e.getPoruka());
+            postaviPoruku(e);
         }
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
@@ -217,10 +222,38 @@ public class Usluge extends javax.swing.JFrame {
             ucitajPodatke();
             ocistiPolja();
         } catch (MyException e) {
-            lblPoruka.setText(e.getPoruka());
+            postaviPoruku(e);
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 
+        private void postaviPoruku(MyException e){
+            
+            switch(e.getKomponenta()){
+                case "naziv":
+                    txtNaziv.setBorder(new LineBorder(Color.RED,2,true));
+                    txtNaziv.requestFocus();
+                    break;
+            }
+            
+            lblPoruka.setText(e.getPoruka());
+            OcistiPoruku op = new OcistiPoruku();
+            op.start();
+            
+        }
+        
+        private class OcistiPoruku extends Thread{
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(3*1000);
+            } catch (Exception e) {
+                
+            }
+            lblPoruka.setText("");
+        }
+            
+  }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -245,13 +278,13 @@ public class Usluge extends javax.swing.JFrame {
     }
 
     private void ocistiPolja() {
+        
         txtNaziv.setText("");
         txtCijena.setText("");
     }
 
     private void postaviVrijednostiUEntitet() {
-        //entitet = new Usluga();
-        //obrada.setEntitet(entitet);
+       
         entitet.setNaziv(txtNaziv.getText());
         try {
             entitet.setCijena(new BigDecimal(txtCijena.getText()));

@@ -13,6 +13,7 @@ import com.google.gson.GsonBuilder;
 import hr.aplikacija.controller.ObradaDoktor;
 import hr.aplikacija.controller.ObradaPacijent;
 import hr.aplikacija.controller.ObradaPregled;
+import hr.aplikacija.controller.ObradaUsluga;
 import hr.aplikacija.model.Doktor;
 import hr.aplikacija.model.Pacijent;
 import hr.aplikacija.model.Pregled;
@@ -39,6 +40,7 @@ import javax.swing.JOptionPane;
 public class Pregledi extends javax.swing.JFrame {
 
     private ObradaPregled obrada;
+    private ObradaUsluga obradaUsluga;
     private ObradaPacijent obradaPacijent;
     private Pregled entitet;
 
@@ -49,19 +51,20 @@ public class Pregledi extends javax.swing.JFrame {
         initComponents();
         obrada = new ObradaPregled();
         obradaPacijent=new ObradaPacijent();
+        obradaUsluga=new ObradaUsluga();
         setTitle(Aplikacija.operater.getImePrezime() + " - Pregledi");
         ucitajPodatke();
 
         DefaultComboBoxModel<Doktor> md = new DefaultComboBoxModel<>();
-        new ObradaDoktor().getPodaci().forEach(s -> {
-            md.addElement(s);
+        new ObradaDoktor().getPodaci().forEach(p -> {
+            md.addElement(p);
         });
         cmbDoktori.setRenderer(new OsobaCellRenderer());
         cmbDoktori.setModel(md);
 
         DefaultComboBoxModel<Pacijent> mp = new DefaultComboBoxModel<>();
-        new ObradaPacijent().getPodaci().forEach(p -> {
-            mp.addElement(p);
+        new ObradaPacijent().getPodaci().forEach(s -> {
+            mp.addElement(s);
         });
         cmbPacijenti.setRenderer(new OsobaCellRenderer());
         cmbPacijenti.setModel(mp);
@@ -72,8 +75,8 @@ public class Pregledi extends javax.swing.JFrame {
         
         lstPacijentiNaPregledu.setCellRenderer(new OsobaCellRenderer());
         lstPacijentiUBazi.setCellRenderer(new OsobaCellRenderer());
-        DefaultListModel<Pregled> m = new DefaultListModel<>();
-        lstPacijentiNaPregledu.setModel(mp);
+//        DefaultListModel<Pregled> m = new DefaultListModel<>();
+//        lstPacijentiNaPregledu.setModel(mp);
 
     }
 
@@ -445,9 +448,9 @@ public class Pregledi extends javax.swing.JFrame {
         txtNaziv.setText(entitet.getNaziv());
         //cmbPacijenti.setSelectedItem(entitet.getPacijent());
 
-        DefaultComboBoxModel<Pacijent> mu = (DefaultComboBoxModel<Pacijent>) cmbPacijenti.getModel();
-        for (int i = 0; i < mu.getSize(); i++) {
-            if (mu.getElementAt(i).getId().equals(entitet.getPacijent().getId())) {
+        DefaultComboBoxModel<Pacijent> mp = (DefaultComboBoxModel<Pacijent>) cmbPacijenti.getModel();
+        for (int i = 0; i < mp.getSize(); i++) {
+            if (mp.getElementAt(i).getId().equals(entitet.getPacijent().getId())) {
                 cmbPacijenti.setSelectedIndex(i);
                 break;
             }
@@ -462,14 +465,16 @@ public class Pregledi extends javax.swing.JFrame {
             }
         }
         if(entitet.getDatum()!=null){
-            dpiDatum.setDate(entitet.getDatum().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            dpiDatum.setDate(entitet.getDatum().toInstant()
+                    .atZone(ZoneId.systemDefault())
+                    .toLocalDate());
         }
         
-        DefaultListModel<Pacijent> m = new DefaultListModel<>();
-//        for(Pacijent p : entitet.getPacijent()){
-//            m.addElement(p);
-//        }
-        lstPacijentiNaPregledu.setModel(m);
+        DefaultListModel<Usluga> m = new DefaultListModel<>();
+        for(Usluga u : entitet.getUsluge()){
+            m.addElement(u);
+        }
+     //   lstPacijentiNaPregledu.setModel(m);
     }//GEN-LAST:event_lstPodaciValueChanged
 
     private void lstPacijentiNaPregleduValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPacijentiNaPregleduValueChanged
@@ -675,16 +680,16 @@ public class Pregledi extends javax.swing.JFrame {
 //        entitet.setPacijent(new ArrayList<>());
         DefaultListModel<Pacijent> m = (DefaultListModel<Pacijent>) lstPacijentiNaPregledu.getModel();
 //        for(int i=0;i<m.size();i++){
-//            entitet.getPacijent().add(m.getElementAt(i));
+//            entitet.getPacijent().ad(m.getElementAt(i));
 //        }
         obrada.setEntitet(entitet);
     }
 
     private void ucitajPacijente() {
-        DefaultListModel<Pacijent> mp = new DefaultListModel<>();
-        obradaPacijent.getPodaci(txtUvjet.getText()).forEach(s->mp.addElement(s));
+        DefaultListModel<Pacijent> m = new DefaultListModel<>();
+        obradaPacijent.getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
         
-        lstPacijentiUBazi.setModel(mp);
+        lstPacijentiUBazi.setModel(m);
     }
 
 }

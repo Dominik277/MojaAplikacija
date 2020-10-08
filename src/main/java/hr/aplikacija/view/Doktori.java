@@ -218,7 +218,6 @@ public class Doktori extends javax.swing.JFrame {
         
         postaviVrijednostiUEntitet();
         
-        //obrada.setEntitet(entitet);
         try {
             obrada.create();
             ucitajPodatke();

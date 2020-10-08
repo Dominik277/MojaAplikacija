@@ -44,8 +44,9 @@ public class ObradaUsluga extends Obrada<Usluga> {
     
     private void kontrolaNaziv() throws MyException{
         kontrolaNull(entitet.getNaziv(), "Naziv nije definiran");
+        
         if(entitet.getNaziv().isEmpty()){
-            throw new MyException("Naiv nije postavljen,unijeti naziv");
+            throw new MyException("naziv", "Naziv nije postavljen,unijeti naziv");
         }
         boolean broj=false;
         try {

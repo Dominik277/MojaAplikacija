@@ -294,8 +294,7 @@ public class Pacijenti extends javax.swing.JFrame {
         entitet = new Pacijent();
         
         postaviVrijednostiUEntitet();
-        
-        //obrada.setEntitet(entitet);
+     
         try {
             obrada.create();
             ucitajPodatke();
@@ -366,6 +365,7 @@ public class Pacijenti extends javax.swing.JFrame {
                 ImageFormat format = ImageFormats.PNG;
                 Map<String,Object> params = new HashMap<>();
                 Imaging.writeImage(bi, slika, format, params);
+                
                 ImageIcon ii = new ImageIcon(Imaging.getBufferedImage(slika)
             .getScaledInstance(100, 150, Image.SCALE_DEFAULT));
                 lblSlika.setIcon(ii);

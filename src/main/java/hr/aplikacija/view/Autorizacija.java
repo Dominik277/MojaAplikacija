@@ -25,6 +25,7 @@ public class Autorizacija extends javax.swing.JFrame {
         initComponents();
         txtEmail.requestFocus();
         txtEmail.setText("ddoric@gmail.com");
+        pswLozinka.setText("d");
         
         
     }
@@ -150,7 +151,7 @@ public class Autorizacija extends javax.swing.JFrame {
     private void prijaviSe(){
         if(txtEmail.getText().trim().isEmpty()){
             txtEmail.requestFocus();
-            JOptionPane.showMessageDialog(rootPane, "Email obavezno");
+            JOptionPane.showMessageDialog(rootPane, "Obavezno je unijeti Email");
             return;
         }
         
@@ -165,14 +166,14 @@ public class Autorizacija extends javax.swing.JFrame {
         
         if(pswLozinka.getPassword().length==0){
             pswLozinka.requestFocus();
-            JOptionPane.showMessageDialog(rootPane, "Lozinka obavezno");
+            JOptionPane.showMessageDialog(rootPane, "Obavezno je unijeti lozinku");
             return;
         }
         
         ObradaOperater oo = new ObradaOperater();
         Operater operater = oo.autoriziraj(txtEmail.getText(), pswLozinka.getPassword());
         if(operater==null){
-            JOptionPane.showMessageDialog(rootPane, "Neispravna kombinacija email i lozinke");
+            JOptionPane.showMessageDialog(rootPane, "Neispravna kombinacija Email-a i lozinke");
             return;
         }
         

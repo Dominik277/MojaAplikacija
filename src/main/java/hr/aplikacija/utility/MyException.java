@@ -12,9 +12,24 @@ package hr.aplikacija.utility;
 public class MyException extends Exception{
     
     private String poruka;
+    private String komponenta;
 
-    public MyException(String ime_nije_uneseno) {
-        
+    public MyException(String poruka) {
+        this.poruka=poruka;
+        this.komponenta="";
+    }
+
+    public String getKomponenta() {
+        return komponenta;
+    }
+
+    public void setKomponenta(String komponenta) {
+        this.komponenta = komponenta;
+    }
+    
+    public MyException(String komponenta,String poruka) {
+        this(poruka);
+        this.komponenta=komponenta;
     }
 
     public String getPoruka() {
