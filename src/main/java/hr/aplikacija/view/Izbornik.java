@@ -8,13 +8,10 @@ package hr.aplikacija.view;
 import hr.aplikacija.controller.ObradaPregled;
 import hr.aplikacija.model.Pregled;
 import java.awt.BorderLayout;
-import org.hibernate.annotations.Parent;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -64,6 +61,11 @@ public class Izbornik extends javax.swing.JFrame {
         jmiOperateri = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmIzlaz = new javax.swing.JMenuItem();
+        jmONama = new javax.swing.JMenu();
+        jmiOsoblje = new javax.swing.JMenuItem();
+        jmiKontakt = new javax.swing.JMenuItem();
+        jmNovosti = new javax.swing.JMenu();
+        jmCestaPitanja = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("APP");
@@ -72,11 +74,11 @@ public class Izbornik extends javax.swing.JFrame {
         pnlGraf.setLayout(pnlGrafLayout);
         pnlGrafLayout.setHorizontalGroup(
             pnlGrafLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 414, Short.MAX_VALUE)
         );
         pnlGrafLayout.setVerticalGroup(
             pnlGrafLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 378, Short.MAX_VALUE)
+            .addGap(0, 380, Short.MAX_VALUE)
         );
 
         jmNaslovGrana.setText("NASLOV");
@@ -127,6 +129,32 @@ public class Izbornik extends javax.swing.JFrame {
 
         jMenuBar1.add(jmNaslovGrana);
 
+        jmONama.setText("O NAMA");
+
+        jmiOsoblje.setText("Osoblje");
+        jmiOsoblje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiOsobljeActionPerformed(evt);
+            }
+        });
+        jmONama.add(jmiOsoblje);
+
+        jmiKontakt.setText("Kontakt");
+        jmiKontakt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiKontaktActionPerformed(evt);
+            }
+        });
+        jmONama.add(jmiKontakt);
+
+        jMenuBar1.add(jmONama);
+
+        jmNovosti.setText("NOVOSTI");
+        jMenuBar1.add(jmNovosti);
+
+        jmCestaPitanja.setText("ČESTA PITANJA");
+        jMenuBar1.add(jmCestaPitanja);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,14 +192,27 @@ public class Izbornik extends javax.swing.JFrame {
         new Usluge().setVisible(true);
     }//GEN-LAST:event_jmiUslugeActionPerformed
 
+    private void jmiKontaktActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiKontaktActionPerformed
+        new Kontakt().setVisible(true);
+    }//GEN-LAST:event_jmiKontaktActionPerformed
+
+    private void jmiOsobljeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiOsobljeActionPerformed
+        new Osoblje().setVisible(true);
+    }//GEN-LAST:event_jmiOsobljeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenu jmCestaPitanja;
     private javax.swing.JMenuItem jmIzlaz;
     private javax.swing.JMenu jmNaslovGrana;
+    private javax.swing.JMenu jmNovosti;
+    private javax.swing.JMenu jmONama;
     private javax.swing.JMenuItem jmiDoktori;
+    private javax.swing.JMenuItem jmiKontakt;
     private javax.swing.JMenuItem jmiOperateri;
+    private javax.swing.JMenuItem jmiOsoblje;
     private javax.swing.JMenuItem jmiPacijenti;
     private javax.swing.JMenuItem jmiPregledi;
     private javax.swing.JMenuItem jmiUsluge;
