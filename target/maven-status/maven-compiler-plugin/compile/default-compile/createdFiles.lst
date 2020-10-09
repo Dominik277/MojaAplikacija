@@ -2,6 +2,7 @@ hr\aplikacija\view\Doktori$5.class
 hr\aplikacija\view\Doktori.class
 hr\aplikacija\test\Test.class
 hr\aplikacija\controller\ObradaUsluga.class
+hr\aplikacija\view\Izbornik$8.class
 hr\aplikacija\view\Pregledi$14.class
 hr\aplikacija\view\Izbornik$1.class
 hr\aplikacija\model\Entitet.class
@@ -33,6 +34,7 @@ hr\aplikacija\view\Pregledi$8.class
 hr\aplikacija\model\Usluga.class
 hr\aplikacija\view\Pacijenti$6.class
 hr\aplikacija\view\Pacijenti$3.class
+hr\aplikacija\view\OPoliklinici.class
 hr\aplikacija\utility\PocetniInsert.class
 hr\aplikacija\controller\ObradaPregled.class
 hr\aplikacija\view\Pregledi.class

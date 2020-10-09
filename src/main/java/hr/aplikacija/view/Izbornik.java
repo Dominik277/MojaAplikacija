@@ -64,6 +64,7 @@ public class Izbornik extends javax.swing.JFrame {
         jmONama = new javax.swing.JMenu();
         jmiOsoblje = new javax.swing.JMenuItem();
         jmiKontakt = new javax.swing.JMenuItem();
+        jmiOPoliklinici = new javax.swing.JMenuItem();
         jmNovosti = new javax.swing.JMenu();
         jmCestaPitanja = new javax.swing.JMenu();
 
@@ -147,6 +148,14 @@ public class Izbornik extends javax.swing.JFrame {
         });
         jmONama.add(jmiKontakt);
 
+        jmiOPoliklinici.setText("O Poliklinici");
+        jmiOPoliklinici.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiOPolikliniciActionPerformed(evt);
+            }
+        });
+        jmONama.add(jmiOPoliklinici);
+
         jMenuBar1.add(jmONama);
 
         jmNovosti.setText("NOVOSTI");
@@ -200,6 +209,10 @@ public class Izbornik extends javax.swing.JFrame {
         new Osoblje().setVisible(true);
     }//GEN-LAST:event_jmiOsobljeActionPerformed
 
+    private void jmiOPolikliniciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiOPolikliniciActionPerformed
+        new OPoliklinici().setVisible(true);
+    }//GEN-LAST:event_jmiOPolikliniciActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
@@ -211,6 +224,7 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JMenu jmONama;
     private javax.swing.JMenuItem jmiDoktori;
     private javax.swing.JMenuItem jmiKontakt;
+    private javax.swing.JMenuItem jmiOPoliklinici;
     private javax.swing.JMenuItem jmiOperateri;
     private javax.swing.JMenuItem jmiOsoblje;
     private javax.swing.JMenuItem jmiPacijenti;

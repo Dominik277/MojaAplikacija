@@ -23,12 +23,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="jTextField1" min="-2" pref="178" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+          <Component id="jScrollPane1" pref="400" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="302" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -43,10 +53,22 @@
         <Component class="javax.swing.JTextArea" name="jTextArea1">
           <Properties>
             <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
             <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="Poliklinika Slavonija svoj zdravstveni renome duguje svojem&#xa;medicinskom osoblju. Specijalisti&#x10d;ka znanja, potvr&#x111;eni rezultati i&#xa;istinski timski rad lije&#x10d;nika, od kojih su polovica profesori, &#xa;doktori znanosti, magistri znanosti i primarijusi, &#xa;pokreta&#x10d;ka su snaga Poliklinike Slavonija. &#xa;Pokrivamo gotovo sve specijalnosti dana&#x161;nje medicine. &#xa;Kontinuirano ula&#x17e;emo u dodatne edukacije, &#xa;a na&#x161; tim lije&#x10d;nika je u svakodnevnoj me&#x111;usobnoj komunikaciji &#xa;s ciljem pru&#x17e;anja najbolje potrebne skrbi. &#xa;Ponosimo se titulama na&#x161;ih lije&#x10d;nika:&#xa;&#xa;1 akademik&#xa;7 profesora&#xa;19 doktora znanosti&#xa;3 magistra znanosti&#xa;13 primarijusa"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JTextField" name="jTextField1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Na&#x161; stru&#x10d;ni tim"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
