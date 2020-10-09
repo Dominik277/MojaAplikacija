@@ -1,5 +1,6 @@
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Aplikacija.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\MyException.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\NarudžbaPregleda.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaOsoba.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Doktor.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Usluga.java
@@ -18,10 +19,12 @@ C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\apli
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Doktori.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Osoblje.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\ObradaOperater.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\OtkazPregleda.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Pacijenti.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\OPoliklinici.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\controller\Obrada.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\model\Pacijent.java
+C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\NacinPlacanja.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\utility\Oib.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\start\Start.java
 C:\Users\Dominik\Documents\NetBeansProjects\MojaAplikacija\src\main\java\hr\aplikacija\view\Pregledi.java

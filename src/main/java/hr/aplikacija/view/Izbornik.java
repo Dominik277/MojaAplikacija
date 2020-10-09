@@ -66,7 +66,10 @@ public class Izbornik extends javax.swing.JFrame {
         jmiKontakt = new javax.swing.JMenuItem();
         jmiOPoliklinici = new javax.swing.JMenuItem();
         jmNovosti = new javax.swing.JMenu();
-        jmCestaPitanja = new javax.swing.JMenu();
+        jmiNacinPlacanja = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jmiNarudžbaPregleda = new javax.swing.JMenuItem();
+        jmiOtkazPregleda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("APP");
@@ -161,8 +164,33 @@ public class Izbornik extends javax.swing.JFrame {
         jmNovosti.setText("NOVOSTI");
         jMenuBar1.add(jmNovosti);
 
-        jmCestaPitanja.setText("ČESTA PITANJA");
-        jMenuBar1.add(jmCestaPitanja);
+        jmiNacinPlacanja.setText("ČESTA PITANJA");
+
+        jMenuItem1.setText("Način plaćanja");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jmiNacinPlacanja.add(jMenuItem1);
+
+        jmiNarudžbaPregleda.setText("Narudžba pregleda");
+        jmiNarudžbaPregleda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiNarudžbaPregledaActionPerformed(evt);
+            }
+        });
+        jmiNacinPlacanja.add(jmiNarudžbaPregleda);
+
+        jmiOtkazPregleda.setText("Otkaz pregleda");
+        jmiOtkazPregleda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiOtkazPregledaActionPerformed(evt);
+            }
+        });
+        jmiNacinPlacanja.add(jmiOtkazPregleda);
+
+        jMenuBar1.add(jmiNacinPlacanja);
 
         setJMenuBar(jMenuBar1);
 
@@ -213,20 +241,35 @@ public class Izbornik extends javax.swing.JFrame {
         new OPoliklinici().setVisible(true);
     }//GEN-LAST:event_jmiOPolikliniciActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        new NacinPlacanja().setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jmiNarudžbaPregledaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiNarudžbaPregledaActionPerformed
+        new NarudžbaPregleda().setVisible(true);
+    }//GEN-LAST:event_jmiNarudžbaPregledaActionPerformed
+
+    private void jmiOtkazPregledaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiOtkazPregledaActionPerformed
+        new OtkazPregleda().setVisible(true);
+    }//GEN-LAST:event_jmiOtkazPregledaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JMenu jmCestaPitanja;
     private javax.swing.JMenuItem jmIzlaz;
     private javax.swing.JMenu jmNaslovGrana;
     private javax.swing.JMenu jmNovosti;
     private javax.swing.JMenu jmONama;
     private javax.swing.JMenuItem jmiDoktori;
     private javax.swing.JMenuItem jmiKontakt;
+    private javax.swing.JMenu jmiNacinPlacanja;
+    private javax.swing.JMenuItem jmiNarudžbaPregleda;
     private javax.swing.JMenuItem jmiOPoliklinici;
     private javax.swing.JMenuItem jmiOperateri;
     private javax.swing.JMenuItem jmiOsoblje;
+    private javax.swing.JMenuItem jmiOtkazPregleda;
     private javax.swing.JMenuItem jmiPacijenti;
     private javax.swing.JMenuItem jmiPregledi;
     private javax.swing.JMenuItem jmiUsluge;

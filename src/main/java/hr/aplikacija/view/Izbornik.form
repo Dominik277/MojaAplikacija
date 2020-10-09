@@ -94,10 +94,36 @@
             <Property name="text" type="java.lang.String" value="NOVOSTI"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jmCestaPitanja">
+        <Menu class="javax.swing.JMenu" name="jmiNacinPlacanja">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x10c;ESTA PITANJA"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Na&#x10d;in pla&#x107;anja"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiNarud&#x17e;baPregleda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Narud&#x17e;ba pregleda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiNarud&#x17e;baPregledaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiOtkazPregleda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Otkaz pregleda"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiOtkazPregledaActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
