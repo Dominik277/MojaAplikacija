@@ -27,7 +27,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        hr.edunova.jp22.Start
+                                        hr.aplikacija.start.Start
                                     </mainClass>
                                 </manifest>
                             </archive>
