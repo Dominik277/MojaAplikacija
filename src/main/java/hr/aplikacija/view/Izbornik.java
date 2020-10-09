@@ -66,6 +66,8 @@ public class Izbornik extends javax.swing.JFrame {
         jmiKontakt = new javax.swing.JMenuItem();
         jmiOPoliklinici = new javax.swing.JMenuItem();
         jmNovosti = new javax.swing.JMenu();
+        jmiCovid = new javax.swing.JMenuItem();
+        jmiBuducnost = new javax.swing.JMenuItem();
         jmiNacinPlacanja = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jmiNarudžbaPregleda = new javax.swing.JMenuItem();
@@ -162,6 +164,23 @@ public class Izbornik extends javax.swing.JFrame {
         jMenuBar1.add(jmONama);
 
         jmNovosti.setText("NOVOSTI");
+
+        jmiCovid.setText("AI vs COVID-19");
+        jmiCovid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCovidActionPerformed(evt);
+            }
+        });
+        jmNovosti.add(jmiCovid);
+
+        jmiBuducnost.setText("Budućnost");
+        jmiBuducnost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiBuducnostActionPerformed(evt);
+            }
+        });
+        jmNovosti.add(jmiBuducnost);
+
         jMenuBar1.add(jmNovosti);
 
         jmiNacinPlacanja.setText("ČESTA PITANJA");
@@ -253,6 +272,14 @@ public class Izbornik extends javax.swing.JFrame {
         new OtkazPregleda().setVisible(true);
     }//GEN-LAST:event_jmiOtkazPregledaActionPerformed
 
+    private void jmiCovidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCovidActionPerformed
+        new Covid19().setVisible(true);
+    }//GEN-LAST:event_jmiCovidActionPerformed
+
+    private void jmiBuducnostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiBuducnostActionPerformed
+        new Buducnost().setVisible(true);
+    }//GEN-LAST:event_jmiBuducnostActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
@@ -262,6 +289,8 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JMenu jmNaslovGrana;
     private javax.swing.JMenu jmNovosti;
     private javax.swing.JMenu jmONama;
+    private javax.swing.JMenuItem jmiBuducnost;
+    private javax.swing.JMenuItem jmiCovid;
     private javax.swing.JMenuItem jmiDoktori;
     private javax.swing.JMenuItem jmiKontakt;
     private javax.swing.JMenu jmiNacinPlacanja;

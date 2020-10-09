@@ -6,6 +6,7 @@ hr\aplikacija\view\Izbornik$8.class
 hr\aplikacija\view\Pregledi$14.class
 hr\aplikacija\view\Izbornik$1.class
 hr\aplikacija\view\Izbornik$10.class
+hr\aplikacija\view\Izbornik$13.class
 hr\aplikacija\model\Entitet.class
 hr\aplikacija\view\Usluge$3.class
 hr\aplikacija\view\Usluge$OcistiPoruku.class
@@ -24,6 +25,7 @@ hr\aplikacija\view\Autorizacija$3.class
 hr\aplikacija\view\Izbornik$2.class
 hr\aplikacija\view\Pregledi$7.class
 hr\aplikacija\controller\ObradaPacijent.class
+hr\aplikacija\view\Buducnost.class
 hr\aplikacija\view\Autorizacija$4.class
 hr\aplikacija\view\Pacijenti$9.class
 hr\aplikacija\view\Pregledi$4.class
@@ -56,10 +58,12 @@ hr\aplikacija\view\Pacijenti$4.class
 hr\aplikacija\view\Pacijenti$5.class
 hr\aplikacija\view\Pregledi$2.class
 hr\aplikacija\controller\Obrada.class
+hr\aplikacija\view\Covid19.class
 hr\aplikacija\view\Izbornik$7.class
 hr\aplikacija\view\Doktori$4.class
 hr\aplikacija\model\Pacijent.class
 hr\aplikacija\view\Pregledi$13.class
+hr\aplikacija\view\Izbornik$12.class
 hr\aplikacija\view\Autorizacija$2.class
 hr\aplikacija\view\Pacijenti$7.class
 hr\aplikacija\model\Osoba.class

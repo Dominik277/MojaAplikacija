@@ -93,6 +93,24 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="NOVOSTI"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiCovid">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AI vs COVID-19"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiCovidActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiBuducnost">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Budu&#x107;nost"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmiBuducnostActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jmiNacinPlacanja">
           <Properties>

@@ -16,6 +16,7 @@ public class OPoliklinici extends javax.swing.JFrame {
      */
     public OPoliklinici() {
         initComponents();
+        setTitle("O Poliklinici");
     }
 
     /**
@@ -64,6 +65,7 @@ public class OPoliklinici extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     

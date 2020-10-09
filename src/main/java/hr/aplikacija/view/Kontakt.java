@@ -16,6 +16,7 @@ public class Kontakt extends javax.swing.JFrame {
      */
     public Kontakt() {
         initComponents();
+        setTitle("Kontakt");
     }
 
     /**

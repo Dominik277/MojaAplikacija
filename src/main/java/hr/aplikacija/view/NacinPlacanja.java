@@ -16,6 +16,7 @@ public class NacinPlacanja extends javax.swing.JFrame {
      */
     public NacinPlacanja() {
         initComponents();
+        setTitle("Način plaćanja");
     }
 
     /**
@@ -64,6 +65,7 @@ public class NacinPlacanja extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
