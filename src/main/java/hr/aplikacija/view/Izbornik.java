@@ -5,6 +5,8 @@
  */
 package hr.aplikacija.view;
 
+import hr.aplikacija.controller.ObradaPregled;
+import hr.aplikacija.model.Pregled;
 import java.awt.BorderLayout;
 import org.hibernate.annotations.Parent;
 import org.jfree.chart.ChartFactory;
@@ -177,24 +179,45 @@ public class Izbornik extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void pripremiGraf() {
+        
+        ObradaPregled op = new ObradaPregled();
+        
         DefaultPieDataset dataset = new DefaultPieDataset();
-        dataset.setValue("JP22", 25);
-        dataset.setValue("PP21", 10);
-        dataset.setValue("OP16", 5);
-        dataset.setValue("WD40", 50);
-
+        for(Pregled p: op.getPodaci()){
+            dataset.setValue(p.getNaziv(), p.getUsluge().size());
+        }
+        
         JFreeChart chart = ChartFactory.createPieChart(
-                "Broj polaznika po grupama", // chart title 
-                dataset, // data    
-                true, // include legend   
+                "Broj usluga na pregledu",
+                dataset,
+                true,
                 true,
                 false);
-
+        
         ChartPanel cp = new ChartPanel(chart);
-
+        
         pnlGraf.setLayout(new BorderLayout());
         pnlGraf.add(cp, BorderLayout.CENTER);
         pnlGraf.validate();
+        
+//        DefaultPieDataset dataset = new DefaultPieDataset();
+//        dataset.setValue("JP22", 25);
+//        dataset.setValue("PP21", 10);
+//        dataset.setValue("OP16", 5);
+//        dataset.setValue("WD40", 50);
+//
+//        JFreeChart chart = ChartFactory.createPieChart(
+//                "Broj polaznika po grupama", // chart title 
+//                dataset, // data    
+//                true, // include legend   
+//                true,
+//                false);
+//
+//        ChartPanel cp = new ChartPanel(chart);
+//
+//        pnlGraf.setLayout(new BorderLayout());
+//        pnlGraf.add(cp, BorderLayout.CENTER);
+//        pnlGraf.validate();
     }
     
 //    private void Kalendar(){

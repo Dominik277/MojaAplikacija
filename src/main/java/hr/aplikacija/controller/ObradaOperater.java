@@ -21,6 +21,7 @@ public class ObradaOperater extends ObradaOsoba<Operater>{
       
         Operater operater = (Operater) session.createQuery("from Operater o where o.email=:email")
                 .setParameter("email", email).getSingleResult();
+       
         if(operater==null){
             return null;
         }

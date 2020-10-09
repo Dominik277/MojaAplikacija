@@ -18,6 +18,11 @@ public class MyException extends Exception{
         this.poruka=poruka;
         this.komponenta="";
     }
+    
+    public MyException(String komponenta,String poruka) {
+        this(poruka);
+        this.komponenta=komponenta;
+    }
 
     public String getKomponenta() {
         return komponenta;
@@ -25,11 +30,6 @@ public class MyException extends Exception{
 
     public void setKomponenta(String komponenta) {
         this.komponenta = komponenta;
-    }
-    
-    public MyException(String komponenta,String poruka) {
-        this(poruka);
-        this.komponenta=komponenta;
     }
 
     public String getPoruka() {

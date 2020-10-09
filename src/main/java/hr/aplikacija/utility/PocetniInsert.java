@@ -62,7 +62,7 @@ public class PocetniInsert {
             ex.printStackTrace();
         }
         
-        Session session = HibernateUtil.getSession();
+        Session session = (Session) HibernateUtil.getSessionFactory();
         Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica", new Date());
         Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos", new Date());
         Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina", new Date());

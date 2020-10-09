@@ -178,9 +178,10 @@ public class Autorizacija extends javax.swing.JFrame {
         }
         
         Aplikacija.operater=operater;
+        
         new Izbornik().setVisible(true);
         dispose();
-        //System.out.println(operater.getImePrezime());
+        
     }
 
 }

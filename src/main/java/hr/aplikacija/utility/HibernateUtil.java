@@ -22,15 +22,16 @@ import org.hibernate.cfg.Configuration;
  */
 public class HibernateUtil {
 
-   private static StandardServiceRegistry registry;
+    private static StandardServiceRegistry registry;
     private static SessionFactory sessionFactory;
-    private static Session session;
-    public static Session getSession() {
+    //private static Session session;
+
+    public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             try {
-                
+
                 try {
-                    URL  jarPath = Start.class.getProtectionDomain().
+                    URL jarPath = Start.class.getProtectionDomain().
                             getCodeSource().getLocation();
                     System.out.println(jarPath);
                     String jarDir = new File(jarPath.toString()).getParent();
@@ -43,13 +44,13 @@ public class HibernateUtil {
                     sb.applySettings(cfg.getProperties());
                     StandardServiceRegistry standardServiceRegistry = sb.build();
                     sessionFactory = cfg.buildSessionFactory(standardServiceRegistry);
-                                        
+
                 } catch (Exception e) {
                     System.out.println("===================");
                     e.printStackTrace();
                     System.out.println("===================");
                 }
-                
+
                 // Create registry
                 registry = new StandardServiceRegistryBuilder().configure().build();
                 // Create MetadataSources
@@ -59,8 +60,7 @@ public class HibernateUtil {
                 // Create SessionFactory
                 sessionFactory = metadata.getSessionFactoryBuilder().build();
                 //session=sessionFactory.openSession();
-            
-            
+
             } catch (Exception e) {
                 e.printStackTrace();
                 if (registry != null) {
@@ -69,13 +69,14 @@ public class HibernateUtil {
             }
         }
         //return session;
-        return  (Session) sessionFactory;
+        return sessionFactory;
     }
+
     public static void shutdown() {
         if (registry != null) {
             StandardServiceRegistryBuilder.destroy(registry);
         }
-    
+
     }
-    
+
 }
