@@ -14,39 +14,39 @@ import org.mindrot.jbcrypt.BCrypt;
  *
  * @author Dominik
  */
-public class ObradaOperater extends ObradaOsoba<Operater>{
-    
-    
-    public Operater autoriziraj(String email, char[] lozinka){
-      
-        Operater operater = (Operater) session.createQuery("from Operater o where o.email=:email")
+public class ObradaOperater extends ObradaOsoba<Operater> {
+
+    public Operater autoriziraj(String email, char[] lozinka) {
+
+        Operater operater = (Operater) session.createQuery(
+                "from Operater o where o.email=:email")
                 .setParameter("email", email).getSingleResult();
-       
-        if(operater==null){
+
+        if (operater == null) {
             return null;
         }
-        return BCrypt.checkpw(new String (lozinka), operater.getLozinka()) ? operater : null;
+        return BCrypt.checkpw(new String(lozinka), operater.getLozinka()) ? operater : null;
     }
 
     @Override
     public List<Operater> getPodaci() {
         return session.createQuery("from Operater").list();
     }
-    
+
     @Override
-    protected void kontrolaCreate() throws MyException{
-        kontrolaIme();
-        //super.kontrolaCreate();
+    protected void kontrolaCreate() throws MyException {
+        //kontrolaIme();
+        super.kontrolaCreate();
     }
-    
+
     @Override
-    protected void kontrolaUpdate() throws MyException{
-        //super.kontrolaUpdate();
+    protected void kontrolaUpdate() throws MyException {
+        super.kontrolaUpdate();
     }
-    
+
     @Override
-    protected void kontrolaDelete() throws MyException{
-        //super.kontrolaDelete();
+    protected void kontrolaDelete() throws MyException {
+        super.kontrolaDelete();
     }
-    
+
 }

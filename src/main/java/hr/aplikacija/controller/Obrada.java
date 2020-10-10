@@ -30,7 +30,6 @@ public abstract class Obrada<T> {
     }
 
 public Obrada(){
-    //this.session=HibernateUtil.getSession();
     this.session=HibernateUtil.getSessionFactory().openSession();
 }
 

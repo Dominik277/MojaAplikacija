@@ -16,33 +16,50 @@ import java.util.List;
  * @author Dominik
  */
 public class ObradaDoktor extends ObradaOsoba<Doktor> {
-
+    
     @Override
     public List<Doktor> getPodaci() {
         return session.createQuery("from Doktor").list();
     }
 
+    public List<Doktor> getPodaci(String uvjet) {
+        return session.createQuery("from Doktor d "
+              + " where concat(d.ime, ' ', d.prezime, ' ', d.oib) "
+              + " like :uvjet ")
+              .setParameter("uvjet", "%"+uvjet+"%")
+              .setMaxResults(20)
+              .list();
+    }
+
     @Override
     protected void kontrolaCreate() throws MyException {
+        super.kontrolaCreate();
         kontrolaIme();
         kontrolaPrezime();
         kontrolaOib();
         kontrolaEmail();
+        kontrolaOibBazaKreiraj();
+        kontrolaOibBazaPromjeni();
+       
     }
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-//        kontrolaIme();
-//        kontrolaPrezime();
-//        kontrolaOib();
-//        kontrolaEmail();
+        
+        super.kontrolaUpdate();
+        kontrolaIme();
+        kontrolaPrezime();
+        kontrolaOib();
+        kontrolaEmail();
+        kontrolaOibBazaKreiraj();
+        kontrolaOibBazaPromjeni();
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        if(entitet.getPregledi().size()>0){
-            throw new MyException("Doktor se ne može obrisati");
-        }
+//        if(entitet.getPregledi().size()>0){
+//            throw new MyException("Doktor se ne može obrisati");
+//        }
     }
 
  
@@ -83,4 +100,33 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
             throw new MyException("Email ne moze biti duzi od 50 znakova ");
         }
     }
+    
+    private void kontrolaOibBazaKreiraj() throws MyException{
+       List<Doktor> lista = session.createQuery(""
+               + " from Doktor d "
+               + " where d.oib=:oib "
+               )
+               .setParameter("oib", entitet.getOib())
+               .list();
+       if(lista.size()>0){
+           throw new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime()+ ", odaberite drugi OIB");
+       }
+    }
+    
+    
+    private void kontrolaOibBazaPromjeni() throws MyException{
+       List<Doktor> lista = session.createQuery(""
+               + " from Doktor d "
+               + " where d.oib=:oib and d.id!=:id"
+               )
+               .setParameter("oib", entitet.getOib())
+               .setParameter("id", entitet.getId())
+               .list();
+       if(lista.size()>0){
+           throw  new MyException("Oib je dodjeljen " + lista.get(0).getImePrezime()+ ", odaberite drugi OIB");
+       }
+       
+    }
+
+    
 }

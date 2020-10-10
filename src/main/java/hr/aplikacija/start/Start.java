@@ -29,6 +29,8 @@ public class Start {
         //new Izbornik().setVisible(true);
         new Autorizacija().setVisible(true);
         
+        //PocetniInsert.dodajPacijente();
+        
         
         //PocetniInsert.izvedi();
         //PocetniInsert.adminOperater();

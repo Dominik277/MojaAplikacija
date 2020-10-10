@@ -25,7 +25,9 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
     
     @Override
     protected void kontrolaUpdate() throws MyException{
-        
+        kontrolaIme();
+        kontrolaPrezime();
+        kontrolaOib();
     }
     
     @Override
@@ -38,6 +40,9 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
         if(entitet.getIme()==null || entitet.getIme().trim().isEmpty()){
             throw new MyException("Ime se mora unijeti");
         }
+        if (!entitet.getIme().matches("[a-žA-Ž]+")) {
+            throw new MyException("Ime moze sadrzavati samo slova");
+     }
     }
     
     protected void kontrolaPrezime() throws MyException{
@@ -45,6 +50,9 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
         if(entitet.getPrezime()==null || entitet.getPrezime().trim().isEmpty()){
             throw new MyException("Prezime se mora unijeti");
         }
+        if (!entitet.getPrezime().matches("[a-žA-Ž]+")) {
+            throw new MyException("Prezime moze sadrzavati samo slova");
+     }
     }
     
     protected void kontrolaOib() throws MyException{

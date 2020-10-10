@@ -27,7 +27,7 @@ public class ObradaPregled extends Obrada<Pregled>{
         kontrolaNaziv();
         kontrolaOpis();
         kontrolaSimptomi();
-        //kontrolaDatum();
+        kontrolaDatum();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ObradaPregled extends Obrada<Pregled>{
         kontrolaNaziv();
         kontrolaOpis();
         kontrolaSimptomi();
-        //kontrolaDatum();
+        kontrolaDatum();
     }
 
     @Override
@@ -70,6 +70,10 @@ public class ObradaPregled extends Obrada<Pregled>{
         if(o==null){
             throw new MyException(poruka);
         }
+    }
+
+    private void kontrolaDatum() {
+        
     }
     
 }

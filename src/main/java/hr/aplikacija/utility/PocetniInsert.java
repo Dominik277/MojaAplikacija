@@ -7,6 +7,7 @@ package hr.aplikacija.utility;
 
 import com.github.javafaker.Faker;
 import hr.aplikacija.controller.ObradaOperater;
+import hr.aplikacija.controller.ObradaPacijent;
 import hr.aplikacija.model.Doktor;
 import hr.aplikacija.model.Operater;
 import hr.aplikacija.model.Pacijent;
@@ -25,6 +26,25 @@ import java.util.logging.Logger;
  * @author Dominik
  */
 public class PocetniInsert {
+    
+    public static void dodajPacijente(){
+        
+        Pacijent pacijent = new Pacijent();
+        pacijent.setIme("Dominik");
+        pacijent.setPrezime("Dorić");
+        pacijent.setEmail("ddoric@gmail.com");
+        pacijent.setOib(Oib.getOibIiCentrala());
+        //pacijent.setBroj();
+
+        ObradaPacijent op = new ObradaPacijent();
+        op.setEntitet(pacijent);
+        try {
+            op.create();
+        } catch (MyException ex) {
+            ex.printStackTrace();
+        }
+        
+    }
 
     public static void kreirajOperatera(){
         Operater operater = new Operater();
@@ -63,42 +83,42 @@ public class PocetniInsert {
         }
         
         Session session = (Session) HibernateUtil.getSessionFactory();
-        Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica", new Date());
-        Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos", new Date());
-        Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina", new Date());
-        Pregled traumatologija = createPregled("Traumatologija", "Hitni slučajevi i prijelomi", "Posjekotine,porezotine,prijelomi", new Date());
+//        Pregled kardiologija = createPregled("Kardiologija", "Pregled srca", "Česta slabina i vrtoglavica", new Date());
+//        Pregled otorinolaringologija = createPregled("Otorinolaringologija", "Pregled uha,grla i nosa", "Upala grla,upala uha i slomljen nos", new Date());
+//        Pregled neurologija = createPregled("Neurologija", "Liječenje poremečaja živčanog sustava i mozga", "Česta vrtoglavica i slabina", new Date());
+//        Pregled traumatologija = createPregled("Traumatologija", "Hitni slučajevi i prijelomi", "Posjekotine,porezotine,prijelomi", new Date());
 
         session.beginTransaction();
 
-        session.save(kardiologija);
-        session.save(otorinolaringologija);
-        session.save(neurologija);
-        session.save(traumatologija);
-        //session.getTransaction().commit();
-
-        Usluga slusanjeSrca = createUsluga("Slušanje rada srca", new BigDecimal(249.00));
-        Usluga lomNoge = createUsluga("Stavaljanje noge u gips", new BigDecimal(49.00));
-        Usluga posjekotina = createUsluga("Dezinfekcija i šivanje rane", new BigDecimal(29.00));
-        Usluga operacijaSrca = createUsluga("Operacija srca", new BigDecimal(2499.00));
-        Usluga operacijaPluca = createUsluga("Operacija pluća", new BigDecimal(2199.00));
-        Usluga opercijaKoljena = createUsluga("Operacija koljena", new BigDecimal(1999.00));
-
-        session.save(slusanjeSrca);
-        session.save(lomNoge);
-        session.save(posjekotina);
-        session.save(operacijaSrca);
-        session.save(operacijaPluca);
-        session.save(opercijaKoljena);
-
-        UslugaPregled usluga1 = createUslugaPregled(new BigDecimal(2300.00));
-        UslugaPregled usluga2 = createUslugaPregled(new BigDecimal(1300.00));
-        UslugaPregled usluga3 = createUslugaPregled(new BigDecimal(300.00));
-        UslugaPregled usluga4 = createUslugaPregled(new BigDecimal(3300.00));
-
-        session.save(usluga1);
-        session.save(usluga2);
-        session.save(usluga3);
-        session.save(usluga4);
+//        session.save(kardiologija);
+//        session.save(otorinolaringologija);
+//        session.save(neurologija);
+//        session.save(traumatologija);
+//        //session.getTransaction().commit();
+//
+//        Usluga slusanjeSrca = createUsluga("Slušanje rada srca", new BigDecimal(249.00));
+//        Usluga lomNoge = createUsluga("Stavaljanje noge u gips", new BigDecimal(49.00));
+//        Usluga posjekotina = createUsluga("Dezinfekcija i šivanje rane", new BigDecimal(29.00));
+//        Usluga operacijaSrca = createUsluga("Operacija srca", new BigDecimal(2499.00));
+//        Usluga operacijaPluca = createUsluga("Operacija pluća", new BigDecimal(2199.00));
+//        Usluga opercijaKoljena = createUsluga("Operacija koljena", new BigDecimal(1999.00));
+//
+//        session.save(slusanjeSrca);
+//        session.save(lomNoge);
+//        session.save(posjekotina);
+//        session.save(operacijaSrca);
+//        session.save(operacijaPluca);
+//        session.save(opercijaKoljena);
+//
+//        UslugaPregled usluga1 = createUslugaPregled(new BigDecimal(2300.00));
+//        UslugaPregled usluga2 = createUslugaPregled(new BigDecimal(1300.00));
+//        UslugaPregled usluga3 = createUslugaPregled(new BigDecimal(300.00));
+//        UslugaPregled usluga4 = createUslugaPregled(new BigDecimal(3300.00));
+//
+//        session.save(usluga1);
+//        session.save(usluga2);
+//        session.save(usluga3);
+//        session.save(usluga4);
 
         Faker faker = new Faker();
 

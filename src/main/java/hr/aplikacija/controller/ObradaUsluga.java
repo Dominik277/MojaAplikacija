@@ -24,58 +24,66 @@ public class ObradaUsluga extends Obrada<Usluga> {
 
     @Override
     protected void kontrolaCreate() throws MyException {
-        
         kontrolaNaziv();
         kontrolaCijena();
-        
+
     }
 
+//    public List<Usluga> getPodaci(String uvjet){
+//        return session.createQuery("SELECT u"
+//              +  " FROM Usluga as u "  
+//              +  " left join p.vozac v " 
+//              +  " where concat(v.ime, ' ', v.prezime) "
+//              +  " like :uvjet ")      
+//                .setParameter("uvjet", "%"+uvjet+"%")
+//               .list();
+//    }
     @Override
     protected void kontrolaUpdate() throws MyException {
-//        kontrolaNaziv();
-//        kontrolaCijena();
-          kontrolaCreate();
+        kontrolaNaziv();
+        kontrolaCijena();
+        kontrolaCreate();
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        
+
     }
-    
-    private void kontrolaNaziv() throws MyException{
+
+    private void kontrolaNaziv() throws MyException {
         kontrolaNull(entitet.getNaziv(), "Naziv nije definiran");
-        
-        if(entitet.getNaziv().isEmpty()){
+
+        if (entitet.getNaziv().isEmpty()) {
             throw new MyException("naziv", "Naziv nije postavljen,unijeti naziv");
         }
-        boolean broj=false;
+        boolean broj = false;
         try {
             new BigDecimal(entitet.getNaziv());
-            broj=true;
+            broj = true;
         } catch (Exception e) {
         }
-        if(broj){
+        if (broj) {
             throw new MyException("Naziv ne može biti broj,unijeti naziv");
         }
-        if(entitet.getNaziv().length()>50){
+        if (entitet.getNaziv().length() > 50) {
             throw new MyException("Dužina naziva ne može biti veća od 50 znakova");
         }
     }
-    
-    private void kontrolaCijena() throws MyException{
+
+    private void kontrolaCijena() throws MyException {
         kontrolaNull(entitet.getCijena(), "Cijena nije definirana");
-        if(entitet.getCijena().compareTo(BigDecimal.ZERO)<=0){
+        if (entitet.getCijena().compareTo(BigDecimal.ZERO) <= 0) {
             throw new MyException("Cijena ne može biti manja ili jednaka nuli");
         }
-        if(entitet.getCijena().compareTo(new BigDecimal(100000))==1){
+        if (entitet.getCijena().compareTo(new BigDecimal(100000)) == 1) {
             throw new MyException("Cijena ne može biti veća od 100.000,00 kn");
         }
     }
-    
-    private void kontrolaNull(Object o, String poruka) throws MyException{
-        if(o==null){
+
+    private void kontrolaNull(Object o, String poruka) throws MyException {
+        if (o == null) {
             throw new MyException(poruka);
         }
     }
-    
+
 }
