@@ -562,7 +562,7 @@ public class Pregledi extends javax.swing.JFrame {
         ExclusionStrategy strategy = new ExclusionStrategy() {
             @Override
             public boolean shouldSkipField(FieldAttributes field) {
-                if (field.getDeclaringClass() == Usluga.class && field.getName().equals("pregledo")) {
+                if (field.getDeclaringClass() == Usluga.class && field.getName().equals("pregledi")) {
                     return true;
                 }
                 if (field.getDeclaringClass() == Pacijent.class && field.getName().equals("pregledi")) {
@@ -697,7 +697,7 @@ public class Pregledi extends javax.swing.JFrame {
 
     private void ucitajPacijente() {
         DefaultListModel<Pacijent> m = new DefaultListModel<>();
-     //   ObradaPacijent.getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
+        new ObradaPacijent().getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
         
         lstPacijentiUBazi.setModel(m);
     }

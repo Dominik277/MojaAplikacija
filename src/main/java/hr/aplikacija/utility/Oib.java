@@ -7,7 +7,6 @@ package hr.aplikacija.utility;
 
 import java.net.URL;
 import java.util.Scanner;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -18,12 +17,12 @@ import us.codecraft.xsoup.Xsoup;
  * @author Dominik
  */
 public class Oib {
+    
     public static boolean isValjan(String oib){
         if (oib.length() != 11){
               return false;
         }
-
-
+        
         try {
             Long.parseLong(oib);
         } catch (NumberFormatException e) {

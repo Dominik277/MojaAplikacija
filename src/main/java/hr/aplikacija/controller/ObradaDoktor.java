@@ -74,9 +74,9 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
     }
 
     protected void kontrolaPrezime() throws MyException {
-        PomocnaMetoda.neMozeBitiBroj(entitet.getIme(), "Ime ne moze biti broj");
+        PomocnaMetoda.neMozeBitiBroj(entitet.getPrezime(), "Prezime ne moze biti broj");
         if (entitet.getPrezime() == null || entitet.getPrezime().trim().isEmpty()) {
-            throw new MyException("Ime mora biti uneseno");
+            throw new MyException("Prezime mora biti uneseno");
         }
         if (entitet.getPrezime().length() > 50) {
             throw new MyException("Prezime ne moze biti duze od 50 znakova ");
