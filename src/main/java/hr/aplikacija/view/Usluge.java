@@ -271,7 +271,7 @@ public class Usluge extends javax.swing.JFrame {
     private void ucitajPodatke() {
         
         DefaultListModel<Usluga> m = new DefaultListModel<>();
-        obrada.getPodaci().forEach(s->m.addElement(s));
+        obrada.getPodaci().forEach(u->m.addElement(u));
         lstPodaci.setModel(m);
     }
 

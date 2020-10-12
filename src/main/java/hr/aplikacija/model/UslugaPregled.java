@@ -49,4 +49,5 @@ public class UslugaPregled extends Entitet{
         this.usluga = usluga;
     }
     
+    
 }

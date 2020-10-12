@@ -311,7 +311,7 @@ public class Izbornik extends javax.swing.JFrame {
         
         DefaultPieDataset dataset = new DefaultPieDataset();
         for(Pregled p: op.getPodaci()){
-            dataset.setValue(p.getNaziv(), p.getUsluge().size());
+            dataset.setValue(p.getNaziv(), p.getUslugaPregledi().size());
         }
         
         JFreeChart chart = ChartFactory.createPieChart(

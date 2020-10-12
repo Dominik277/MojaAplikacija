@@ -40,8 +40,8 @@ import javax.swing.JOptionPane;
 public class Pregledi extends javax.swing.JFrame {
 
     private ObradaPregled obrada;
-    private ObradaUsluga obradaUsluga;
-    private ObradaPacijent obradaPacijent;
+ //   private ObradaUsluga obradaUsluga;
+ //   private ObradaPacijent obradaPacijent;
     private Pregled entitet;
 
     /**
@@ -50,21 +50,21 @@ public class Pregledi extends javax.swing.JFrame {
     public Pregledi() {
         initComponents();
         obrada = new ObradaPregled();
-        obradaPacijent=new ObradaPacijent();
-        obradaUsluga=new ObradaUsluga();
+     //   obradaPacijent=new ObradaPacijent();
+     //   obradaUsluga=new ObradaUsluga();
         setTitle(Aplikacija.operater.getImePrezime() + " - Pregledi");
         ucitajPodatke();
 
         DefaultComboBoxModel<Doktor> md = new DefaultComboBoxModel<>();
-        new ObradaDoktor().getPodaci().forEach(p -> {
-            md.addElement(p);
+        new ObradaDoktor().getPodaci().forEach(d -> {
+            md.addElement(d);
         });
         cmbDoktori.setRenderer(new OsobaCellRenderer());
         cmbDoktori.setModel(md);
 
         DefaultComboBoxModel<Pacijent> mp = new DefaultComboBoxModel<>();
-        new ObradaPacijent().getPodaci().forEach(s -> {
-            mp.addElement(s);
+        new ObradaPacijent().getPodaci().forEach(p -> {
+            mp.addElement(p);
         });
         cmbPacijenti.setRenderer(new OsobaCellRenderer());
         cmbPacijenti.setModel(mp);
@@ -448,14 +448,6 @@ public class Pregledi extends javax.swing.JFrame {
 
         txtNaziv.setText(entitet.getNaziv());
         //cmbPacijenti.setSelectedItem(entitet.getPacijent());
-
-        DefaultComboBoxModel<Pacijent> mp = (DefaultComboBoxModel<Pacijent>) cmbPacijenti.getModel();
-        for (int i = 0; i < mp.getSize(); i++) {
-            if (mp.getElementAt(i).getId().equals(entitet.getPacijent().getId())) {
-                cmbPacijenti.setSelectedIndex(i);
-                break;
-            }
-        }
         
         
         DefaultComboBoxModel<Doktor> md = (DefaultComboBoxModel<Doktor>) cmbDoktori.getModel();
@@ -465,17 +457,34 @@ public class Pregledi extends javax.swing.JFrame {
                 break;
             }
         }
+
+        DefaultComboBoxModel<Pacijent> mp = (DefaultComboBoxModel<Pacijent>) cmbPacijenti.getModel();
+        for (int i = 0; i < mp.getSize(); i++) {
+            if (mp.getElementAt(i).getId().equals(entitet.getPacijent().getId())) {
+                cmbPacijenti.setSelectedIndex(i);
+                break;
+            }
+        }
+      
         if(entitet.getDatum()!=null){
             dpiDatum.setDate(entitet.getDatum().toInstant()
                     .atZone(ZoneId.systemDefault())
                     .toLocalDate());
         }
         
-        DefaultListModel<Usluga> m = new DefaultListModel<>();
-        for(Usluga u : entitet.getUsluge()){
-            m.addElement(u);
-        }
-     //   lstPacijentiNaPregledu.setModel(m);
+//        DefaultListModel<Usluga> m = new DefaultListModel<>();
+//        for(Usluga u : entitet.getUsluge()){
+//            m.addElement(u);
+//        }
+//     //   lstPacijentiNaPregledu.setModel(m);
+        
+        DefaultListModel<Pacijent> m = new DefaultListModel<>();
+//        for(Pacijent p : entitet.getPacijenti()){
+//            m.addElement(p);
+//        }
+        lstPacijentiNaPregledu.setModel(m);
+        
+
     }//GEN-LAST:event_lstPodaciValueChanged
 
     private void lstPacijentiNaPregleduValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPacijentiNaPregleduValueChanged
@@ -688,7 +697,7 @@ public class Pregledi extends javax.swing.JFrame {
 
     private void ucitajPacijente() {
         DefaultListModel<Pacijent> m = new DefaultListModel<>();
-        obradaPacijent.getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
+     //   ObradaPacijent.getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
         
         lstPacijentiUBazi.setModel(m);
     }
