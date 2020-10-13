@@ -45,6 +45,7 @@ hr\aplikacija\view\OPoliklinici.class
 hr\aplikacija\utility\PocetniInsert.class
 hr\aplikacija\controller\ObradaPregled.class
 hr\aplikacija\view\Pregledi.class
+hr\aplikacija\view\SplashScreen$Ucitanje.class
 hr\aplikacija\view\Izbornik$3.class
 hr\aplikacija\view\NarudžbaPregleda.class
 hr\aplikacija\view\Pacijenti$8.class
@@ -68,6 +69,7 @@ hr\aplikacija\view\Izbornik$12.class
 hr\aplikacija\view\Autorizacija$2.class
 hr\aplikacija\view\Pacijenti$7.class
 hr\aplikacija\model\Osoba.class
+hr\aplikacija\view\SplashScreen.class
 hr\aplikacija\view\Usluge$4.class
 hr\aplikacija\view\OsobaCellRenderer.class
 hr\aplikacija\view\Pregledi$6.class

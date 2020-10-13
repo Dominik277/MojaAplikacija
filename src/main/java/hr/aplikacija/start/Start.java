@@ -14,6 +14,7 @@ import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.PocetniInsert;
 import hr.aplikacija.view.Autorizacija;
 import hr.aplikacija.view.Izbornik;
+import hr.aplikacija.view.SplashScreen;
 import java.util.ArrayList;
 import java.util.List;
 //import hr.aplikacija.utility.PocetniInsert;
@@ -27,7 +28,8 @@ public class Start {
     public static void main(String[] args){
     
         //new Izbornik().setVisible(true);
-        new Autorizacija().setVisible(true);
+        //new Autorizacija().setVisible(true);
+        new SplashScreen().setVisible(true);
         
         //PocetniInsert.dodajPacijente();
         
