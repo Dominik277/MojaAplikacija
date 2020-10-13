@@ -46,20 +46,20 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
     @Override
     protected void kontrolaUpdate() throws MyException {
         
-        super.kontrolaUpdate();
-        kontrolaIme();
-        kontrolaPrezime();
-        kontrolaOib();
-        kontrolaEmail();
-        kontrolaOibBazaKreiraj();
-        kontrolaOibBazaPromjeni();
+//        super.kontrolaUpdate();
+//        kontrolaIme();
+//        kontrolaPrezime();
+//        kontrolaOib();
+//        kontrolaEmail();
+//        kontrolaOibBazaKreiraj();
+//        kontrolaOibBazaPromjeni();
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-//        if(entitet.getPregledi().size()>0){
-//            throw new MyException("Doktor se ne može obrisati");
-//        }
+        if(entitet.getPregledi().size()>0){
+            throw new MyException("Doktor se ne može obrisati");
+        }
     }
 
  

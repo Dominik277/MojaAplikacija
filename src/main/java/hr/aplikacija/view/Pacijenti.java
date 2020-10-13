@@ -100,6 +100,12 @@ public class Pacijenti extends javax.swing.JFrame {
 
         jLabel4.setText("Email");
 
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
+
         txtDovuciOib.setText("Dovuci OIB");
         txtDovuciOib.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -376,6 +382,10 @@ public class Pacijenti extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_lblSlikaMouseClicked
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     
 

@@ -332,19 +332,20 @@ public class Izbornik extends javax.swing.JFrame {
 //        dataset.setValue("PP21", 10);
 //        dataset.setValue("OP16", 5);
 //        dataset.setValue("WD40", 50);
-//
+          
+
 //        JFreeChart chart = ChartFactory.createPieChart(
 //                "Broj polaznika po grupama", // chart title 
 //                dataset, // data    
 //                true, // include legend   
 //                true,
 //                false);
-//
+
 //        ChartPanel cp = new ChartPanel(chart);
-//
-//        pnlGraf.setLayout(new BorderLayout());
-//        pnlGraf.add(cp, BorderLayout.CENTER);
-//        pnlGraf.validate();
+
+        pnlGraf.setLayout(new BorderLayout());
+        pnlGraf.add(cp, BorderLayout.CENTER);
+        pnlGraf.validate();
     }
     
 //    private void Kalendar(){

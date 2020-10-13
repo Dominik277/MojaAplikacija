@@ -25,7 +25,8 @@ public class ObradaOperater extends ObradaOsoba<Operater> {
         if (operater == null) {
             return null;
         }
-        return BCrypt.checkpw(new String(lozinka), operater.getLozinka()) ? operater : null;
+        return BCrypt.checkpw(new String(lozinka), operater.getLozinka())
+                ? operater : null;
     }
 
     @Override
@@ -35,18 +36,18 @@ public class ObradaOperater extends ObradaOsoba<Operater> {
 
     @Override
     protected void kontrolaCreate() throws MyException {
-        //kontrolaIme();
-        super.kontrolaCreate();
+        kontrolaIme();
+        //super.kontrolaCreate();
     }
 
     @Override
     protected void kontrolaUpdate() throws MyException {
-        super.kontrolaUpdate();
+        //super.kontrolaUpdate();
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        super.kontrolaDelete();
+        //super.kontrolaDelete();
     }
 
 }
