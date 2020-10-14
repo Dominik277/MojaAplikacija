@@ -38,7 +38,7 @@ public class Izbornik extends javax.swing.JFrame {
         // }
         jmiOperateri.setVisible(Aplikacija.isAdmin());
 
-        pripremiGraf();
+        //pripremiGraf();
 
     }
 
@@ -52,6 +52,7 @@ public class Izbornik extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlGraf = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmNaslovGrana = new javax.swing.JMenu();
         jmiDoktori = new javax.swing.JMenuItem();
@@ -76,15 +77,22 @@ public class Izbornik extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("APP");
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dominik\\Desktop\\doctors-posing-in-front-of-hospital_1214-51.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout pnlGrafLayout = new javax.swing.GroupLayout(pnlGraf);
         pnlGraf.setLayout(pnlGrafLayout);
         pnlGrafLayout.setHorizontalGroup(
             pnlGrafLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGrafLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlGrafLayout.setVerticalGroup(
             pnlGrafLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(pnlGrafLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         jmNaslovGrana.setText("NASLOV");
@@ -217,11 +225,15 @@ public class Izbornik extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlGraf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlGraf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlGraf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlGraf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -282,6 +294,7 @@ public class Izbornik extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -305,48 +318,48 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JPanel pnlGraf;
     // End of variables declaration//GEN-END:variables
 
-    private void pripremiGraf() {
-        
-        ObradaPregled op = new ObradaPregled();
-        
-        DefaultPieDataset dataset = new DefaultPieDataset();
-        for(Pregled p: op.getPodaci()){
-            dataset.setValue(p.getNaziv(), p.getUslugaPregledi().size());
-        }
-        
-        JFreeChart chart = ChartFactory.createPieChart(
-                "Broj usluga na pregledu",
-                dataset,
-                true,
-                true,
-                false);
-        
-        ChartPanel cp = new ChartPanel(chart);
-        
-        pnlGraf.setLayout(new BorderLayout());
-        pnlGraf.add(cp, BorderLayout.CENTER);
-        pnlGraf.validate();
-        
+//    private void pripremiGraf() {
+//        
+//        ObradaPregled op = new ObradaPregled();
+//        
 //        DefaultPieDataset dataset = new DefaultPieDataset();
-//        dataset.setValue("JP22", 25);
-//        dataset.setValue("PP21", 10);
-//        dataset.setValue("OP16", 5);
-//        dataset.setValue("WD40", 50);
-          
-
+//        for(Pregled p: op.getPodaci()){
+//            dataset.setValue(p.getNaziv(), p.getUslugaPregledi().size());
+//        }
+//        
 //        JFreeChart chart = ChartFactory.createPieChart(
-//                "Broj polaznika po grupama", // chart title 
-//                dataset, // data    
-//                true, // include legend   
+//                "Broj usluga na pregledu",
+//                dataset,
+//                true,
 //                true,
 //                false);
-
+//        
 //        ChartPanel cp = new ChartPanel(chart);
-
-        pnlGraf.setLayout(new BorderLayout());
-        pnlGraf.add(cp, BorderLayout.CENTER);
-        pnlGraf.validate();
-    }
+//        
+//        pnlGraf.setLayout(new BorderLayout());
+//        pnlGraf.add(cp, BorderLayout.CENTER);
+//        pnlGraf.validate();
+//        
+////        DefaultPieDataset dataset = new DefaultPieDataset();
+////        dataset.setValue("JP22", 25);
+////        dataset.setValue("PP21", 10);
+////        dataset.setValue("OP16", 5);
+////        dataset.setValue("WD40", 50);
+//          
+//
+////        JFreeChart chart = ChartFactory.createPieChart(
+////                "Broj polaznika po grupama", // chart title 
+////                dataset, // data    
+////                true, // include legend   
+////                true,
+////                false);
+//
+////        ChartPanel cp = new ChartPanel(chart);
+//
+//        pnlGraf.setLayout(new BorderLayout());
+//        pnlGraf.add(cp, BorderLayout.CENTER);
+//        pnlGraf.validate();
+//    }
     
 //    private void Kalendar(){
 //        pnlKalendar.setLayout(new BorderLayout());

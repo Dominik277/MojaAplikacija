@@ -40,10 +40,13 @@ public class ObradaPregled extends Obrada<Pregled>{
 
     @Override
     protected void kontrolaDelete() throws MyException {
-        if(entitet.getPacijent().equals(null)){
-            throw new MyException("Pacijent se ne može brisati");
-        }
+//        if(entitet.getPacijent().equals(null)){
+//            throw new MyException("Pacijent se ne može brisati");
+//        }
+    if(entitet.getUslugaPregledi().size()>0){
+        throw new MyException("Pregled se ne može obrisati!");
     }
+ }
 
     private void kontrolaNaziv() throws MyException{
         PomocnaMetoda.neMozeBitiBroj(entitet.getNaziv(), "Naziv ne moze biti broj");

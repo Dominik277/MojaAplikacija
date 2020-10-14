@@ -39,7 +39,6 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
         kontrolaOib();
         kontrolaEmail();
         kontrolaOibBazaKreiraj();
-        kontrolaOibBazaPromjeni();
        
     }
 
@@ -51,7 +50,6 @@ public class ObradaDoktor extends ObradaOsoba<Doktor> {
 //        kontrolaPrezime();
 //        kontrolaOib();
 //        kontrolaEmail();
-        kontrolaOibBazaKreiraj();
         kontrolaOibBazaPromjeni();
     }
 
