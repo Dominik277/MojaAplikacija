@@ -40,7 +40,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         kontrolaEmail();
         kontrolaOib();
         kontrolaOibBazaKreiraj();
-        kontrolaBroj();
+       // kontrolaBroj();
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
         kontrolaEmail();
         kontrolaOib();
         kontrolaOibBazaKreiraj();
-        kontrolaBroj();
+        //kontrolaBroj();
         
     }
 
@@ -92,7 +92,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
     }
 
     protected void kontrolaBroj() throws MyException {
-        kontrolaNull(entitet.getBroj(), "Broj je je obavezan");
+        kontrolaNull(entitet.getBroj(), "Broj je obavezan");
         if (entitet.getBroj() == null || entitet.getBroj().trim().isEmpty()) {
             throw new MyException("Broj ne moze biti jednak ili manji od nule");
         }

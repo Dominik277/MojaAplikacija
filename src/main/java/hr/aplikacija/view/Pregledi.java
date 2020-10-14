@@ -56,6 +56,11 @@ public class Pregledi extends javax.swing.JFrame {
         ucitajPodatke();
 
         DefaultComboBoxModel<Doktor> md = new DefaultComboBoxModel<>();
+        Doktor doktor = new Doktor();
+        doktor.setIme("Odaberite");
+        doktor.setPrezime("doktora");
+        doktor.setId(-1L);
+        md.addElement(doktor);
         new ObradaDoktor().getPodaci().forEach(d -> {
             md.addElement(d);
         });
@@ -77,6 +82,8 @@ public class Pregledi extends javax.swing.JFrame {
         lstPacijentiUBazi.setCellRenderer(new OsobaCellRenderer());
 //        DefaultListModel<Pregled> m = new DefaultListModel<>();
 //        lstPacijentiNaPregledu.setModel(mp);
+
+        lstPacijentiNaPregledu.setModel(new DefaultListModel<>());
         
 
     }
@@ -395,7 +402,7 @@ public class Pregledi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
-
+        
         lblPoruka.setText("");
         entitet = new Pregled();
 
@@ -450,6 +457,8 @@ public class Pregledi extends javax.swing.JFrame {
         txtNaziv.setText(entitet.getNaziv());
         //cmbPacijenti.setSelectedItem(entitet.getPacijent());
         
+        if(entitet.getDoktor()!=null){
+            
         
         DefaultComboBoxModel<Doktor> md = (DefaultComboBoxModel<Doktor>) cmbDoktori.getModel();
         for (int i = 0; i < md.getSize(); i++) {
@@ -458,7 +467,9 @@ public class Pregledi extends javax.swing.JFrame {
                 break;
             }
         }
-
+    }
+        if(entitet.getPacijent()!=null){
+            
         DefaultComboBoxModel<Pacijent> mp = (DefaultComboBoxModel<Pacijent>) cmbPacijenti.getModel();
         for (int i = 0; i < mp.getSize(); i++) {
             if (mp.getElementAt(i).getId().equals(entitet.getPacijent().getId())) {
@@ -466,7 +477,7 @@ public class Pregledi extends javax.swing.JFrame {
                 break;
             }
         }
-      
+        }
         if(entitet.getDatum()!=null){
             dpiDatum.setDate(entitet.getDatum().toInstant()
                     .atZone(ZoneId.systemDefault())
@@ -687,7 +698,7 @@ public class Pregledi extends javax.swing.JFrame {
         if(dpiDatum.getDate()!= null){
             entitet.setDatum(Date.from(dpiDatum.getDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant()));
         }
-        
+        //moram sa view-a povuci usluge
 //        entitet.setPacijent(new ArrayList<>());
         DefaultListModel<Pacijent> m = (DefaultListModel<Pacijent>) lstPacijentiNaPregledu.getModel();
 //        for(int i=0;i<m.size();i++){

@@ -79,4 +79,10 @@ public class ObradaPregled extends Obrada<Pregled>{
         
     }
     
+    private void kontrolaDoktor() throws MyException{
+        if(!(entitet.getDoktor()!=null && entitet.getDoktor().getId()>0)){
+            throw new MyException("Obavezan odabir doktora!");
+        }
+    }
+    
 }

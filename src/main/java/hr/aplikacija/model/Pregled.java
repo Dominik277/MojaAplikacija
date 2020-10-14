@@ -120,10 +120,13 @@ public class Pregled extends Entitet{
         this.simptomi = simptomi;
     }
 
-//    @Override
-//    public String toString() {
-//        return getNaziv()+ " (" + getPacijent().getIme() + ")";
-//    }
+    @Override
+    public String toString() {
+        if(getPacijent()==null){
+            return getNaziv();
+        }
+        return getNaziv()+ " (" + getPacijent().getIme() + ")";
+    }
     
     
     
