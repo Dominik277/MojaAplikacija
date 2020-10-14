@@ -9,6 +9,7 @@ import hr.aplikacija.model.Osoba;
 import hr.aplikacija.utility.MyException;
 import hr.aplikacija.utility.Oib;
 import hr.aplikacija.utility.PomocnaMetoda;
+import javax.mail.internet.InternetAddress;
 
 /**
  *
@@ -21,6 +22,7 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
         kontrolaIme();
         kontrolaPrezime();
         kontrolaOib();
+        kontrolaEmail();
     }
     
     @Override
@@ -28,6 +30,7 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
         kontrolaIme();
         kontrolaPrezime();
         kontrolaOib();
+        kontrolaEmail();
     }
     
     @Override
@@ -63,6 +66,21 @@ public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
             throw new MyException("OIB nije valjan");
         }
         
+    }
+
+    private void kontrolaEmail() throws MyException {
+        if(entitet.getEmail().isEmpty()){
+            throw new MyException("Email ne smije biti prazan!");
+        }
+        if(entitet.getEmail().length()>= 50){
+            throw new MyException("Email je predugačak!");
+        }
+        try {
+            InternetAddress emailAddr = new InternetAddress(entitet.getEmail());
+            emailAddr.validate();
+        } catch (Exception e) {
+            throw new MyException("Email nije u ispravnom formatu!");
+        }
     }
     
 }

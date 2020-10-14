@@ -46,13 +46,19 @@ public class ObradaPacijent extends Obrada<Pacijent> {
     @Override
     protected void kontrolaUpdate() throws MyException {
         kontrolaOibBazaPromjeni();
+        kontrolaIme();
+        kontrolaPrezime();
+        kontrolaEmail();
+        kontrolaOib();
+        kontrolaOibBazaKreiraj();
+        kontrolaBroj();
         
     }
 
     @Override
     protected void kontrolaDelete() throws MyException {
         if (entitet.getPregledi().size() > 0) {
-            throw new MyException("Pacijent se ne može obrisati....");
+            throw new MyException("Pacijent se ne može obrisati jer je na jednom ili više pregleda");
         }
     }
 
