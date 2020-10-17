@@ -455,6 +455,8 @@ public class Pregledi extends javax.swing.JFrame {
         }
 
         txtNaziv.setText(entitet.getNaziv());
+        txtOpis.setText(entitet.getOpis());
+        txtSimptomi.setText(entitet.getSimptomi());
         //cmbPacijenti.setSelectedItem(entitet.getPacijent());
         
         if(entitet.getDoktor()!=null){
