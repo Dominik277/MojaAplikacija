@@ -99,7 +99,7 @@ public class ObradaPacijent extends Obrada<Pacijent> {
     }
 
     protected void kontrolaEmail() throws MyException {
-        if (entitet.getEmail() == null) {
+        if (entitet.getEmail() == null || entitet.getEmail().trim().isEmpty()) {
             throw new MyException("Email nije unesen");
         }
         if (entitet.getEmail().length() > 50) {
