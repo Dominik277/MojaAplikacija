@@ -41,7 +41,7 @@ import javax.swing.JOptionPane;
 public class Pregledi extends javax.swing.JFrame {
 
     private ObradaPregled obrada;
- //   private ObradaUsluga obradaUsluga;
+    private ObradaUsluga obradaUsluga;
  //   private ObradaPacijent obradaPacijent;
     private Pregled entitet;
 
@@ -51,6 +51,7 @@ public class Pregledi extends javax.swing.JFrame {
     public Pregledi() {
         initComponents();
         obrada = new ObradaPregled();
+        obradaUsluga = new ObradaUsluga();
      //   obradaPacijent=new ObradaPacijent();
      //   obradaUsluga=new ObradaUsluga();
         setTitle(Aplikacija.operater.getImePrezime() + " - Pregledi");
@@ -79,12 +80,13 @@ public class Pregledi extends javax.swing.JFrame {
         dps.setFormatForDatesCommonEra("dd.MM.yyyy");
         dpiDatum.setSettings(dps);
         
-        lstPacijentiNaPregledu.setCellRenderer(new OsobaCellRenderer());
-        lstPacijentiUBazi.setCellRenderer(new OsobaCellRenderer());
+        //lstUslugeNaPregledu.setCellRenderer(new OsobaCellRenderer());
+        //lstUslugeUBazi.setCellRenderer(new OsobaCellRenderer());
+        //lstUslugeNaPregledu.setCellRenderer(new OsobaCellRenderer());
 //        DefaultListModel<Pregled> m = new DefaultListModel<>();
 //        lstPacijentiNaPregledu.setModel(mp);
 
-        lstPacijentiNaPregledu.setModel(new DefaultListModel<>());
+        lstUslugeNaPregledu.setModel(new DefaultListModel<>());
         
 
     }
@@ -119,21 +121,22 @@ public class Pregledi extends javax.swing.JFrame {
         btnDodaj = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        lstPacijentiNaPregledu = new javax.swing.JList<>();
+        lstUslugeNaPregledu = new javax.swing.JList<>();
         btnTrazi = new javax.swing.JButton();
         txtUvjet = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        lstPacijentiUBazi = new javax.swing.JList<>();
+        lstUslugeUBazi = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        btnDodajPacijenteUPregled = new javax.swing.JButton();
-        btnMakniPacijenteIzPregleda = new javax.swing.JButton();
+        btnDodajUslugeUPregled = new javax.swing.JButton();
+        btnMakniUslugeIzPregleda = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         btnExportJson = new javax.swing.JButton();
         btnExportWord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        lstPodaci.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         lstPodaci.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 lstPodaciValueChanged(evt);
@@ -234,12 +237,12 @@ public class Pregledi extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Usluge"));
 
-        lstPacijentiNaPregledu.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        lstUslugeNaPregledu.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstPacijentiNaPregleduValueChanged(evt);
+                lstUslugeNaPregleduValueChanged(evt);
             }
         });
-        jScrollPane2.setViewportView(lstPacijentiNaPregledu);
+        jScrollPane2.setViewportView(lstUslugeNaPregledu);
 
         btnTrazi.setText("Traži");
         btnTrazi.addActionListener(new java.awt.event.ActionListener() {
@@ -259,28 +262,28 @@ public class Pregledi extends javax.swing.JFrame {
             }
         });
 
-        lstPacijentiUBazi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        lstUslugeUBazi.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstPacijentiUBaziValueChanged(evt);
+                lstUslugeUBaziValueChanged(evt);
             }
         });
-        jScrollPane3.setViewportView(lstPacijentiUBazi);
+        jScrollPane3.setViewportView(lstUslugeUBazi);
 
         jLabel7.setText("Traži u bazi podataka");
 
-        jLabel8.setText("Usluge");
+        jLabel8.setText("Usluge na pregledu");
 
-        btnDodajPacijenteUPregled.setText(">>");
-        btnDodajPacijenteUPregled.addActionListener(new java.awt.event.ActionListener() {
+        btnDodajUslugeUPregled.setText(">>");
+        btnDodajUslugeUPregled.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDodajPacijenteUPregledActionPerformed(evt);
+                btnDodajUslugeUPregledActionPerformed(evt);
             }
         });
 
-        btnMakniPacijenteIzPregleda.setText("<<");
-        btnMakniPacijenteIzPregleda.addActionListener(new java.awt.event.ActionListener() {
+        btnMakniUslugeIzPregleda.setText("<<");
+        btnMakniUslugeIzPregleda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMakniPacijenteIzPregledaActionPerformed(evt);
+                btnMakniUslugeIzPregledaActionPerformed(evt);
             }
         });
 
@@ -297,8 +300,8 @@ public class Pregledi extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnMakniPacijenteIzPregleda)
-                            .addComponent(btnDodajPacijenteUPregled)
+                            .addComponent(btnMakniUslugeIzPregleda)
+                            .addComponent(btnDodajUslugeUPregled)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,11 +335,11 @@ public class Pregledi extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(btnDodajPacijenteUPregled)
+                        .addComponent(btnDodajUslugeUPregled)
                         .addGap(53, 53, 53)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnMakniPacijenteIzPregleda)
+                        .addComponent(btnMakniUslugeIzPregleda)
                         .addGap(101, 101, 101))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
@@ -499,51 +502,51 @@ public class Pregledi extends javax.swing.JFrame {
 //        }
 //     //   lstPacijentiNaPregledu.setModel(m);
         
-        DefaultListModel<Pacijent> m = new DefaultListModel<>();
+        DefaultListModel<Usluga> m = new DefaultListModel<>();
 //        for(Pacijent p : entitet.getPacijenti()){
 //            m.addElement(p);
 //        }
-        lstPacijentiNaPregledu.setModel(m);
+        lstUslugeNaPregledu.setModel(m);
         
 
     }//GEN-LAST:event_lstPodaciValueChanged
 
-    private void lstPacijentiNaPregleduValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPacijentiNaPregleduValueChanged
+    private void lstUslugeNaPregleduValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstUslugeNaPregleduValueChanged
         
 
         //DefaultComboBoxModel<Pregled> mp = (DefaultComboBoxModel<Pregled>)
-    }//GEN-LAST:event_lstPacijentiNaPregleduValueChanged
+    }//GEN-LAST:event_lstUslugeNaPregleduValueChanged
 
     private void btnTraziActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTraziActionPerformed
-        ucitajPacijente();
+        ucitajUsluge();
     }//GEN-LAST:event_btnTraziActionPerformed
 
     private void txtUvjetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUvjetKeyReleased
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
-            ucitajPacijente();
+            ucitajUsluge();
         }
     }//GEN-LAST:event_txtUvjetKeyReleased
 
-    private void lstPacijentiUBaziValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPacijentiUBaziValueChanged
+    private void lstUslugeUBaziValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstUslugeUBaziValueChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_lstPacijentiUBaziValueChanged
+    }//GEN-LAST:event_lstUslugeUBaziValueChanged
 
     private void txtUvjetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUvjetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUvjetActionPerformed
 
-    private void btnDodajPacijenteUPregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajPacijenteUPregledActionPerformed
+    private void btnDodajUslugeUPregledActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajUslugeUPregledActionPerformed
         
-        DefaultListModel<Pacijent> m;
+        DefaultListModel<Usluga> m;
         try {
-            m=(DefaultListModel<Pacijent>) lstPacijentiNaPregledu.getModel();
+            m=(DefaultListModel<Usluga>) lstUslugeNaPregledu.getModel();
             m.get(0).toString();
         } catch (Exception e) {
             m=new DefaultListModel<>();
-            lstPacijentiNaPregledu.setModel(m);
+            lstUslugeNaPregledu.setModel(m);
         }
         boolean postoji;
-        for(Pacijent p : lstPacijentiUBazi.getSelectedValuesList()){
+        for(Usluga p : lstUslugeUBazi.getSelectedValuesList()){
             postoji=false;
             for(int i=0;i<m.size();i++){
                 if(p.getId().equals(m.get(i).getId())){
@@ -556,18 +559,18 @@ public class Pregledi extends javax.swing.JFrame {
             }
             
         }
-        lstPacijentiNaPregledu.repaint();
-    }//GEN-LAST:event_btnDodajPacijenteUPregledActionPerformed
+        lstUslugeNaPregledu.repaint();
+    }//GEN-LAST:event_btnDodajUslugeUPregledActionPerformed
 
-    private void btnMakniPacijenteIzPregledaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakniPacijenteIzPregledaActionPerformed
-        DefaultListModel<Pacijent> m;
+    private void btnMakniUslugeIzPregledaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakniUslugeIzPregledaActionPerformed
+        DefaultListModel<Usluga> m;
         try {
-            m=(DefaultListModel<Pacijent>) lstPacijentiNaPregledu.getModel();
+            m=(DefaultListModel<Usluga>) lstUslugeNaPregledu.getModel();
         } catch (Exception e) {
            return;
         }
         
-        for(Pacijent p : lstPacijentiNaPregledu.getSelectedValuesList()){
+        for(Usluga p : lstUslugeNaPregledu.getSelectedValuesList()){
             for(int i=0;i<m.size();i++){
                 if(p.getId().equals(m.getElementAt(i).getId())){
                     m.removeElementAt(i);
@@ -575,8 +578,8 @@ public class Pregledi extends javax.swing.JFrame {
                 }
             }
         }
-        lstPacijentiNaPregledu.repaint();
-    }//GEN-LAST:event_btnMakniPacijenteIzPregledaActionPerformed
+        lstUslugeNaPregledu.repaint();
+    }//GEN-LAST:event_btnMakniUslugeIzPregledaActionPerformed
 
     private void btnExportJsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportJsonActionPerformed
         
@@ -665,10 +668,10 @@ public class Pregledi extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodaj;
-    private javax.swing.JButton btnDodajPacijenteUPregled;
+    private javax.swing.JButton btnDodajUslugeUPregled;
     private javax.swing.JButton btnExportJson;
     private javax.swing.JButton btnExportWord;
-    private javax.swing.JButton btnMakniPacijenteIzPregleda;
+    private javax.swing.JButton btnMakniUslugeIzPregleda;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromjeni;
     private javax.swing.JButton btnTrazi;
@@ -690,9 +693,9 @@ public class Pregledi extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblPoruka;
-    private javax.swing.JList<Pacijent> lstPacijentiNaPregledu;
-    private javax.swing.JList<Pacijent> lstPacijentiUBazi;
     private javax.swing.JList<Pregled> lstPodaci;
+    private javax.swing.JList<Usluga> lstUslugeNaPregledu;
+    private javax.swing.JList<Usluga> lstUslugeUBazi;
     private javax.swing.JTextField txtNaziv;
     private javax.swing.JTextField txtOpis;
     private javax.swing.JTextField txtSimptomi;
@@ -716,18 +719,26 @@ public class Pregledi extends javax.swing.JFrame {
         
         
 //        entitet.setPacijent(new ArrayList<>());
-        DefaultListModel<Pacijent> m = (DefaultListModel<Pacijent>) lstPacijentiNaPregledu.getModel();
+ //       DefaultListModel<Pacijent> m = (DefaultListModel<Pacijent>) lstUslugeNaPregledu.getModel();
 //        for(int i=0;i<m.size();i++){
 //            entitet.getPacijent().ad(m.getElementAt(i));
 //        }
         obrada.setEntitet(entitet);
     }
 
-    private void ucitajPacijente() {
-        DefaultListModel<Pacijent> m = new DefaultListModel<>();
-        new ObradaPacijent().getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
+//    private void ucitajPacijente() {
+//        DefaultListModel<Pacijent> m = new DefaultListModel<>();
+//        new ObradaPacijent().getPodaci(txtUvjet.getText()).forEach(s->m.addElement(s));
+//        
+//        lstUslugeUBazi.setModel(m);
+//    }
+
+    private void ucitajUsluge() {
         
-        lstPacijentiUBazi.setModel(m);
+        DefaultListModel<Usluga> m = new DefaultListModel<>();
+        obradaUsluga.getPodaci(txtUvjet.getText()).forEach(s -> m.addElement(s));
+        lstUslugeUBazi.setModel(m);
+        
     }
 
 }

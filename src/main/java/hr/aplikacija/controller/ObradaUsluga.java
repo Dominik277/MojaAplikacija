@@ -38,6 +38,17 @@ public class ObradaUsluga extends Obrada<Usluga> {
 //                .setParameter("uvjet", "%"+uvjet+"%")
 //               .list();
 //    }
+
+
+    public List<Usluga> getPodaci (String uvjet){
+        return session.createQuery("from Usluga u "
+        + " where concat(u.naziv, ' ', u.cijena) "
+        + " like :uvjet ")
+        .setParameter("uvjet", "%"+uvjet+"%")
+        .setMaxResults(20)
+        .list();
+    }
+    
     @Override
     protected void kontrolaUpdate() throws MyException {
         kontrolaNaziv();
