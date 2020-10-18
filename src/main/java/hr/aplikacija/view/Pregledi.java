@@ -83,10 +83,9 @@ public class Pregledi extends javax.swing.JFrame {
         //lstUslugeNaPregledu.setCellRenderer(new OsobaCellRenderer());
         //lstUslugeUBazi.setCellRenderer(new OsobaCellRenderer());
         //lstUslugeNaPregledu.setCellRenderer(new OsobaCellRenderer());
-//        DefaultListModel<Pregled> m = new DefaultListModel<>();
-//        lstPacijentiNaPregledu.setModel(mp);
-
-        lstUslugeNaPregledu.setModel(new DefaultListModel<>());
+        //DefaultListModel<Usluga> m = new DefaultListModel<>();
+        //lstUslugeNaPregledu.setModel(new DefaultListModel<>());
+        //lstUslugeNaPregledu.setModel(m);
         
 
     }
@@ -130,7 +129,7 @@ public class Pregledi extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         btnDodajUslugeUPregled = new javax.swing.JButton();
         btnMakniUslugeIzPregleda = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtCijenaUsluge = new javax.swing.JTextField();
         btnExportJson = new javax.swing.JButton();
         btnExportWord = new javax.swing.JButton();
 
@@ -207,11 +206,10 @@ public class Pregledi extends javax.swing.JFrame {
                 .addComponent(cmbPacijenti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(dpiDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPoruka, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(lblPoruka, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnObrisi.setText("Obriši");
@@ -287,7 +285,12 @@ public class Pregledi extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        txtCijenaUsluge.setText("jTextField1");
+        txtCijenaUsluge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCijenaUslugeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -302,7 +305,7 @@ public class Pregledi extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnMakniUslugeIzPregleda)
                             .addComponent(btnDodajUslugeUPregled)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCijenaUsluge, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -337,11 +340,11 @@ public class Pregledi extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(btnDodajUslugeUPregled)
                         .addGap(53, 53, 53)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCijenaUsluge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                         .addComponent(btnMakniUslugeIzPregleda)
                         .addGap(101, 101, 101))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3)
                     .addComponent(jScrollPane2))
                 .addGap(23, 23, 23))
         );
@@ -371,10 +374,9 @@ public class Pregledi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnExportJson, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnDodaj))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -394,15 +396,16 @@ public class Pregledi extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDodaj)
                             .addComponent(btnPromjeni)
                             .addComponent(btnObrisi))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnExportJson)
-                            .addComponent(btnExportWord)))
+                            .addComponent(btnExportWord))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -659,6 +662,10 @@ public class Pregledi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExportWordActionPerformed
 
+    private void txtCijenaUslugeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCijenaUslugeActionPerformed
+      
+    }//GEN-LAST:event_txtCijenaUslugeActionPerformed
+
     private void ucitajPodatke() {
         DefaultListModel<Pregled> m = new DefaultListModel<>();
         obrada.getPodaci().forEach(s -> m.addElement(s));
@@ -691,11 +698,11 @@ public class Pregledi extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblPoruka;
     private javax.swing.JList<Pregled> lstPodaci;
     private javax.swing.JList<Usluga> lstUslugeNaPregledu;
     private javax.swing.JList<Usluga> lstUslugeUBazi;
+    private javax.swing.JTextField txtCijenaUsluge;
     private javax.swing.JTextField txtNaziv;
     private javax.swing.JTextField txtOpis;
     private javax.swing.JTextField txtSimptomi;
