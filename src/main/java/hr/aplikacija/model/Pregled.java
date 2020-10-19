@@ -128,6 +128,14 @@ public class Pregled extends Entitet{
         return getNaziv()+ " (" + getPacijent().getIme() + ")";
     }
     
+//    @Override
+//    public String toString() {
+//        if(getUslugaPregledi()==null){
+//            return getNaziv();
+//        }
+//        return getNaziv()+ " (" + getUslugaPregledi().get(0)+ ")";
+//    }
+    
     
     
     

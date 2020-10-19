@@ -49,5 +49,12 @@ public class UslugaPregled extends Entitet{
         this.usluga = usluga;
     }
     
+//    @Override
+//    public String toString() {
+//        if(getPacijent()==null){
+//            return getNaziv();
+//        }
+//        return getNaziv()+ " (" + getPacijent().getIme() + ")";
+//    }
     
 }
