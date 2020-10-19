@@ -75,8 +75,8 @@ public class ObradaPregled extends Obrada<Pregled>{
         }
     }
 
-    private void kontrolaDatum() {
-        
+    private void kontrolaDatum() throws MyException {
+        kontrolaNull(entitet.getDatum(), "Unos datuma je obavezan");
     }
     
     private void kontrolaDoktor() throws MyException{
