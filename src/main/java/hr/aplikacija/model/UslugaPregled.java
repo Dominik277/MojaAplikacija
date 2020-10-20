@@ -57,4 +57,12 @@ public class UslugaPregled extends Entitet{
 //        return getNaziv()+ " (" + getPacijent().getIme() + ")";
 //    }
     
+//    @Override
+//    public Pregled toString(){
+//        if(getUsluga()==null){
+//            return getPregled();
+//        }
+//        return getUsluga()+" (" + getCijena().getClass() + ")";
+//    }
+    
 }

@@ -126,16 +126,16 @@ public class Pregled extends Entitet{
             return getNaziv();
         }
         return getNaziv()+ " (" + getPacijent().getIme() + ")";
-    }
+    } 
     
-//    @Override
-//    public String toString() {
+    
+//    public String toString2() {
 //        if(getUslugaPregledi()==null){
 //            return getNaziv();
 //        }
 //        return getNaziv()+ " (" + getUslugaPregledi().get(0)+ ")";
 //    }
-    
+//    
     
     
     

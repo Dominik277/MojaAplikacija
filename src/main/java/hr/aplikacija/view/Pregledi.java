@@ -83,6 +83,8 @@ public class Pregledi extends javax.swing.JFrame {
         
         
         
+        
+        
         //lstUslugeNaPregledu.setCellRenderer(new OsobaCellRenderer());
         //lstUslugeUBazi.setCellRenderer(new OsobaCellRenderer());
         //lstUslugeNaPregledu.setCellRenderer(new OsobaCellRenderer());
@@ -288,7 +290,6 @@ public class Pregledi extends javax.swing.JFrame {
             }
         });
 
-        txtCijenaUsluge.setText("jTextField1");
         txtCijenaUsluge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCijenaUslugeActionPerformed(evt);
@@ -473,6 +474,7 @@ public class Pregledi extends javax.swing.JFrame {
         txtNaziv.setText(entitet.getNaziv());
         txtOpis.setText(entitet.getOpis());
         txtSimptomi.setText(entitet.getSimptomi());
+        
         //cmbPacijenti.setSelectedItem(entitet.getPacijent());
         
         if(entitet.getDoktor()!=null){
@@ -513,6 +515,7 @@ public class Pregledi extends javax.swing.JFrame {
             m.addElement(u);
         }
         lstUslugeNaPregledu.setModel(m);
+        //txtCijenaUsluge.setText(entitet.getCijena.toS);
         
 
     }//GEN-LAST:event_lstPodaciValueChanged
@@ -571,8 +574,14 @@ public class Pregledi extends javax.swing.JFrame {
         UslugaPregled up = new UslugaPregled();
         up.setPregled(entitet);
         up.setUsluga(lstUslugeUBazi.getSelectedValue());
-        up.setCijena(new BigDecimal(txtCijenaUsluge.getText()));
-         DefaultListModel<UslugaPregled> m;
+        try {
+            up.setCijena(new BigDecimal(txtCijenaUsluge.getText()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Cijena mora biti broj!");
+            return;
+        }
+        
+        DefaultListModel<UslugaPregled> m;
         try {
             m=(DefaultListModel<UslugaPregled>) lstUslugeNaPregledu.getModel();
         } catch (Exception e) {
@@ -736,6 +745,9 @@ public class Pregledi extends javax.swing.JFrame {
             entitet.setDatum(Date.from(dpiDatum.getDate().atStartOfDay()
                     .atZone(ZoneId.systemDefault()).toInstant()));
         }
+        
+        
+        
         //moram sa view-a povuci usluge
 //        entitet.setUslugaPregledi(new ArrayList<>());
 //        DefaultListModel<UslugaPregled> m = lst

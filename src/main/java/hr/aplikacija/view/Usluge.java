@@ -72,6 +72,12 @@ public class Usluge extends javax.swing.JFrame {
 
         jLabel2.setText("Cijena");
 
+        txtCijena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCijenaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -223,6 +229,10 @@ public class Usluge extends javax.swing.JFrame {
             postaviPoruku(e);
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
+
+    private void txtCijenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCijenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCijenaActionPerformed
 
         private void postaviPoruku(MyException e){
             
